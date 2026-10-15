@@ -1,5 +1,5 @@
 """Generate 1600x900 cover JPGs (+ 800px WebP) into static/covers/.
-Needs Chrome + playwright. Frontmatter: cover_title, cover_icon (ai|profile|phone|factory|logistics).
+Needs Chrome + playwright. Frontmatter: cover_title, cover_icon (ai|profile|phone|factory|logistics|hragents|maturity|mes|warehouse|agentshield).
 
 Usage:
   python3 tools/covers.py              # uses build.py PALETTE / DY_PALETTE
@@ -147,12 +147,104 @@ def make_icons(C):
 <g filter="url(#s)"><polygon points="180,120 250,90 320,120 250,150" fill="#fff"/><polygon points="180,120 250,150 250,235 180,205" fill="{PK}"/><polygon points="320,120 250,150 250,235 320,205" fill="{SOFT}"/></g><polygon points="215,105 285,135 285,160 215,130" fill="{ACC2}" opacity=".8"/>
 <g filter="url(#s)"><rect x="380" y="560" width="260" height="84" rx="24" fill="#fff"/></g><circle cx="424" cy="602" r="22" fill="url(#g)"/>{chk(424, 602, 0.9, w=5)}<rect x="460" y="586" width="120" height="12" rx="6" fill="{P}"/><rect x="460" y="607" width="150" height="10" rx="5" fill="{LINE}"/>"""
 
+
+    def icon_hragents():
+        cards = ""
+        for i, (y, sc) in enumerate(((150, 1), (290, 1), (430, 1))):
+            on = i == 1
+            cards += (f'<g filter="url(#s)"><rect x="70" y="{y}" width="300" height="110" rx="26" fill="#fff"/></g>'
+                f'<circle cx="125" cy="{y+55}" r="30" fill="{"url(#g)" if on else PK}"/>'
+                f'<circle cx="125" cy="{y+46}" r="11" fill="#fff"/><path d="M104 {y+75} A21 17 0 0 1 146 {y+75}Z" fill="#fff"/>'
+                f'<rect x="172" y="{y+34}" width="150" height="13" rx="6.5" fill="{P}"/>'
+                f'<rect x="172" y="{y+60}" width="{110 if on else 90}" height="11" rx="5.5" fill="{MU}"/>')
+        return f"""<path d="M370 205 C430 205 430 345 470 345 M370 345 H470 M370 485 C430 485 430 345 470 345" stroke="#fff" stroke-width="6" fill="none" stroke-dasharray="3 14" stroke-linecap="round" opacity=".85"/>
+{cards}
+<g filter="url(#s)"><rect x="460" y="255" width="180" height="180" rx="40" fill="{P}"/></g>
+<path d="M550 290 C556 326 565 336 601 343 C565 350 556 360 550 396 C544 360 535 350 499 343 C535 336 544 326 550 290Z" fill="url(#g)"/>
+<path d="M603 280 C605 292 608 295 620 297 C608 299 605 302 603 314 C601 302 598 299 586 297 C598 295 601 292 603 280Z" fill="#fff"/>
+<g filter="url(#s)"><rect x="440" y="80" width="210" height="120" rx="26" fill="#fff"/></g>
+<rect x="440" y="80" width="210" height="34" rx="17" fill="url(#g2)"/><rect x="440" y="98" width="210" height="16" fill="url(#g2)"/>
+<rect x="468" y="134" width="30" height="24" rx="6" fill="{PK}"/><rect x="510" y="134" width="30" height="24" rx="6" fill="{ACC}"/><rect x="552" y="134" width="30" height="24" rx="6" fill="{PK}"/><rect x="594" y="134" width="30" height="24" rx="6" fill="{PK}"/>
+<rect x="468" y="166" width="30" height="20" rx="6" fill="{LG}"/><rect x="510" y="166" width="30" height="20" rx="6" fill="{LG}"/><rect x="552" y="166" width="30" height="20" rx="6" fill="{LG}"/>
+<g filter="url(#s)"><rect x="430" y="500" width="230" height="96" rx="48" fill="#fff"/></g><circle cx="478" cy="548" r="28" fill="url(#g)"/>{chk(478, 548, 1.1, w=6)}<rect x="520" y="532" width="110" height="13" rx="6.5" fill="{P}"/><rect x="520" y="555" width="76" height="11" rx="5.5" fill="{MU}"/>"""
+
+    def icon_maturity():
+        bars = "".join(
+            f'<rect x="{120+i*70}" y="{520-h}" width="52" height="{h}" rx="12" fill="{"url(#g)" if i==4 else (ACC2 if i==3 else SOFT)}" opacity="{1 if i>2 else .9}"/>'
+            for i, h in enumerate((70, 120, 175, 235, 300)))
+        return f"""<g filter="url(#s)"><rect x="80" y="170" width="420" height="400" rx="32" fill="#fff"/></g>
+<rect x="116" y="204" width="170" height="16" rx="8" fill="{P}"/><rect x="116" y="232" width="110" height="12" rx="6" fill="{MU}"/>
+{bars}<rect x="110" y="528" width="360" height="6" rx="3" fill="{LINE}"/>
+<path d="M146 430 L216 382 L286 330 L356 270 L426 205" stroke="{P}" stroke-width="7" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="2 16"/>
+<g filter="url(#s)"><circle cx="545" cy="215" r="105" fill="#fff"/></g>
+<path d="M470 245 A78 78 0 0 1 620 245" stroke="{LG}" stroke-width="26" fill="none" stroke-linecap="round"/>
+<path d="M470 245 A78 78 0 0 1 598 186" stroke="url(#g)" stroke-width="26" fill="none" stroke-linecap="round"/>
+<line x1="545" y1="245" x2="590" y2="196" stroke="{P}" stroke-width="10" stroke-linecap="round"/><circle cx="545" cy="245" r="14" fill="{P}"/>
+<rect x="505" y="272" width="80" height="12" rx="6" fill="{MU}"/>
+<g filter="url(#s)"><rect x="440" y="450" width="220" height="150" rx="28" fill="#fff"/></g>
+<line x1="482" y1="478" x2="482" y2="575" stroke="{P}" stroke-width="9" stroke-linecap="round"/><path d="M486 480 H560 L540 505 L560 530 H486Z" fill="url(#g)"/>
+<rect x="580" y="490" width="56" height="11" rx="5.5" fill="{P}"/><rect x="580" y="512" width="40" height="10" rx="5" fill="{MU}"/><rect x="505" y="555" width="130" height="10" rx="5" fill="{LINE}"/>"""
+
+    def icon_mes():
+        lv = ""
+        labels = ("ERP", "MES", "PLC", "I/O", "")
+        for i in range(5):
+            y = 190 + i * 84
+            half = 112 + i * 44
+            fill = "url(#g)" if i == 1 else ("#fff" if i % 2 == 0 else PK)
+            tc = "#fff" if i == 1 else P
+            lv += f'<g filter="url(#s)"><path d="M{340-half} {y+76} L{340-half+26} {y} H{340+half-26} L{340+half} {y+76}Z" fill="{fill}"/></g>'
+            lv += f'<text x="340" y="{y+50}" text-anchor="middle" font-family="M" font-weight="900" font-size="30" fill="{tc}">L{4-i}{" · " + labels[i] if labels[i] else ""}</text>'
+        return f"""{lv}
+<g filter="url(#s)"><rect x="500" y="40" width="160" height="110" rx="26" fill="{P}"/></g>
+<rect x="528" y="68" width="70" height="54" rx="12" fill="#fff"/><circle cx="563" cy="95" r="18" fill="url(#g)"/><circle cx="563" cy="95" r="7" fill="#fff"/><path d="M604 80 L636 64 V126 L604 110Z" fill="#fff"/>
+<path d="M560 156 C560 250 520 280 470 290" stroke="#fff" stroke-width="6" fill="none" stroke-dasharray="3 13" stroke-linecap="round"/>
+<g filter="url(#s)"><rect x="40" y="40" width="190" height="96" rx="26" fill="#fff"/></g><circle cx="88" cy="88" r="24" fill="url(#g)"/>{chk(88, 88, 1, w=6)}<rect x="126" y="72" width="80" height="12" rx="6" fill="{P}"/><rect x="126" y="94" width="56" height="10" rx="5" fill="{MU}"/>"""
+
+    def icon_warehouse():
+        boxes = ""
+        for r in range(3):
+            for c in range(3):
+                x, y = 112 + c * 92, 196 + r * 120
+                hot = (r, c) == (1, 1)
+                boxes += f'<rect x="{x}" y="{y}" width="72" height="80" rx="10" fill="{"url(#g)" if hot else (PK if (r+c)%2 else SOFT)}"/><rect x="{x+28}" y="{y}" width="16" height="30" fill="{"#fff" if hot else ACC2}" opacity=".55"/>'
+        return f"""<g filter="url(#s)"><rect x="80" y="150" width="320" height="440" rx="26" fill="#fff"/></g>
+<rect x="96" y="280" width="288" height="8" rx="4" fill="{P}"/><rect x="96" y="400" width="288" height="8" rx="4" fill="{P}"/><rect x="96" y="520" width="288" height="8" rx="4" fill="{P}"/>
+{boxes}
+<g filter="url(#s)"><rect x="470" y="500" width="150" height="70" rx="20" fill="{P}"/></g>
+<path d="M545 500 L520 395 L600 310" stroke="{P}" stroke-width="30" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M545 500 L520 395 L600 310" stroke="#fff" stroke-width="8" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity=".25"/>
+<circle cx="520" cy="395" r="24" fill="url(#g)" stroke="#fff" stroke-width="6"/><circle cx="600" cy="310" r="20" fill="#fff" stroke="{P}" stroke-width="8"/>
+<path d="M600 330 L580 362 M600 330 L622 360" stroke="{P}" stroke-width="12" stroke-linecap="round"/>
+<g filter="url(#s)"><rect x="440" y="70" width="220" height="150" rx="28" fill="#fff"/></g>
+<circle cx="490" cy="145" r="20" fill="url(#g)"/><circle cx="610" cy="110" r="14" fill="{SOFT}"/><circle cx="610" cy="180" r="14" fill="{SOFT}"/><circle cx="550" cy="145" r="14" fill="{PK}"/>
+<path d="M510 145 H536 M562 138 L598 116 M562 152 L598 174" stroke="{P}" stroke-width="6" stroke-linecap="round"/>"""
+
+    def icon_agentshield():
+        return f"""<g filter="url(#s)"><path d="M330 90 L520 160 V320 C520 450 440 530 330 580 C220 530 140 450 140 320 V160 Z" fill="#fff"/></g>
+<path d="M330 128 L486 186 V320 C486 428 420 496 330 540 C240 496 174 428 174 320 V186 Z" fill="url(#g)"/>
+<circle cx="330" cy="250" r="30" fill="#fff"/><circle cx="250" cy="380" r="24" fill="#fff"/><circle cx="410" cy="380" r="24" fill="#fff"/><circle cx="330" cy="470" r="20" fill="#fff" opacity=".9"/>
+<path d="M314 274 L262 358 M346 274 L398 358 M274 386 H386 M330 280 V448" stroke="#fff" stroke-width="7" stroke-linecap="round" opacity=".8"/>
+<circle cx="330" cy="250" r="12" fill="{P}"/>
+<g filter="url(#s)"><rect x="470" y="420" width="200" height="104" rx="26" fill="#fff"/></g>
+<path d="M500 492 L524 450 L548 492Z" fill="{C['g1']}" stroke="{C['g1']}" stroke-width="8" stroke-linejoin="round"/><rect x="521" y="463" width="6" height="14" rx="3" fill="#fff"/><circle cx="524" cy="485" r="3.5" fill="#fff"/>
+<rect x="566" y="452" width="80" height="12" rx="6" fill="{P}"/><rect x="566" y="474" width="58" height="10" rx="5" fill="{MU}"/>
+<g filter="url(#s)"><rect x="30" y="470" width="170" height="120" rx="26" fill="#fff"/></g>
+<path d="M70 510 H96 A12 12 0 0 1 120 510 H146 V536 A12 12 0 0 1 146 560 V576 H70 Z" fill="{P}"/>
+<g filter="url(#s)"><circle cx="560" cy="150" r="62" fill="#fff"/></g>
+<rect x="530" y="148" width="60" height="46" rx="10" fill="{P}"/><path d="M542 148 V134 A18 18 0 0 1 578 134 V148" stroke="{P}" stroke-width="10" fill="none"/><circle cx="560" cy="170" r="7" fill="#fff"/>"""
+
     icons = {
         "ai": icon_ai,
         "profile": icon_profile,
         "phone": icon_phone,
         "factory": icon_factory,
         "logistics": icon_logistics,
+        "hragents": icon_hragents,
+        "maturity": icon_maturity,
+        "mes": icon_mes,
+        "warehouse": icon_warehouse,
+        "agentshield": icon_agentshield,
     }
     return DEFS, icons
 

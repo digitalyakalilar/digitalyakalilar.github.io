@@ -48,10 +48,10 @@ a{{color:var(--accent)}}img{{max-width:100%;height:auto;display:block}}
 .lang{{border:2px solid var(--accent);color:var(--accent)!important;border-radius:20px;padding:3px 11px;font-size:12px;font-weight:800;text-decoration:none}}
 
 /* Home hero */
-.feat{{display:grid;grid-template-columns:1.45fr 1fr;gap:0;align-items:center;margin:18px 0 10px;background:var(--surface);border-radius:22px;overflow:hidden;box-shadow:0 10px 36px var(--shadow-md);text-decoration:none;color:inherit;transition:.2s}}
+.feat{{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(0,1fr);gap:0;align-items:center;margin:18px 0 10px;background:var(--surface);border-radius:22px;overflow:hidden;box-shadow:0 10px 36px var(--shadow-md);text-decoration:none;color:inherit;transition:.2s}}
 .feat:hover{{transform:translateY(-3px);box-shadow:0 16px 44px var(--shadow-lg)}}
-.feat-img{{position:relative;aspect-ratio:16/9;background:var(--ink);align-self:stretch}}
-.feat-img img{{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}}
+.feat-img{{position:relative;aspect-ratio:16/9;background:var(--ink);align-self:stretch;justify-self:stretch;min-width:0}}
+.feat-img img{{width:100%;height:100%;object-fit:contain;position:absolute;inset:0}}
 .feat-body{{padding:32px 36px 36px;display:flex;flex-direction:column;justify-content:center}}
 .feat-body .tag{{align-self:flex-start}}
 .feat-body h1{{font-size:30px;line-height:1.18;font-weight:900;color:var(--text);margin:14px 0 12px;letter-spacing:-.4px}}
@@ -302,6 +302,18 @@ def cover_exists(slug):
     return False
 
 
+def faq_items(h):
+    """Parse an FAQ section (## Sıkça sorulan sorular / ## Frequently asked questions, ### question + answer) into (q, a) pairs."""
+    m = re.search(r"<h2[^>]*>(Sıkça sorulan sorular|Frequently asked questions)</h2>(.*?)(?=<h2|$)", h, re.S)
+    if not m:
+        return []
+    out = []
+    for q, a in re.findall(r"<h3[^>]*>(.*?)</h3>(.*?)(?=<h3|$)", m.group(2), re.S):
+        clean = lambda x: re.sub(r"\s+", " ", html.unescape(re.sub(r"\[\d+\]", "", re.sub(r"<[^>]+>", "", x)))).strip()
+        out.append((clean(q), clean(a)))
+    return out
+
+
 def enrich(h, lang):
     label = "Kaynaklar" if lang == "tr" else "References"
     pre = "kaynak" if lang == "tr" else "ref"
@@ -383,7 +395,7 @@ def page(title, desc, body, url, typ="website", lang="tr", alt=None, og=None, ex
     return f"""<!doctype html><html lang="{lang}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{t}</title><meta name="description" content="{d}"><link rel="canonical" href="{SITE}{url}">{hl}
 <meta property="og:type" content="{typ}"><meta property="og:title" content="{t}"><meta property="og:description" content="{d}"><meta property="og:url" content="{SITE}{url}"><meta property="og:image" content="{ogi}"><meta property="og:locale" content="{u['loc']}"><meta property="og:site_name" content="{NAME}">
-<meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content="@digiyakalilar"><meta name="twitter:image" content="{ogi}">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="{t}"><meta name="twitter:description" content="{d}"><link rel="alternate" type="application/rss+xml" title="{NAME}" href="{SITE}{u['pre']}/rss.xml"><meta name="twitter:site" content="@digiyakalilar"><meta name="twitter:image" content="{ogi}">
 <link rel="icon" href="/favicon.ico" sizes="any"><link rel="icon" type="image/png" href="/favicon.png"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="preload" href="/montserrat.ttf" as="font" type="font/ttf" crossorigin><link rel="stylesheet" href="/style.css">{extra_head}</head><body>
 {header(lang,url,alt)}
 {body}
@@ -524,6 +536,13 @@ def w(path, s):
 pairs = [("/", "/en/"), ("/hakkinda/", "/en/about/")]
 
 
+def seo_t(p):
+    st = p.get("seo_title")
+    if not st:
+        return p["title"] + " | " + NAME
+    return st + " | " + NAME if len(st) + len(NAME) + 3 <= 65 else st
+
+
 def build(ps, lang, pre, link):
     u = UI[lang]
     for p in ps:
@@ -544,7 +563,7 @@ def build(ps, lang, pre, link):
         body = body[: j + 4] + tc + ad("article-top") + body[j + 4 :] if j >= 0 else tc + body
         img = cover_url(p["slug"]) if cover_exists(p["slug"]) else "/og.png"
         og = SITE + img
-        cover = f'<div class="cover-wrap">{hero_img(p["slug"], p["title"])}</div>'
+        cover = f'<div class="cover-wrap">{hero_img(p["slug"], p.get("cover_alt", p["title"]))}</div>'
         share = share_btns(me, p["title"], lang)
         share_top = share_btns(me, p["title"], lang, "top")
         home_l = "Ana sayfa" if lang == "tr" else "Home"
@@ -552,13 +571,16 @@ def build(ps, lang, pre, link):
         import json
         ld = json.dumps({"@context": "https://schema.org", "@type": "NewsArticle", "headline": p["title"][:110], "description": p.get("meta_description", p["description"]),
             "image": [og], "datePublished": p["date"], "dateModified": p.get("updated", p["date"]), "inLanguage": lang,
-            "mainEntityOfPage": SITE + me, "author": {"@type": "Organization", "name": NAME, "url": SITE},
+            "mainEntityOfPage": SITE + me, **({"keywords": p["keywords"]} if p.get("keywords") else {}), "author": {"@type": "Organization", "name": NAME, "url": SITE},
             "publisher": {"@type": "Organization", "name": NAME, "logo": {"@type": "ImageObject", "url": SITE + "/logo.png"}}}, ensure_ascii=False)
         bc = json.dumps({"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
             {"@type": "ListItem", "position": 1, "name": home_l, "item": SITE + (pre + "/" if pre else "/")},
             {"@type": "ListItem", "position": 2, "name": catname(k, lang), "item": SITE + caturl(k, lang)},
             {"@type": "ListItem", "position": 3, "name": p["title"], "item": SITE + me}]}, ensure_ascii=False)
-        head_extra = f'<meta property="og:image:width" content="1600"><meta property="og:image:height" content="900"><meta property="article:published_time" content="{p["date"]}"><script type="application/ld+json">{ld}</script><script type="application/ld+json">{bc}</script>' 
+        fq = faq_items(p["html"])
+        fq_ld = ('<script type="application/ld+json">' + json.dumps({"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
+            {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in fq]}, ensure_ascii=False) + "</script>") if fq else ""
+        head_extra = fq_ld + f'<meta property="og:image:width" content="1600"><meta property="og:image:height" content="900"><meta property="article:published_time" content="{p["date"]}"><script type="application/ld+json">{ld}</script><script type="application/ld+json">{bc}</script>' 
         rel = related_block(ps, p, lang, pre)
         story = f"""{cover}<div class="article-shell"><article class="story">
 {crumb}<h1>{html.escape(p["title"])}</h1>
@@ -570,7 +592,7 @@ def build(ps, lang, pre, link):
         w(
             me + "index.html",
             page(
-                p["title"] + " | " + NAME,
+                seo_t(p),
                 p.get("meta_description", p["description"]),
                 story,
                 me,
@@ -699,6 +721,35 @@ for k, tn, es, en_ in CATS:
     pairs.append((caturl(k, "tr"), caturl(k, "en")))
 
 
+LASTMOD = {f"/{p['slug']}/": p.get("updated", p["date"]) for p in posts}
+LASTMOD.update({f"/en/{p['slug']}/": p.get("updated", p["date"]) for p in en})
+
+
+def lm(u):
+    return f"<lastmod>{LASTMOD[u]}</lastmod>" if u in LASTMOD else ""
+
+
+def rss(ps, lang, pre):
+    from email.utils import format_datetime
+    def rd(s):
+        y, m, d = map(int, s.split("-"))
+        return format_datetime(datetime.datetime(y, m, d, 6, 0, tzinfo=datetime.timezone.utc))
+    title = NAME + (" (English)" if lang == "en" else "")
+    desc = UI[lang]["home_desc"]
+    items = "".join(
+        f"<item><title>{html.escape(p['title'])}</title><link>{SITE}{pre}/{p['slug']}/</link><guid isPermaLink=\"true\">{SITE}{pre}/{p['slug']}/</guid>"
+        f"<pubDate>{rd(p['date'])}</pubDate><category>{html.escape(catname(p.get('category',''), lang))}</category>"
+        f"<description>{html.escape(p.get('meta_description', p['description']))}</description></item>"
+        for p in ps)
+    w(f"{pre}/rss.xml", f'<?xml version="1.0" encoding="UTF-8"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel>'
+      f"<title>{html.escape(title)}</title><link>{SITE}{pre}/</link><description>{html.escape(desc)}</description><language>{lang}</language>"
+      f'<atom:link href="{SITE}{pre}/rss.xml" rel="self" type="application/rss+xml"/>{items}</channel></rss>')
+
+
+rss(posts, "tr", "")
+rss(en, "en", "/en")
+
+
 def al(a, b):
     return f'<xhtml:link rel="alternate" hreflang="tr" href="{SITE}{a}"/><xhtml:link rel="alternate" hreflang="en" href="{SITE}{b}"/>'
 
@@ -706,7 +757,7 @@ def al(a, b):
 w(
     "/sitemap.xml",
     '<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">'
-    + "".join(f"<url><loc>{SITE}{u}</loc>{al(a,b)}</url>" for a, b in pairs for u in (a, b))
+    + "".join(f"<url><loc>{SITE}{u}</loc>{lm(u)}{al(a,b)}</url>" for a, b in pairs for u in (a, b))
     + "</urlset>",
 )
 w("/robots.txt", f"User-agent: *\nAllow: /\nSitemap: {SITE}/sitemap.xml\n")
