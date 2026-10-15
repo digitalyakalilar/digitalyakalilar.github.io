@@ -2,6 +2,7 @@
 title: Telefon ve hesap güvenliği: Beyaz yakalılar için kanıta dayalı rehber
 date: 2026-10-15
 updated: 2026-10-15
+meta_description: İki adımlı doğrulama, passkey, oltalama SMS'leri ve kayıp telefon planı: NIST, CISA, Google ve Apple kaynaklarıyla telefon ve hesap güvenliği rehberi.
 description: İki adımlı doğrulamadan passkey'lere, oltalama SMS'lerinden kayıp telefon senaryosuna; NIST, CISA, Google ve Apple kaynaklarıyla telefonunu ve hesaplarını korumanın adım adım yolu.
 cover_title: Telefon ve hesap güvenliği rehberi
 cover_icon: phone

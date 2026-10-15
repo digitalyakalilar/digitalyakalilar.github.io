@@ -2,6 +2,7 @@
 title: Optimizing your LinkedIn profile for modern hiring: An evidence-based guide
 date: 2026-10-13
 updated: 2026-10-15
+meta_description: How your LinkedIn profile is found and judged in skills-based hiring: photo, skills, verification and job scams. A sourced, step-by-step guide.
 description: As skills-based hiring spreads, how is your LinkedIn profile found and evaluated? A step-by-step guide, from your photo and skills to verification and job scams, based on LinkedIn's own data and help pages.
 cover_title: Get your LinkedIn profile ready for modern hiring
 cover_icon: profile

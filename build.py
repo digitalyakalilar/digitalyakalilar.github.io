@@ -41,10 +41,10 @@ a{{color:var(--accent)}}img{{max-width:100%;height:auto;display:block}}
 .brand img{{width:38px;height:38px;border-radius:50%;border:2px solid var(--accent)}}
 .nav-cats{{display:flex;flex-wrap:nowrap;gap:6px;overflow-x:auto;scrollbar-width:none;-ms-overflow-style:none;padding:2px 0;flex:1;min-width:0}}
 .nav-cats::-webkit-scrollbar{{display:none}}
-.nav-cats a{{flex:none;color:var(--muted);text-decoration:none;font-weight:700;font-size:13px;padding:7px 13px;border-radius:20px;background:var(--surface);border:1px solid var(--border2);white-space:nowrap;transition:.15s}}
+.nav-cats a{{flex:none;min-height:36px;display:inline-flex;align-items:center;color:var(--muted);text-decoration:none;font-weight:700;font-size:13px;padding:7px 13px;border-radius:20px;background:var(--surface);border:1px solid var(--border2);white-space:nowrap;transition:.15s}}
 .nav-cats a:hover,.nav-cats a.on{{background:var(--grad);color:#fff;border-color:transparent}}
 .nav-right{{display:flex;align-items:center;gap:10px;flex:none}}
-.nav-right a.plain{{color:var(--muted);text-decoration:none;font-weight:700;font-size:13px}}
+.nav-right a.plain{{color:var(--muted);text-decoration:none;font-weight:700;font-size:13px;padding:12px 4px}}
 .lang{{border:2px solid var(--accent);color:var(--accent)!important;border-radius:20px;padding:3px 11px;font-size:12px;font-weight:800;text-decoration:none}}
 
 /* Home hero */
@@ -56,7 +56,7 @@ a{{color:var(--accent)}}img{{max-width:100%;height:auto;display:block}}
 .feat-body .tag{{align-self:flex-start}}
 .feat-body h1{{font-size:30px;line-height:1.18;font-weight:900;color:var(--text);margin:14px 0 12px;letter-spacing:-.4px}}
 .feat-body p{{margin:0 0 18px;color:var(--muted);font-size:16px;line-height:1.55;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}}
-.tagline{{display:flex;align-items:center;gap:12px;margin:18px 0 0;padding:12px 18px;background:var(--surface);border-radius:14px;border:1px solid var(--border);color:var(--text);font-size:15px;font-weight:600;line-height:1.45}}
+.tagline{{display:flex;align-items:center;gap:12px;margin:18px 0 0;padding:12px 18px;background:var(--surface);border-radius:14px;border:1px solid var(--border);color:var(--text);font-size:16px;font-weight:600;line-height:1.45}}
 .tagline::before{{content:'';flex:none;width:6px;align-self:stretch;border-radius:4px;background:var(--accent)}}
 .tagline b{{font-weight:900;white-space:nowrap}}
 .sec-h{{display:flex;align-items:center;gap:12px;margin:0 0 16px;font-size:20px;font-weight:900;color:var(--text)}}
@@ -68,6 +68,8 @@ a{{color:var(--accent)}}img{{max-width:100%;height:auto;display:block}}
 .tile span{{display:flex;justify-content:space-between;gap:8px;padding:10px 14px;font-weight:800;font-size:14px}}.tile em{{font-style:normal;color:var(--accent);font-size:12px;white-space:nowrap}}
 
 /* Cards grid */
+.layout>*{{min-width:0}}
+html,body{{overflow-x:hidden}}img{{max-width:100%}}
 .layout{{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:36px;align-items:start;margin:22px 0 40px}}
 .grid{{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}}
 .card{{display:flex;flex-direction:column;background:var(--surface);border-radius:18px;overflow:hidden;text-decoration:none;color:inherit;box-shadow:0 6px 24px var(--shadow);transition:.2s;height:100%}}
@@ -76,7 +78,7 @@ a{{color:var(--accent)}}img{{max-width:100%;height:auto;display:block}}
 .card-img img{{width:100%;height:100%;object-fit:cover}}
 .card-body{{padding:16px 18px 20px;display:flex;flex-direction:column;gap:8px;flex:1}}
 .card-body h2{{margin:0;font-size:18px;line-height:1.35;font-weight:800;color:var(--text)}}
-.card-body p{{margin:0;color:var(--muted);font-size:14.5px;line-height:1.5;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}}
+.card-body p{{margin:0;color:var(--muted);font-size:16px;line-height:1.5;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}}
 .meta{{font-size:13px;color:var(--muted2);font-weight:600;display:flex;flex-wrap:wrap;align-items:center;gap:6px}}
 .tag{{display:inline-block;background:var(--accent);color:#fff;font-size:11px;font-weight:800;padding:3px 11px;border-radius:20px;letter-spacing:.2px}}
 a.tag{{text-decoration:none}}
@@ -100,7 +102,7 @@ a.tag{{text-decoration:none}}
 .cover-wrap{{max-width:920px;margin:22px auto 6px;border-radius:22px;overflow:hidden;background:var(--ink);box-shadow:0 14px 40px var(--shadow-lg)}}
 .cover-wrap img{{width:100%;aspect-ratio:16/9;object-fit:cover}}
 .lede{{font-size:19px;color:var(--muted);line-height:1.55;margin:0 0 6px;font-weight:500}}
-.crumb{{font-size:13px;font-weight:700;color:var(--muted2);margin:14px 0 0}}.crumb a{{color:var(--muted2);text-decoration:none}}.crumb a:hover{{color:var(--accent)}}
+.crumb{{font-size:14px;line-height:2.4;font-weight:700;color:var(--muted2);margin:14px 0 0}}.crumb a{{color:var(--muted2);text-decoration:none;display:inline-block;padding:12px 0}}.crumb a:hover{{color:var(--accent)}}
 .article-shell{{max-width:720px;margin:0 auto;padding:8px 22px 40px}}
 article.story h1{{font-size:38px;line-height:1.18;font-weight:900;color:var(--text);margin:18px 0 10px;letter-spacing:-.4px}}
 article.story{{font-size:18px}}
@@ -110,9 +112,10 @@ article.story h3{{font-size:20px;color:var(--text);margin-top:26px}}
 blockquote{{margin:20px 0;background:var(--surface);border-left:5px solid var(--accent);padding:12px 20px;border-radius:10px}}
 .toc{{background:var(--surface);border-radius:14px;padding:14px 22px;margin:26px 0;box-shadow:0 4px 18px var(--shadow);font-size:16px}}
 .toc strong{{color:var(--text)}}.toc ol{{margin:8px 0 0;padding-left:20px}}
-.toc a{{color:var(--body);text-decoration:none}}.toc a:hover{{color:var(--accent)}}
+.toc a{{color:var(--body);text-decoration:none;display:inline-block;padding:5px 0}}
+.toc{{overflow-wrap:anywhere}}article.story{{overflow-wrap:break-word}}article.story img{{max-width:100%;height:auto}}.toc a:hover{{color:var(--accent)}}
 sup.cite{{font-size:.68em;line-height:0;margin-left:1px}}
-sup.cite a{{text-decoration:none;font-weight:700}}sup.cite a:hover{{text-decoration:underline}}
+sup.cite a{{text-decoration:none;font-weight:700;padding:6px 3px}}sup.cite a:hover{{text-decoration:underline}}
 .tbl{{overflow-x:auto;margin:20px 0}}
 table{{border-collapse:collapse;width:100%;font-size:16px;background:var(--surface);border-radius:12px;overflow:hidden}}
 th,td{{text-align:left;padding:10px 12px;border-bottom:1px solid var(--border);vertical-align:top}}th{{background:var(--ink);color:#fff}}
@@ -123,7 +126,7 @@ ol.sources li{{margin:0 0 9px;word-break:break-word}}ol.sources li:target{{backg
 ol.sources a{{word-break:break-all}}
 .updated{{display:block;margin-top:4px;font-weight:500}}
 .share{{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:28px 0 8px}}.share.top{{margin:16px 0 4px}}.share b{{font-size:13px;color:var(--muted2);margin-right:2px}}
-.share a{{display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border-radius:22px;background:var(--surface);border:1px solid var(--border2);color:var(--text);text-decoration:none;font-weight:700;font-size:13px}}
+.share a{{display:inline-flex;align-items:center;gap:6px;padding:11px 16px;min-height:44px;border-radius:22px;background:var(--surface);border:1px solid var(--border2);color:var(--text);text-decoration:none;font-weight:700;font-size:13px}}
 .share a:hover{{border-color:var(--accent);color:var(--accent)}}
 .related{{margin:48px auto 20px;max-width:1180px;padding:0 22px}}
 .related>h2{{font-size:22px;font-weight:900;color:var(--text);margin:0 0 18px}}
@@ -139,7 +142,7 @@ ol.sources a{{word-break:break-all}}
 .cat-hero .t{{padding:28px}}.cat-hero h1{{font-size:34px;line-height:1.15;font-weight:900;color:var(--text);margin:12px 0 10px}}.cat-hero .lead{{margin:0}}
 
 footer{{background:var(--ink);color:#fff;padding:34px 0;margin-top:50px;font-size:14.5px}}
-footer a{{color:var(--footer-link);font-weight:700}}
+footer a{{color:var(--footer-link);font-weight:700;display:inline-block;padding:10px 0}}
 footer .w{{display:flex;flex-wrap:wrap;gap:12px 28px;justify-content:space-between;align-items:flex-start}}
 footer .foot-brand{{font-weight:800;font-size:16px;margin-bottom:6px}}
 
@@ -164,7 +167,7 @@ footer .foot-brand{{font-weight:800;font-size:16px;margin-bottom:6px}}
   .page-head h1{{font-size:28px}}
   .cover-wrap{{margin:0 0 4px;border-radius:0 0 18px 18px;box-shadow:none}}
   .lede{{font-size:17px}}
-  .tagline{{font-size:13.5px;padding:10px 14px;margin-top:12px}}
+  .tagline{{font-size:16px;padding:10px 14px;margin-top:12px}}
   .tagline b{{display:none}}
   .tiles{{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;margin-right:-16px;padding-right:16px}}
   .tile{{flex:0 0 72%;scroll-snap-align:start}}
@@ -284,6 +287,14 @@ def cover_url(slug, size="full"):
     return f"/covers/{slug}.jpg"
 
 
+def hero_img(slug, alt, fallback="/og.png", cls_attr=""):
+    a = html.escape(alt, quote=True)
+    if slug and cover_exists(slug):
+        return (f'<img src="/covers/{slug}.webp" srcset="/covers/{slug}-800.webp 800w, /covers/{slug}.webp 1600w" '
+                f'sizes="(max-width:980px) 100vw, 920px" alt="{a}" width="1600" height="900" fetchpriority="high" decoding="async"{cls_attr}>')
+    return f'<img src="{fallback}" alt="{a}" width="1600" height="900" fetchpriority="high" decoding="async">'
+
+
 def cover_exists(slug):
     for d in (f"/static/covers-{PALETTE}", "/static/covers"):
         if os.path.isfile(B + d + f"/{slug}.jpg"):
@@ -373,7 +384,7 @@ def page(title, desc, body, url, typ="website", lang="tr", alt=None, og=None, ex
 <title>{t}</title><meta name="description" content="{d}"><link rel="canonical" href="{SITE}{url}">{hl}
 <meta property="og:type" content="{typ}"><meta property="og:title" content="{t}"><meta property="og:description" content="{d}"><meta property="og:url" content="{SITE}{url}"><meta property="og:image" content="{ogi}"><meta property="og:locale" content="{u['loc']}"><meta property="og:site_name" content="{NAME}">
 <meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content="@digiyakalilar"><meta name="twitter:image" content="{ogi}">
-<link rel="icon" href="/favicon.ico" sizes="any"><link rel="icon" type="image/png" href="/favicon.png"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="stylesheet" href="/style.css">{extra_head}</head><body>
+<link rel="icon" href="/favicon.ico" sizes="any"><link rel="icon" type="image/png" href="/favicon.png"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="preload" href="/montserrat.ttf" as="font" type="font/ttf" crossorigin><link rel="stylesheet" href="/style.css">{extra_head}</head><body>
 {header(lang,url,alt)}
 {body}
 {footer(lang)}</body></html>"""
@@ -390,7 +401,7 @@ def card(p, lang, pre, size="card"):
     slug = p["slug"]
     img = cover_url(slug, size) if cover_exists(slug) else "/og.png"
     return f"""<a class="card" href="{pre}/{slug}/">
-<div class="card-img"><img src="{img}" alt="" width="800" height="450" loading="lazy" decoding="async"></div>
+<div class="card-img"><img src="{img}" alt="{html.escape(p["title"],quote=True)}" width="800" height="450" loading="lazy" decoding="async"></div>
 <div class="card-body"><div class="meta"><span class="tag">{catname(k,lang)}</span></div>
 <h2>{html.escape(p["title"])}</h2>
 <p>{html.escape(p["description"])}</p>
@@ -404,12 +415,23 @@ def featured(p, lang, pre):
     slug = p["slug"]
     img = cover_url(slug) if cover_exists(slug) else "/og.png"
     return f"""<a class="feat" href="{pre}/{slug}/">
-<div class="feat-img"><img src="{img}" alt="" width="1600" height="900" fetchpriority="high" decoding="async"></div>
+<div class="feat-img">{hero_img(p["slug"], p["title"])}</div>
 <div class="feat-body"><span class="tag">{catname(k,lang)}</span>
 <h1>{html.escape(p["title"])}</h1>
 <p>{html.escape(p["description"])}</p>
 <div class="meta">{fd(p["date"],lang)}<span class="dot">·</span>{p["mins"]} {u["read"]}</div>
 </div></a>"""
+
+
+def home_ld(lang, pre):
+    import json
+    org = {"@type": "Organization", "@id": SITE + "/#org", "name": NAME, "url": SITE + "/",
+           "logo": {"@type": "ImageObject", "url": SITE + "/logo.png"},
+           "sameAs": ["https://www.instagram.com/digitalyakalilar/", "https://x.com/digiyakalilar"]}
+    web = {"@type": "WebSite", "@id": SITE + (pre or "") + "/#website", "name": NAME, "url": SITE + (pre or "") + "/",
+           "inLanguage": lang, "publisher": {"@id": SITE + "/#org"}}
+    d = json.dumps({"@context": "https://schema.org", "@graph": [org, web]}, ensure_ascii=False)
+    return f'<script type="application/ld+json">{d}</script>'
 
 
 def sidebar(ps, lang, current_cat=None):
@@ -522,17 +544,21 @@ def build(ps, lang, pre, link):
         body = body[: j + 4] + tc + ad("article-top") + body[j + 4 :] if j >= 0 else tc + body
         img = cover_url(p["slug"]) if cover_exists(p["slug"]) else "/og.png"
         og = SITE + img
-        cover = f'<div class="cover-wrap"><img src="{img}" alt="" width="1600" height="900" fetchpriority="high" decoding="async"></div>'
+        cover = f'<div class="cover-wrap">{hero_img(p["slug"], p["title"])}</div>'
         share = share_btns(me, p["title"], lang)
         share_top = share_btns(me, p["title"], lang, "top")
         home_l = "Ana sayfa" if lang == "tr" else "Home"
         crumb = f'<div class="crumb"><a href="{pre}/">{home_l}</a> › <a href="{caturl(k,lang)}">{catname(k,lang)}</a></div>'
         import json
-        ld = json.dumps({"@context": "https://schema.org", "@type": "Article", "headline": p["title"], "description": p["description"],
+        ld = json.dumps({"@context": "https://schema.org", "@type": "NewsArticle", "headline": p["title"][:110], "description": p.get("meta_description", p["description"]),
             "image": [og], "datePublished": p["date"], "dateModified": p.get("updated", p["date"]), "inLanguage": lang,
             "mainEntityOfPage": SITE + me, "author": {"@type": "Organization", "name": NAME, "url": SITE},
             "publisher": {"@type": "Organization", "name": NAME, "logo": {"@type": "ImageObject", "url": SITE + "/logo.png"}}}, ensure_ascii=False)
-        head_extra = f'<meta property="og:image:width" content="1600"><meta property="og:image:height" content="900"><meta property="article:published_time" content="{p["date"]}"><script type="application/ld+json">{ld}</script>' 
+        bc = json.dumps({"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": home_l, "item": SITE + (pre + "/" if pre else "/")},
+            {"@type": "ListItem", "position": 2, "name": catname(k, lang), "item": SITE + caturl(k, lang)},
+            {"@type": "ListItem", "position": 3, "name": p["title"], "item": SITE + me}]}, ensure_ascii=False)
+        head_extra = f'<meta property="og:image:width" content="1600"><meta property="og:image:height" content="900"><meta property="article:published_time" content="{p["date"]}"><script type="application/ld+json">{ld}</script><script type="application/ld+json">{bc}</script>' 
         rel = related_block(ps, p, lang, pre)
         story = f"""{cover}<div class="article-shell"><article class="story">
 {crumb}<h1>{html.escape(p["title"])}</h1>
@@ -545,7 +571,7 @@ def build(ps, lang, pre, link):
             me + "index.html",
             page(
                 p["title"] + " | " + NAME,
-                p["description"],
+                p.get("meta_description", p["description"]),
                 story,
                 me,
                 "article",
@@ -585,7 +611,7 @@ def home(ps, lang, pre, alt):
         return f"{n} yazı" if lang == "tr" else f"{n} post" + ("" if n == 1 else "s")
 
     tiles = "".join(
-        f'<a class="tile" href="{caturl(k,lang)}"><img src="/covers/cat-{k}-{lang}-800.webp" alt="" width="800" height="450" loading="lazy" decoding="async">'
+        f'<a class="tile" href="{caturl(k,lang)}"><img src="/covers/cat-{k}-{lang}-800.webp" alt="{catname(k,lang)}" width="800" height="450" loading="lazy" decoding="async">'
         f'<span>{catname(k,lang)}<em>{cnt(k)}</em></span></a>'
         for k, *_ in CATS
     )
@@ -596,7 +622,7 @@ def home(ps, lang, pre, alt):
     og = SITE + cover_url(ps[0]["slug"]) if ps and cover_exists(ps[0]["slug"]) else None
     w(
         (pre or "") + "/index.html" if pre else "/index.html",
-        page(u["home_title"], u["home_desc"], body, pre + "/" if pre else "/", lang=lang, alt=alt, og=og),
+        page(u["home_title"], u["home_desc"], body, pre + "/" if pre else "/", lang=lang, alt=alt, og=og, extra_head=home_ld(lang, pre)),
     )
 
 
@@ -648,7 +674,7 @@ for k, tn, es, en_ in CATS:
         desc = CATDESC[k][0 if lang == "tr" else 1]
         cover_slug = f"cat-{k}-{'tr' if lang=='tr' else 'en'}"
         cimg = cover_url(cover_slug) if cover_exists(cover_slug) else "/og.png"
-        hero = f"""<div class="cat-hero"><img src="{cimg}" alt="" width="1600" height="900" fetchpriority="high">
+        hero = f"""<div class="cat-hero">{hero_img(cover_slug, catname(k,lang), cimg)}
 <div class="t"><div class="meta"><span class="tag">{u["cat"]}</span></div>
 <h1>{catname(k,lang)}</h1><p class="lead">{html.escape(desc)}</p></div></div>"""
         lst_c = (

@@ -2,6 +2,7 @@
 title: A practical guide to free AI tools: Getting more done with Grok, ChatGPT, Gemini, Perplexity and NotebookLM
 date: 2026-10-14
 updated: 2026-10-15
+meta_description: What the free tiers of five popular AI tools offer, which fits which task, and how to use them without leaking company data. Current as of October 2026.
 description: What do the free tiers of five popular AI tools actually offer, which one fits which task, and how do you use them without leaking company data? A guide based on official pages, current as of October 2026.
 cover_title: Get more done with free AI tools
 cover_icon: ai

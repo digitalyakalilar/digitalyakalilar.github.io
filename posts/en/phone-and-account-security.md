@@ -2,6 +2,7 @@
 title: Phone and account security: An evidence-based guide for professionals
 date: 2026-10-15
 updated: 2026-10-15
+meta_description: 2FA, passkeys, smishing and a lost-phone plan: a step-by-step guide to securing your phone and accounts, backed by NIST, CISA, Google and Apple.
 description: From two-factor authentication and passkeys to smishing and a lost-phone plan: a step-by-step guide to protecting your phone and your accounts, backed by NIST, CISA, Google and Apple sources.
 cover_title: Phone and account security guide
 cover_icon: phone
