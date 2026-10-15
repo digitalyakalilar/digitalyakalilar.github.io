@@ -1,2 +1,4 @@
 preview-*.png
 __pycache__/
+shots/
+crop*.png
