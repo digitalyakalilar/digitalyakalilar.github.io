@@ -9,4 +9,4 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:16px 0
 article h1{font-size:38px;line-height:1.15;font-weight:900;color:#2A1630;margin:40px 0 8px}article h2{font-size:24px;margin-top:34px;color:#2A1630}article h2::after{content:'';display:block;width:60px;height:5px;border-radius:4px;background:linear-gradient(135deg,#FF7A5C 0%,#F7577A 50%,#E8378E 100%);margin-top:8px}
 article{font-size:18px;padding-bottom:30px}blockquote{margin:20px 0;background:#fff;border-left:5px solid #F7577A;padding:12px 20px;border-radius:10px}
 footer{background:#2A1630;color:#fff;padding:30px 0;margin-top:50px;font-size:15px}footer a{color:#FF9AB5;font-weight:700}
-@media(max-width:600px){.hero h1{font-size:32px}article h1{font-size:30px}nav a{margin-left:10px}}
+.lang{border:2px solid #fff;border-radius:20px;padding:2px 10px;font-size:13px}@media(max-width:600px){.hero h1{font-size:32px}article h1{font-size:30px}nav a{margin-left:10px}}
