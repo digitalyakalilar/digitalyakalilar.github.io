@@ -506,6 +506,7 @@ if os.path.isdir(_pc):
 open(OUT + "/style.css", "w").write(CSS)
 print("palette", PALETTE, P["label"])
 open(OUT + "/CNAME", "w").write("digitalyakalilar.com\n")
+open(OUT + "/googled09a91c7acb47f70.html", "w").write("google-site-verification: googled09a91c7acb47f70.html")
 open(OUT + "/.nojekyll", "w").write("")
 
 
