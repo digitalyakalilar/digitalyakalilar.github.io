@@ -347,6 +347,7 @@ if __name__ == "__main__":
             im = Image.open(png).convert("RGB")
             for dest in (out, archive):
                 im.save(f"{dest}/{name}.jpg", quality=86, optimize=True, progressive=True)
+                im.save(f"{dest}/{name}.webp", quality=84, method=6)
                 im.resize((800, 450), Image.LANCZOS).save(
                     f"{dest}/{name}-800.webp", quality=82, method=6
                 )

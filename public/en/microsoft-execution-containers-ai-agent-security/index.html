@@ -1,0 +1,144 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI agent containment security: Microsoft MXC | Digital Yakalılar</title><meta name="description" content="AI agent containment security with Microsoft Execution Containers (MXC): process, session, WSL, MicroVM options and a practical IT checklist. Kaynaklı rehber."><link rel="canonical" href="https://digitalyakalilar.com/en/microsoft-execution-containers-ai-agent-security/"><link rel="alternate" hreflang="tr" href="https://digitalyakalilar.com/microsoft-execution-containers-ajan-guvenligi/"><link rel="alternate" hreflang="en" href="https://digitalyakalilar.com/en/microsoft-execution-containers-ai-agent-security/"><link rel="alternate" hreflang="x-default" href="https://digitalyakalilar.com/microsoft-execution-containers-ajan-guvenligi/">
+<meta property="og:type" content="article"><meta property="og:title" content="AI agent containment security: Microsoft MXC | Digital Yakalılar"><meta property="og:description" content="AI agent containment security with Microsoft Execution Containers (MXC): process, session, WSL, MicroVM options and a practical IT checklist. Kaynaklı rehber."><meta property="og:url" content="https://digitalyakalilar.com/en/microsoft-execution-containers-ai-agent-security/"><meta property="og:image" content="https://digitalyakalilar.com/covers/microsoft-execution-containers-ai-agent-security.jpg"><meta property="og:locale" content="en_US"><meta property="og:site_name" content="Digital Yakalılar">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="AI agent containment security: Microsoft MXC | Digital Yakalılar"><meta name="twitter:description" content="AI agent containment security with Microsoft Execution Containers (MXC): process, session, WSL, MicroVM options and a practical IT checklist. Kaynaklı rehber."><link rel="alternate" type="application/rss+xml" title="Digital Yakalılar" href="https://digitalyakalilar.com/en/rss.xml"><meta name="twitter:site" content="@digiyakalilar"><meta name="twitter:image" content="https://digitalyakalilar.com/covers/microsoft-execution-containers-ai-agent-security.jpg">
+<link rel="icon" href="/favicon.ico" sizes="any"><link rel="icon" type="image/png" href="/favicon.png"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="preload" href="/montserrat.ttf" as="font" type="font/ttf" crossorigin><link rel="stylesheet" href="/style.css"><script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is AI agent containment security?", "acceptedAnswer": {"@type": "Answer", "text": "Limiting which files, networks and UI resources an agent (or its generated code) can reach — enforced at the OS/container layer, not by the agent itself. MXC does this with policy-driven containers ."}}, {"@type": "Question", "name": "Is MXC an antivirus?", "acceptedAnswer": {"@type": "Answer", "text": "No. It is a containment layer. Identity and manageability are separate pillars ."}}, {"@type": "Question", "name": "Why care about session containers?", "acceptedAnswer": {"@type": "Answer", "text": "They separate the agent from the interactive user session — desktop, clipboard and input included . Useful for long-running automation."}}, {"@type": "Question", "name": "Does it only work on Windows?", "acceptedAnswer": {"@type": "Answer", "text": "Process containers run on Windows, macOS and Linux; session and WSL are Windows 11 only; MicroVM is experimental on Windows 11 and Linux ."}}, {"@type": "Question", "name": "Does this replace Pluto-style agent security products?", "acceptedAnswer": {"@type": "Answer", "text": "Complementary. Inventory/behavior tools watch what agents do; MXC constrains what they can do at runtime . Defense in depth uses both."}}]}</script><meta property="og:image:width" content="1600"><meta property="og:image:height" content="900"><meta property="article:published_time" content="2026-10-16"><script type="application/ld+json">{"@context": "https://schema.org", "@type": "NewsArticle", "headline": "AI agent containment security: What Microsoft Execution Containers (MXC) add", "description": "AI agent containment security with Microsoft Execution Containers (MXC): process, session, WSL, MicroVM options and a practical IT checklist. Kaynaklı rehber.", "image": ["https://digitalyakalilar.com/covers/microsoft-execution-containers-ai-agent-security.jpg"], "datePublished": "2026-10-16", "dateModified": "2026-10-16", "inLanguage": "en", "mainEntityOfPage": "https://digitalyakalilar.com/en/microsoft-execution-containers-ai-agent-security/", "keywords": "AI agent containment security, AI agent sandbox, Microsoft Execution Containers, least-privilege agents, process container, Agent 365", "author": {"@type": "Organization", "name": "Digital Yakalılar", "url": "https://digitalyakalilar.com"}, "publisher": {"@type": "Organization", "name": "Digital Yakalılar", "logo": {"@type": "ImageObject", "url": "https://digitalyakalilar.com/logo.png"}}}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://digitalyakalilar.com/en/"}, {"@type": "ListItem", "position": 2, "name": "Digital Security", "item": "https://digitalyakalilar.com/en/category/digital-security/"}, {"@type": "ListItem", "position": 3, "name": "AI agent containment security: What Microsoft Execution Containers (MXC) add", "item": "https://digitalyakalilar.com/en/microsoft-execution-containers-ai-agent-security/"}]}</script></head><body>
+<header class="site-header"><div class="w"><div class="inner">
+<a class="brand" href="/en/"><img src="/logo.png" alt="Digital Yakalılar logo" width="38" height="38"><span>Digital Yakalılar</span></a>
+<nav class="nav-cats" aria-label="Categories"><a href="/en/category/hr-tech/">HR Tech</a><a href="/en/category/industry-4-0/">Industry 4.0 & Manufacturing</a><a href="/en/category/logistics/">Logistics & Freight</a><a href="/en/category/ai-productivity/">AI & Productivity</a><a href="/en/category/digital-security/">Digital Security</a></nav>
+<div class="nav-right"><a class="plain" href="/en/about/">About</a><a class="lang" href="/microsoft-execution-containers-ajan-guvenligi/" hreflang="tr" lang="tr" title="Türkçe">TR</a></div>
+</div></div></header>
+<div class="cover-wrap"><img src="/covers/microsoft-execution-containers-ai-agent-security.webp" srcset="/covers/microsoft-execution-containers-ai-agent-security-800.webp 800w, /covers/microsoft-execution-containers-ai-agent-security.webp 1600w" sizes="(max-width:980px) 100vw, 920px" alt="AI agent containment security: Microsoft Execution Containers cover image" width="1600" height="900" fetchpriority="high" decoding="async"></div><div class="article-shell"><article class="story">
+<div class="crumb"><a href="/en/">Home</a> › <a href="/en/category/digital-security/">Digital Security</a></div><h1>AI agent containment security: What Microsoft Execution Containers (MXC) add</h1>
+<p class="lede">Microsoft made Execution Containers generally available to isolate AI agents with file and network policies. What AI agent containment security means against shadow-agent risk at the OS layer.</p>
+<div class="meta"><a class="tag" href="/en/category/digital-security/">Digital Security</a>October 16, 2026<span class="dot">·</span>4 min read<span class="updated">Last updated: October 16, 2026</span></div>
+<div class="share top" aria-label="Share"><b>Share:</b><a href="https://x.com/intent/post?url=https%3A%2F%2Fdigitalyakalilar.com%2Fen%2Fmicrosoft-execution-containers-ai-agent-security%2F&text=AI%20agent%20containment%20security%3A%20What%20Microsoft%20Execution%20Containers%20%28MXC%29%20add" target=_blank rel=noopener>X</a><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fdigitalyakalilar.com%2Fen%2Fmicrosoft-execution-containers-ai-agent-security%2F" target=_blank rel=noopener>LinkedIn</a><a href="https://wa.me/?text=AI%20agent%20containment%20security%3A%20What%20Microsoft%20Execution%20Containers%20%28MXC%29%20add%20https%3A%2F%2Fdigitalyakalilar.com%2Fen%2Fmicrosoft-execution-containers-ai-agent-security%2F" target=_blank rel=noopener>WhatsApp</a><a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdigitalyakalilar.com%2Fen%2Fmicrosoft-execution-containers-ai-agent-security%2F" target=_blank rel=noopener>Facebook</a><a href="https://t.me/share/url?url=https%3A%2F%2Fdigitalyakalilar.com%2Fen%2Fmicrosoft-execution-containers-ai-agent-security%2F&text=AI%20agent%20containment%20security%3A%20What%20Microsoft%20Execution%20Containers%20%28MXC%29%20add" target=_blank rel=noopener>Telegram</a><a href="mailto:?subject=AI%20agent%20containment%20security%3A%20What%20Microsoft%20Execution%20Containers%20%28MXC%29%20add&body=https%3A%2F%2Fdigitalyakalilar.com%2Fen%2Fmicrosoft-execution-containers-ai-agent-security%2F">Email</a></div>
+<p>As agents touch files, networks and apps, productivity rises — and so does the attack surface. According to a Windows Developer Blog post on October 7, 2026, <strong>Microsoft Execution Containers (MXC)</strong> are generally available and provide a policy-driven <strong>containment</strong> layer for agents <sup class="cite"><a href="#ref-1" aria-label="References 1">[1]</a></sup>. This article explains <strong>AI agent containment security</strong> through MXC, links it to the Pluto/OWASP shadow-agent debate, and ends with an IT checklist.</p><div class="toc" role="navigation" aria-label="Contents"><strong>Contents</strong><ol><li><a href="#b1">Three pillars: Containment, identity, manageability</a></li><li><a href="#b2">Why a managed boundary matters</a></li><li><a href="#b3">MXC backend spectrum</a></li><li><a href="#b4">Learning modes: Observe, then enforce</a></li><li><a href="#b5">Who is using MXC?</a></li><li><a href="#b6">A practical reading for mixed fleets</a></li><li><a href="#b7">Checklist: AI agent containment security</a></li><li><a href="#b8">Frequently asked questions</a></li></ol></div><div class="ad-slot" id="ad-article-top" data-ad-slot="article-top" aria-hidden="true"></div>
+<h2 id="b1">Three pillars: Containment, identity, manageability</h2>
+<p>Microsoft's framing has three parts <sup class="cite"><a href="#ref-1" aria-label="References 1">[1]</a></sup>:</p>
+<ol>
+<li><strong>Containment</strong> — limit which files and network destinations an agent can use</li>
+<li><strong>Identity</strong> — distinguish agent activity from a person (coming with Microsoft Entra / Agent 365)</li>
+<li><strong>Manageability</strong> — govern access and monitor agent activity</li>
+</ol>
+<p>MXC delivers the first pillar. Developers and IT admins declare allowed resources; MXC enforces the boundary at runtime with the right container <sup class="cite"><a href="#ref-1" aria-label="References 1">[1]</a></sup>. Policy stays outside the agent's control: the agent cannot grant itself more access <sup class="cite"><a href="#ref-1" aria-label="References 1">[1]</a></sup>.</p>
+<h2 id="b2">Why a managed boundary matters</h2>
+<p>Microsoft's example is familiar: a coding agent is asked to update a website. It needs write access to the repo and build tools; it may need to <strong>read</strong> production configuration but must not <strong>change</strong> it. Without a managed boundary, the agent may decide that editing production config is the fastest way to finish <sup class="cite"><a href="#ref-1" aria-label="References 1">[1]</a></sup>. Containment enforces that limit independently of the model.</p>
+<p>That lines up with the OWASP "Excessive Agency" warning in our <a href="/en/employee-built-ai-agents-security-risk/">employee-built agents security piece</a>: the root cause is often too much function, permission or autonomy.</p>
+<h2 id="b3">MXC backend spectrum</h2>
+<p>Microsoft lists isolation levels for different workloads <sup class="cite"><a href="#ref-1" aria-label="References 1">[1]</a></sup>:</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Backend</th>
+<th>Availability</th>
+<th>Best for</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Process container</td>
+<td>Windows 11, macOS, Linux</td>
+<td>Lightweight, low-latency work; AppContainer / Seatbelt / Bubblewrap</td>
+</tr>
+<tr>
+<td>Session container</td>
+<td>Windows 11 only</td>
+<td>Long-running agents; separate account, desktop, clipboard, input</td>
+</tr>
+<tr>
+<td>WSL container (WSLc)</td>
+<td>Windows 11 only</td>
+<td>Linux-first agent toolchains</td>
+</tr>
+<tr>
+<td>MicroVM</td>
+<td>Windows 11 and Linux (experimental)</td>
+<td>Higher risk; hardware-backed isolation</td>
+</tr>
+</tbody>
+</table></div>
+<p>Policy areas include containment type, process launch, filesystem (read/write/deny), network (in/out) and UI access <sup class="cite"><a href="#ref-1" aria-label="References 1">[1]</a></sup>.</p>
+<h2 id="b4">Learning modes: Observe, then enforce</h2>
+<p>On Windows only, process containers can emit an agent activity report. Three modes exist <sup class="cite"><a href="#ref-1" aria-label="References 1">[1]</a></sup>:</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Mode</th>
+<th>Ungranted access</th>
+<th>Report</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Enforcement</td>
+<td>Blocked</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Learning</td>
+<td>Blocked + recorded</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Permissive</td>
+<td>Allowed + recorded</td>
+<td>Yes (for policy authoring)</td>
+</tr>
+</tbody>
+</table></div>
+<p>First policies often block legitimate needs; Learning/Permissive help find the gaps <sup class="cite"><a href="#ref-1" aria-label="References 1">[1]</a></sup>.</p>
+<h2 id="b5">Who is using MXC?</h2>
+<p>The post says GitHub Copilot, OpenClaw, OpenAI Codex, Replit, LM Studio and Unsloth AI already support MXC; Anthropic Claude Code, Box, Perplexity and others are expected to follow. NVIDIA integrated OpenShell with MXC. Windows 365 support for MXC is generally available <sup class="cite"><a href="#ref-1" aria-label="References 1">[1]</a></sup>.</p>
+<p>For basic account hygiene see <a href="/en/phone-and-account-security/">phone and account security</a>; for HR-connected agents see <a href="/en/hr-ai-agents-workday-sap-metaview/">AI agents in recruiting</a>.</p>
+<h2 id="b6">A practical reading for mixed fleets</h2>
+<p>MXC is Windows-heavy, with process-container support also on macOS and Linux <sup class="cite"><a href="#ref-1" aria-label="References 1">[1]</a></sup>. Many organizations run mixed fleets: Windows 11 in the office, Macs for developers, Linux on plant terminals. Keeping one policy schema and mapping backends per device matches Microsoft's model <sup class="cite"><a href="#ref-1" aria-label="References 1">[1]</a></sup>.</p>
+<p>From a privacy angle, if an agent will touch folders or systems with personal data, the isolation boundary is not just a technical preference — it is a data-minimization control. Containment hardens the difference between "give the agent everything and hope" and "give the agent only the task folder" at the OS layer <sup class="cite"><a href="#ref-1" aria-label="References 1">[1]</a></sup>.</p>
+<p>Cloud-side, general availability of MXC on Windows 365 lets teams run agents on a Cloud PC under central policy instead of on every laptop <sup class="cite"><a href="#ref-1" aria-label="References 1">[1]</a></sup>. That is useful when IT wants to trial agents without widening the local attack surface.</p>
+<h2 id="b7">Checklist: AI agent containment security</h2>
+<ul>
+<li class="check">Is a least-privilege policy (files + network + UI) written per agent?</li>
+<li class="check">Are production configs / secrets outside the agent's write scope?</li>
+<li class="check">Do coding agents run inside MXC or an equivalent sandbox?</li>
+<li class="check">Was Learning mode used to tighten policy from activity reports?</li>
+<li class="check">Can agent identity be separated from user identity? (Agent 365 roadmap <sup class="cite"><a href="#ref-1" aria-label="References 1">[1]</a></sup>)</li>
+<li class="check">Is an Intune / MDM MXC policy planned?</li>
+<li class="check">Are employee-built agents in the inventory? (<a href="/en/employee-built-ai-agents-security-risk/">shadow-agent checklist</a>)</li>
+</ul>
+<h2 id="b8">Frequently asked questions</h2>
+<h3>What is AI agent containment security?</h3>
+<p>Limiting which files, networks and UI resources an agent (or its generated code) can reach — enforced at the OS/container layer, not by the agent itself. MXC does this with policy-driven containers <sup class="cite"><a href="#ref-1" aria-label="References 1">[1]</a></sup>.</p>
+<h3>Is MXC an antivirus?</h3>
+<p>No. It is a containment layer. Identity and manageability are separate pillars <sup class="cite"><a href="#ref-1" aria-label="References 1">[1]</a></sup>.</p>
+<h3>Why care about session containers?</h3>
+<p>They separate the agent from the interactive user session — desktop, clipboard and input included <sup class="cite"><a href="#ref-1" aria-label="References 1">[1]</a></sup>. Useful for long-running automation.</p>
+<h3>Does it only work on Windows?</h3>
+<p>Process containers run on Windows, macOS and Linux; session and WSL are Windows 11 only; MicroVM is experimental on Windows 11 and Linux <sup class="cite"><a href="#ref-1" aria-label="References 1">[1]</a></sup>.</p>
+<h3>Does this replace Pluto-style agent security products?</h3>
+<p>Complementary. Inventory/behavior tools watch what agents do; MXC constrains what they <em>can</em> do at runtime <sup class="cite"><a href="#ref-1" aria-label="References 1">[1]</a></sup>. Defense in depth uses both.</p>
+<div class="ad-slot" id="ad-article-bottom" data-ad-slot="article-bottom" aria-hidden="true"></div><section class="refs"><h2 id="reflar">References</h2>
+<ol class="sources">
+<li id="ref-1">Windows Developer Blog, Logan Iyer, "Microsoft Execution Containers: Policy-driven containment for AI agents", October 7, 2026. <a href="https://blogs.windows.com/windowsdeveloper/2026/10/07/microsoft-execution-containers-policy-driven-containment-for-ai-agents/" target="_blank" rel="noopener">https://blogs.windows.com/windowsdeveloper/2026/10/07/microsoft-execution-containers-policy-driven-containment-for-ai-agents/</a> (Accessed: October 16, 2026)</li>
+</ol></section><div class="share " aria-label="Share"><b>Share:</b><a href="https://x.com/intent/post?url=https%3A%2F%2Fdigitalyakalilar.com%2Fen%2Fmicrosoft-execution-containers-ai-agent-security%2F&text=AI%20agent%20containment%20security%3A%20What%20Microsoft%20Execution%20Containers%20%28MXC%29%20add" target=_blank rel=noopener>X</a><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fdigitalyakalilar.com%2Fen%2Fmicrosoft-execution-containers-ai-agent-security%2F" target=_blank rel=noopener>LinkedIn</a><a href="https://wa.me/?text=AI%20agent%20containment%20security%3A%20What%20Microsoft%20Execution%20Containers%20%28MXC%29%20add%20https%3A%2F%2Fdigitalyakalilar.com%2Fen%2Fmicrosoft-execution-containers-ai-agent-security%2F" target=_blank rel=noopener>WhatsApp</a><a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdigitalyakalilar.com%2Fen%2Fmicrosoft-execution-containers-ai-agent-security%2F" target=_blank rel=noopener>Facebook</a><a href="https://t.me/share/url?url=https%3A%2F%2Fdigitalyakalilar.com%2Fen%2Fmicrosoft-execution-containers-ai-agent-security%2F&text=AI%20agent%20containment%20security%3A%20What%20Microsoft%20Execution%20Containers%20%28MXC%29%20add" target=_blank rel=noopener>Telegram</a><a href="mailto:?subject=AI%20agent%20containment%20security%3A%20What%20Microsoft%20Execution%20Containers%20%28MXC%29%20add&body=https%3A%2F%2Fdigitalyakalilar.com%2Fen%2Fmicrosoft-execution-containers-ai-agent-security%2F">Email</a></div>
+</article></div><section class="related"><h2>You may also like</h2><div class="grid"><a class="card" href="/en/phone-and-account-security/">
+<div class="card-img"><img src="/covers/phone-and-account-security-800.webp" alt="Phone and account security: An evidence-based guide for professionals" width="800" height="450" loading="lazy" decoding="async"></div>
+<div class="card-body"><div class="meta"><span class="tag">Digital Security</span></div>
+<h2>Phone and account security: An evidence-based guide for professionals</h2>
+<p>From two-factor authentication and passkeys to smishing and a lost-phone plan: a step-by-step guide to protecting your phone and your accounts, backed by NIST, CISA, Google and Apple sources.</p>
+<div class="meta">October 15, 2026<span class="dot">·</span>10 min read</div>
+</div></a><a class="card" href="/en/employee-built-ai-agents-security-risk/">
+<div class="card-img"><img src="/covers/employee-built-ai-agents-security-risk-800.webp" alt="Are employee-built AI agents the new security gap? What Pluto&#x27;s funding and OWASP and NIST guidance say" width="800" height="450" loading="lazy" decoding="async"></div>
+<div class="card-body"><div class="meta"><span class="tag">Digital Security</span></div>
+<h2>Are employee-built AI agents the new security gap? What Pluto&#x27;s funding and OWASP and NIST guidance say</h2>
+<p>Pluto&#x27;s funding round, reported by Webrazzi, puts a spotlight on the risks of AI agents that employees build themselves. Drawing on OWASP and NIST sources, we map the risks and the concrete steps companies can take.</p>
+<div class="meta">October 15, 2026<span class="dot">·</span>7 min read</div>
+</div></a><a class="card" href="/en/ford-otosan-mega-ai-apem-factory-energy/">
+<div class="card-img"><img src="/covers/ford-otosan-mega-ai-apem-factory-energy-800.webp" alt="AI energy management in manufacturing: Ford Otosan&#x27;s MEGA AI APEM example" width="800" height="450" loading="lazy" decoding="async"></div>
+<div class="card-body"><div class="meta"><span class="tag">Industry 4.0 & Manufacturing</span></div>
+<h2>AI energy management in manufacturing: Ford Otosan&#x27;s MEGA AI APEM example</h2>
+<p>At its Gölcük and Yeniköy plants in Kocaeli, Ford Otosan monitors energy at 1,000+ points with MEGA AI APEM and triggers automatic work orders. What AI energy management in manufacturing means for factories.</p>
+<div class="meta">October 16, 2026<span class="dot">·</span>4 min read</div>
+</div></a></div></section>
+<footer><div class="w"><div><div class="foot-brand">Digital Yakalılar</div>Digitalization products across HR, industry, logistics and beyond — news and sourced guides.<br>© 2026 Digital Yakalılar</div>
+<div><a href="https://www.instagram.com/digitalyakalilar/">Instagram @digitalyakalilar</a><br>
+<a href="https://x.com/digiyakalilar">X @digiyakalilar</a></div></div></footer></body></html>

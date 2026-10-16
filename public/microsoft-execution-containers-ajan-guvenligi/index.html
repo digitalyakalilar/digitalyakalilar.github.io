@@ -1,0 +1,144 @@
+<!doctype html><html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Yapay zekâ ajanı güvenlik izolasyonu: Microsoft MXC</title><meta name="description" content="Yapay zekâ ajanı güvenlik izolasyonu: Microsoft Execution Containers (MXC) process, session ve MicroVM ile ajanları nasıl sınırlıyor? Kontrol listesi."><link rel="canonical" href="https://digitalyakalilar.com/microsoft-execution-containers-ajan-guvenligi/"><link rel="alternate" hreflang="tr" href="https://digitalyakalilar.com/microsoft-execution-containers-ajan-guvenligi/"><link rel="alternate" hreflang="en" href="https://digitalyakalilar.com/en/microsoft-execution-containers-ai-agent-security/"><link rel="alternate" hreflang="x-default" href="https://digitalyakalilar.com/microsoft-execution-containers-ajan-guvenligi/">
+<meta property="og:type" content="article"><meta property="og:title" content="Yapay zekâ ajanı güvenlik izolasyonu: Microsoft MXC"><meta property="og:description" content="Yapay zekâ ajanı güvenlik izolasyonu: Microsoft Execution Containers (MXC) process, session ve MicroVM ile ajanları nasıl sınırlıyor? Kontrol listesi."><meta property="og:url" content="https://digitalyakalilar.com/microsoft-execution-containers-ajan-guvenligi/"><meta property="og:image" content="https://digitalyakalilar.com/covers/microsoft-execution-containers-ajan-guvenligi.jpg"><meta property="og:locale" content="tr_TR"><meta property="og:site_name" content="Digital Yakalılar">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Yapay zekâ ajanı güvenlik izolasyonu: Microsoft MXC"><meta name="twitter:description" content="Yapay zekâ ajanı güvenlik izolasyonu: Microsoft Execution Containers (MXC) process, session ve MicroVM ile ajanları nasıl sınırlıyor? Kontrol listesi."><link rel="alternate" type="application/rss+xml" title="Digital Yakalılar" href="https://digitalyakalilar.com/rss.xml"><meta name="twitter:site" content="@digiyakalilar"><meta name="twitter:image" content="https://digitalyakalilar.com/covers/microsoft-execution-containers-ajan-guvenligi.jpg">
+<link rel="icon" href="/favicon.ico" sizes="any"><link rel="icon" type="image/png" href="/favicon.png"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="preload" href="/montserrat.ttf" as="font" type="font/ttf" crossorigin><link rel="stylesheet" href="/style.css"><script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Yapay zekâ ajanı güvenlik izolasyonu nedir?", "acceptedAnswer": {"@type": "Answer", "text": "Ajanın (veya ürettiği kodun) erişebileceği dosya, ağ ve arayüz kaynaklarını, ajanın kendi kararından bağımsız olarak işletim sistemi / konteyner katmanında sınırlamak. MXC bunu politika güdümlü konteynerlerle yapıyor ."}}, {"@type": "Question", "name": "MXC bir antivirüs mü?", "acceptedAnswer": {"@type": "Answer", "text": "Hayır. Containment katmanı: Ne yapılabileceğini sınırlar. Kimlik ve yönetilebilirlik ayrı sütunlar ."}}, {"@type": "Question", "name": "Session container neden önemli?", "acceptedAnswer": {"@type": "Answer", "text": "Ajanı kullanıcının etkileşimli oturumundan ayırır; masaüstü, pano ve girdi sınırları ayrıdır . Uzun süren otomasyonlar için uygun."}}, {"@type": "Question", "name": "Yalnızca Windows'ta mı çalışır?", "acceptedAnswer": {"@type": "Answer", "text": "Process container Windows, macOS ve Linux'ta; session ve WSL yalnızca Windows 11'de; MicroVM Windows 11 ve Linux'ta deneysel ."}}, {"@type": "Question", "name": "Bu, Pluto gibi ajan güvenlik ürünlerinin yerini alır mı?", "acceptedAnswer": {"@type": "Answer", "text": "Tamamlayıcı. Pluto tipi ürünler ajan envanteri ve davranış izlemeye odaklanır; MXC çalışma anı izolasyonu sağlar . İkisi birlikte savunma derinliği oluşturur."}}]}</script><meta property="og:image:width" content="1600"><meta property="og:image:height" content="900"><meta property="article:published_time" content="2026-10-16"><script type="application/ld+json">{"@context": "https://schema.org", "@type": "NewsArticle", "headline": "Yapay zekâ ajanı güvenlik izolasyonu: Microsoft Execution Containers (MXC) ne getiriyor?", "description": "Yapay zekâ ajanı güvenlik izolasyonu: Microsoft Execution Containers (MXC) process, session ve MicroVM ile ajanları nasıl sınırlıyor? Kontrol listesi.", "image": ["https://digitalyakalilar.com/covers/microsoft-execution-containers-ajan-guvenligi.jpg"], "datePublished": "2026-10-16", "dateModified": "2026-10-16", "inLanguage": "tr", "mainEntityOfPage": "https://digitalyakalilar.com/microsoft-execution-containers-ajan-guvenligi/", "keywords": "yapay zekâ ajanı güvenlik izolasyonu, AI agent sandbox, Microsoft Execution Containers, ajan yetki sınırı, process container, Agent 365", "author": {"@type": "Organization", "name": "Digital Yakalılar", "url": "https://digitalyakalilar.com"}, "publisher": {"@type": "Organization", "name": "Digital Yakalılar", "logo": {"@type": "ImageObject", "url": "https://digitalyakalilar.com/logo.png"}}}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Ana sayfa", "item": "https://digitalyakalilar.com/"}, {"@type": "ListItem", "position": 2, "name": "Dijital Güvenlik", "item": "https://digitalyakalilar.com/kategori/dijital-guvenlik/"}, {"@type": "ListItem", "position": 3, "name": "Yapay zekâ ajanı güvenlik izolasyonu: Microsoft Execution Containers (MXC) ne getiriyor?", "item": "https://digitalyakalilar.com/microsoft-execution-containers-ajan-guvenligi/"}]}</script></head><body>
+<header class="site-header"><div class="w"><div class="inner">
+<a class="brand" href="/"><img src="/logo.png" alt="Digital Yakalılar logo" width="38" height="38"><span>Digital Yakalılar</span></a>
+<nav class="nav-cats" aria-label="Kategoriler"><a href="/kategori/ik-teknolojileri/">İK Teknolojileri</a><a href="/kategori/endustri-4-0/">Endüstri 4.0 / Üretim</a><a href="/kategori/lojistik-nakliyat/">Lojistik & Nakliyat</a><a href="/kategori/yapay-zeka-verimlilik/">Yapay Zekâ & Verimlilik</a><a href="/kategori/dijital-guvenlik/">Dijital Güvenlik</a></nav>
+<div class="nav-right"><a class="plain" href="/hakkinda/">Hakkında</a><a class="lang" href="/en/microsoft-execution-containers-ai-agent-security/" hreflang="en" lang="en" title="English">EN</a></div>
+</div></div></header>
+<div class="cover-wrap"><img src="/covers/microsoft-execution-containers-ajan-guvenligi.webp" srcset="/covers/microsoft-execution-containers-ajan-guvenligi-800.webp 800w, /covers/microsoft-execution-containers-ajan-guvenligi.webp 1600w" sizes="(max-width:980px) 100vw, 920px" alt="Yapay zekâ ajanı güvenlik izolasyonu: Microsoft Execution Containers kapak görseli" width="1600" height="900" fetchpriority="high" decoding="async"></div><div class="article-shell"><article class="story">
+<div class="crumb"><a href="/">Ana sayfa</a> › <a href="/kategori/dijital-guvenlik/">Dijital Güvenlik</a></div><h1>Yapay zekâ ajanı güvenlik izolasyonu: Microsoft Execution Containers (MXC) ne getiriyor?</h1>
+<p class="lede">Microsoft, yapay zekâ ajanlarını dosya ve ağ sınırlarıyla izole eden Execution Containers&#x27;ı genel kullanıma açtı. Yapay zekâ ajanı güvenlik izolasyonu, gölge ajan riskine karşı OS düzeyinde ne vaat ediyor?</p>
+<div class="meta"><a class="tag" href="/kategori/dijital-guvenlik/">Dijital Güvenlik</a>16 Ekim 2026<span class="dot">·</span>4 dk okuma<span class="updated">Son güncelleme: 16 Ekim 2026</span></div>
+<div class="share top" aria-label="Paylaş"><b>Paylaş:</b><a href="https://x.com/intent/post?url=https%3A%2F%2Fdigitalyakalilar.com%2Fmicrosoft-execution-containers-ajan-guvenligi%2F&text=Yapay%20zek%C3%A2%20ajan%C4%B1%20g%C3%BCvenlik%20izolasyonu%3A%20Microsoft%20Execution%20Containers%20%28MXC%29%20ne%20getiriyor%3F" target=_blank rel=noopener>X</a><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fdigitalyakalilar.com%2Fmicrosoft-execution-containers-ajan-guvenligi%2F" target=_blank rel=noopener>LinkedIn</a><a href="https://wa.me/?text=Yapay%20zek%C3%A2%20ajan%C4%B1%20g%C3%BCvenlik%20izolasyonu%3A%20Microsoft%20Execution%20Containers%20%28MXC%29%20ne%20getiriyor%3F%20https%3A%2F%2Fdigitalyakalilar.com%2Fmicrosoft-execution-containers-ajan-guvenligi%2F" target=_blank rel=noopener>WhatsApp</a><a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdigitalyakalilar.com%2Fmicrosoft-execution-containers-ajan-guvenligi%2F" target=_blank rel=noopener>Facebook</a><a href="https://t.me/share/url?url=https%3A%2F%2Fdigitalyakalilar.com%2Fmicrosoft-execution-containers-ajan-guvenligi%2F&text=Yapay%20zek%C3%A2%20ajan%C4%B1%20g%C3%BCvenlik%20izolasyonu%3A%20Microsoft%20Execution%20Containers%20%28MXC%29%20ne%20getiriyor%3F" target=_blank rel=noopener>Telegram</a><a href="mailto:?subject=Yapay%20zek%C3%A2%20ajan%C4%B1%20g%C3%BCvenlik%20izolasyonu%3A%20Microsoft%20Execution%20Containers%20%28MXC%29%20ne%20getiriyor%3F&body=https%3A%2F%2Fdigitalyakalilar.com%2Fmicrosoft-execution-containers-ajan-guvenligi%2F">E-posta</a></div>
+<p>Ajanlar dosyalara, ağa ve uygulamalara dokundukça verim artıyor; aynı anda yeni bir güvenlik yüzeyi açılıyor. Microsoft Windows Developer Blog'unda 7 Ekim 2026'da yayımlanan yazıya göre <strong>Microsoft Execution Containers (MXC)</strong> artık genel kullanıma açık ve ajanlar için politika güdümlü bir <strong>containment</strong> (izolasyon) katmanı sunuyor <sup class="cite"><a href="#kaynak-1" aria-label="Kaynaklar 1">[1]</a></sup>. Bu yazıda <strong>yapay zekâ ajanı güvenlik izolasyonu</strong> konusunu MXC üzerinden inceliyor, Pluto / OWASP tartışmasıyla bağlıyor ve BT ekipleri için bir kontrol listesi veriyoruz.</p><div class="toc" role="navigation" aria-label="İçindekiler"><strong>İçindekiler</strong><ol><li><a href="#b1">Üç sütun: Containment, identity, manageability</a></li><li><a href="#b2">Neden yönetilen bir sınır şart?</a></li><li><a href="#b3">MXC backend spektrumu</a></li><li><a href="#b4">Öğrenme modları: Önce gözlemle, sonra kilitle</a></li><li><a href="#b5">Kimler MXC kullanıyor?</a></li><li><a href="#b6">Türkiye'deki şirketler için pratik okuma</a></li><li><a href="#b7">Kontrol listesi: Yapay zekâ ajanı güvenlik izolasyonu</a></li><li><a href="#b8">Sıkça sorulan sorular</a></li></ol></div><div class="ad-slot" id="ad-article-top" data-ad-slot="article-top" aria-hidden="true"></div>
+<h2 id="b1">Üç sütun: Containment, identity, manageability</h2>
+<p>Microsoft'un çerçevesi üç başlıkta toplanıyor <sup class="cite"><a href="#kaynak-1" aria-label="Kaynaklar 1">[1]</a></sup>:</p>
+<ol>
+<li><strong>Containment</strong> — ajanın erişebileceği dosya ve ağ hedeflerini sınırlamak</li>
+<li><strong>Identity</strong> — ajan etkinliğini kişiden ayırmak (Microsoft Entra / Agent 365 ile yakında)</li>
+<li><strong>Manageability</strong> — erişimi yönetmek ve ajan etkinliğini izlemek</li>
+</ol>
+<p>MXC birinci sütunu sağlıyor. Geliştiriciler ve BT yöneticileri ajanın kullanabileceği kaynakları tanımlıyor; MXC uygun konteyner ile bu politikayı çalışma anında zorunlu kılıyor <sup class="cite"><a href="#kaynak-1" aria-label="Kaynaklar 1">[1]</a></sup>. Politika ajanın kontrolü dışında kalıyor: Ajan kendine ek yetki veremiyor <sup class="cite"><a href="#kaynak-1" aria-label="Kaynaklar 1">[1]</a></sup>.</p>
+<h2 id="b2">Neden yönetilen bir sınır şart?</h2>
+<p>Microsoft'un örneği tanıdık: Bir kod ajanından web sitesini güncellemesi isteniyor. Depoya yazma ve derleme araçlarına ihtiyaç var; üretim sunucu yapılandırmasını <strong>okuması</strong> gerekebilir ama <strong>değiştirmemesi</strong> gerekir. Yönetilen sınır yoksa ajan, görevi bitirmenin en hızlı yolu diye üretim yapılandırmasını değiştirmeyi "mantıklı" bulabilir <sup class="cite"><a href="#kaynak-1" aria-label="Kaynaklar 1">[1]</a></sup>. Containment bu sınırı modelden bağımsız uygular.</p>
+<p>Bu, <a href="/calisan-yapay-zeka-ajanlari-guvenlik-riski/">gölge ajan yazımızda</a> OWASP'ın "aşırı yetki" (Excessive Agency) uyarısıyla aynı çizgide: Sorun çoğu zaman aşırı işlev, aşırı izin veya aşırı özerklik.</p>
+<h2 id="b3">MXC backend spektrumu</h2>
+<p>Microsoft farklı iş yükleri için farklı izolasyon seviyeleri listeliyor <sup class="cite"><a href="#kaynak-1" aria-label="Kaynaklar 1">[1]</a></sup>:</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Backend</th>
+<th>Kullanılabilirlik</th>
+<th>Ne için</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Process container</td>
+<td>Windows 11, macOS, Linux</td>
+<td>Hafif, düşük gecikmeli işler; AppContainer / Seatbelt / Bubblewrap</td>
+</tr>
+<tr>
+<td>Session container</td>
+<td>Yalnızca Windows 11</td>
+<td>Uzun süren ajanlar; ayrı hesap, masaüstü, pano, girdi sınırı</td>
+</tr>
+<tr>
+<td>WSL container (WSLc)</td>
+<td>Yalnızca Windows 11</td>
+<td>Linux-öncelikli ajan araç zincirleri</td>
+</tr>
+<tr>
+<td>MicroVM</td>
+<td>Windows 11 ve Linux (deneysel)</td>
+<td>Daha yüksek risk; donanım destekli izolasyon</td>
+</tr>
+</tbody>
+</table></div>
+<p>Politika alanları: containment tipi, süreç başlatma, dosya sistemi (okuma/yazma/yasak), ağ (giriş/çıkış), kullanıcı arayüzü erişimi <sup class="cite"><a href="#kaynak-1" aria-label="Kaynaklar 1">[1]</a></sup>.</p>
+<h2 id="b4">Öğrenme modları: Önce gözlemle, sonra kilitle</h2>
+<p>Yalnızca Windows'ta process container'lar ajan etkinlik raporu üretebiliyor. Üç mod var <sup class="cite"><a href="#kaynak-1" aria-label="Kaynaklar 1">[1]</a></sup>:</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Mod</th>
+<th>İzinsiz erişim</th>
+<th>Rapor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Enforcement</td>
+<td>Engellenir</td>
+<td>Yok</td>
+</tr>
+<tr>
+<td>Learning</td>
+<td>Engellenir + kayda alınır</td>
+<td>Var</td>
+</tr>
+<tr>
+<td>Permissive</td>
+<td>İzin verilir + kayda alınır</td>
+<td>Var (politika yazımı için)</td>
+</tr>
+</tbody>
+</table></div>
+<p>İlk kurulumda politika meşru ihtiyaçları da kesebilir; Learning/Permissive bu boşlukları görmeye yarıyor <sup class="cite"><a href="#kaynak-1" aria-label="Kaynaklar 1">[1]</a></sup>.</p>
+<h2 id="b5">Kimler MXC kullanıyor?</h2>
+<p>Yazıya göre GitHub Copilot, OpenClaw, OpenAI Codex, Replit, LM Studio ve Unsloth AI hâlihazırda MXC destekliyor; Anthropic Claude Code, Box, Perplexity ve diğerleri destek açıklayacak. NVIDIA OpenShell'i MXC ile entegre etti. Windows 365 üzerinde MXC desteği genel kullanıma açıldı <sup class="cite"><a href="#kaynak-1" aria-label="Kaynaklar 1">[1]</a></sup>.</p>
+<p>Temel hesap güvenliği için <a href="/telefon-ve-hesap-guvenligi/">telefon ve hesap güvenliği rehberimize</a>; İK sistemlerine bağlanan ajanlar için <a href="/ik-yapay-zeka-ajanlari-workday-sap-metaview/">işe alım ajanları yazımıza</a> bakın.</p>
+<h2 id="b6">Türkiye'deki şirketler için pratik okuma</h2>
+<p>MXC Windows ağırlıklı bir platform özelliği; macOS/Linux process container desteği de var <sup class="cite"><a href="#kaynak-1" aria-label="Kaynaklar 1">[1]</a></sup>. Türkiye'de karma cihaz filoları yaygındır: Ofis Windows 11, geliştirici Mac, fabrika terminali Linux. Bu durumda politika şemasını ortak tutup backend'i cihaza göre seçmek Microsoft'un önerdiği modele uyuyor <sup class="cite"><a href="#kaynak-1" aria-label="Kaynaklar 1">[1]</a></sup>.</p>
+<p>KVKK açısından kritik nokta şu: Ajan kişisel veri içeren klasörlere veya müşteri sistemlerine bağlanacaksa, izolasyon sınırı teknik bir tercih değil, veri minimizasyonu aracıdır. Containment "ajana her şeyi verip ummak" ile "ajana yalnızca görev dosyasını vermek" arasındaki farkı işletim sistemi düzeyinde sabitler <sup class="cite"><a href="#kaynak-1" aria-label="Kaynaklar 1">[1]</a></sup>.</p>
+<p>Bulut tarafında Windows 365 MXC desteğinin genel kullanıma açılması, ajanı yerel cihazda değil Cloud PC üzerinde izole çalıştırmayı da mümkün kılıyor <sup class="cite"><a href="#kaynak-1" aria-label="Kaynaklar 1">[1]</a></sup>. Bu, saha laptop'larında ajan denemelerini merkezî politikalaya almak isteyen BT ekipleri için ek bir seçenek.</p>
+<h2 id="b7">Kontrol listesi: Yapay zekâ ajanı güvenlik izolasyonu</h2>
+<ul>
+<li class="check">Her ajan için en az yetki politikası (dosya + ağ + UI) yazılı mı?</li>
+<li class="check">Üretim yapılandırması / sırlar ajanın yazma kapsamı dışında mı?</li>
+<li class="check">Kod ajanları MXC veya eşdeğer sandbox içinde mi çalışıyor?</li>
+<li class="check">Learning modunda aktivite raporu toplanıp politika sıkılaştırıldı mı?</li>
+<li class="check">Ajan kimliği kullanıcı kimliğinden ayrılabiliyor mu? (Agent 365 yol haritası <sup class="cite"><a href="#kaynak-1" aria-label="Kaynaklar 1">[1]</a></sup>)</li>
+<li class="check">Intune / MDM ile kurumsal MXC politikası planlandı mı?</li>
+<li class="check">Çalışanların kurduğu ajanlar envanterde mi? (<a href="/calisan-yapay-zeka-ajanlari-guvenlik-riski/">gölge ajan kontrol listesi</a>)</li>
+</ul>
+<h2 id="b8">Sıkça sorulan sorular</h2>
+<h3>Yapay zekâ ajanı güvenlik izolasyonu nedir?</h3>
+<p>Ajanın (veya ürettiği kodun) erişebileceği dosya, ağ ve arayüz kaynaklarını, ajanın kendi kararından bağımsız olarak işletim sistemi / konteyner katmanında sınırlamak. MXC bunu politika güdümlü konteynerlerle yapıyor <sup class="cite"><a href="#kaynak-1" aria-label="Kaynaklar 1">[1]</a></sup>.</p>
+<h3>MXC bir antivirüs mü?</h3>
+<p>Hayır. Containment katmanı: Ne yapılabileceğini sınırlar. Kimlik ve yönetilebilirlik ayrı sütunlar <sup class="cite"><a href="#kaynak-1" aria-label="Kaynaklar 1">[1]</a></sup>.</p>
+<h3>Session container neden önemli?</h3>
+<p>Ajanı kullanıcının etkileşimli oturumundan ayırır; masaüstü, pano ve girdi sınırları ayrıdır <sup class="cite"><a href="#kaynak-1" aria-label="Kaynaklar 1">[1]</a></sup>. Uzun süren otomasyonlar için uygun.</p>
+<h3>Yalnızca Windows'ta mı çalışır?</h3>
+<p>Process container Windows, macOS ve Linux'ta; session ve WSL yalnızca Windows 11'de; MicroVM Windows 11 ve Linux'ta deneysel <sup class="cite"><a href="#kaynak-1" aria-label="Kaynaklar 1">[1]</a></sup>.</p>
+<h3>Bu, Pluto gibi ajan güvenlik ürünlerinin yerini alır mı?</h3>
+<p>Tamamlayıcı. Pluto tipi ürünler ajan envanteri ve davranış izlemeye odaklanır; MXC çalışma anı izolasyonu sağlar <sup class="cite"><a href="#kaynak-1" aria-label="Kaynaklar 1">[1]</a></sup>. İkisi birlikte savunma derinliği oluşturur.</p>
+<div class="ad-slot" id="ad-article-bottom" data-ad-slot="article-bottom" aria-hidden="true"></div><section class="refs"><h2 id="kaynaklar">Kaynaklar</h2>
+<ol class="sources">
+<li id="kaynak-1">Windows Developer Blog, Logan Iyer, "Microsoft Execution Containers: Policy-driven containment for AI agents", 7 Ekim 2026. <a href="https://blogs.windows.com/windowsdeveloper/2026/10/07/microsoft-execution-containers-policy-driven-containment-for-ai-agents/" target="_blank" rel="noopener">https://blogs.windows.com/windowsdeveloper/2026/10/07/microsoft-execution-containers-policy-driven-containment-for-ai-agents/</a> (Erişim: 16 Ekim 2026)</li>
+</ol></section><div class="share " aria-label="Paylaş"><b>Paylaş:</b><a href="https://x.com/intent/post?url=https%3A%2F%2Fdigitalyakalilar.com%2Fmicrosoft-execution-containers-ajan-guvenligi%2F&text=Yapay%20zek%C3%A2%20ajan%C4%B1%20g%C3%BCvenlik%20izolasyonu%3A%20Microsoft%20Execution%20Containers%20%28MXC%29%20ne%20getiriyor%3F" target=_blank rel=noopener>X</a><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fdigitalyakalilar.com%2Fmicrosoft-execution-containers-ajan-guvenligi%2F" target=_blank rel=noopener>LinkedIn</a><a href="https://wa.me/?text=Yapay%20zek%C3%A2%20ajan%C4%B1%20g%C3%BCvenlik%20izolasyonu%3A%20Microsoft%20Execution%20Containers%20%28MXC%29%20ne%20getiriyor%3F%20https%3A%2F%2Fdigitalyakalilar.com%2Fmicrosoft-execution-containers-ajan-guvenligi%2F" target=_blank rel=noopener>WhatsApp</a><a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdigitalyakalilar.com%2Fmicrosoft-execution-containers-ajan-guvenligi%2F" target=_blank rel=noopener>Facebook</a><a href="https://t.me/share/url?url=https%3A%2F%2Fdigitalyakalilar.com%2Fmicrosoft-execution-containers-ajan-guvenligi%2F&text=Yapay%20zek%C3%A2%20ajan%C4%B1%20g%C3%BCvenlik%20izolasyonu%3A%20Microsoft%20Execution%20Containers%20%28MXC%29%20ne%20getiriyor%3F" target=_blank rel=noopener>Telegram</a><a href="mailto:?subject=Yapay%20zek%C3%A2%20ajan%C4%B1%20g%C3%BCvenlik%20izolasyonu%3A%20Microsoft%20Execution%20Containers%20%28MXC%29%20ne%20getiriyor%3F&body=https%3A%2F%2Fdigitalyakalilar.com%2Fmicrosoft-execution-containers-ajan-guvenligi%2F">E-posta</a></div>
+</article></div><section class="related"><h2>İlgini çekebilir</h2><div class="grid"><a class="card" href="/calisan-yapay-zeka-ajanlari-guvenlik-riski/">
+<div class="card-img"><img src="/covers/calisan-yapay-zeka-ajanlari-guvenlik-riski-800.webp" alt="Çalışanların kurduğu yapay zekâ ajanları yeni güvenlik açığı mı? Pluto yatırımı ve OWASP, NIST rehberleri ne söylüyor?" width="800" height="450" loading="lazy" decoding="async"></div>
+<div class="card-body"><div class="meta"><span class="tag">Dijital Güvenlik</span></div>
+<h2>Çalışanların kurduğu yapay zekâ ajanları yeni güvenlik açığı mı? Pluto yatırımı ve OWASP, NIST rehberleri ne söylüyor?</h2>
+<p>Webrazzi&#x27;nin aktardığı Pluto yatırımı, çalışanların kendi kurduğu yapay zekâ ajanlarından doğan riskleri gündeme taşıdı. OWASP ve NIST kaynaklarına dayanarak riskleri ve şirketlerin atabileceği somut adımları derledik.</p>
+<div class="meta">15 Ekim 2026<span class="dot">·</span>6 dk okuma</div>
+</div></a><a class="card" href="/telefon-ve-hesap-guvenligi/">
+<div class="card-img"><img src="/covers/telefon-ve-hesap-guvenligi-800.webp" alt="Telefon ve hesap güvenliği: Beyaz yakalılar için kanıta dayalı rehber" width="800" height="450" loading="lazy" decoding="async"></div>
+<div class="card-body"><div class="meta"><span class="tag">Dijital Güvenlik</span></div>
+<h2>Telefon ve hesap güvenliği: Beyaz yakalılar için kanıta dayalı rehber</h2>
+<p>İki adımlı doğrulamadan passkey&#x27;lere, oltalama SMS&#x27;lerinden kayıp telefon senaryosuna; NIST, CISA, Google ve Apple kaynaklarıyla telefonunu ve hesaplarını korumanın adım adım yolu.</p>
+<div class="meta">15 Ekim 2026<span class="dot">·</span>9 dk okuma</div>
+</div></a><a class="card" href="/providence-ibm-rita-ise-alim-ajanlari/">
+<div class="card-img"><img src="/covers/providence-ibm-rita-ise-alim-ajanlari-800.webp" alt="Sistemleri değiştirmeden işe alım yapay zekâsı: Providence ve IBM&#x27;in RITA ajanı ne öğretiyor?" width="800" height="450" loading="lazy" decoding="async"></div>
+<div class="card-body"><div class="meta"><span class="tag">İK Teknolojileri</span></div>
+<h2>Sistemleri değiştirmeden işe alım yapay zekâsı: Providence ve IBM&#x27;in RITA ajanı ne öğretiyor?</h2>
+<p>Providence, Oracle HCM&#x27;ini sökmeden IBM watsonx Orchestrate üzerinde RITA ajanını kurdu. İdari yükün yüzde 90 azaldığı iddia ediliyor. Sistem değiştirmeden işe alım yapay zekâsı Türkiye&#x27;deki İK ekipleri için ne anlama geliyor?</p>
+<div class="meta">16 Ekim 2026<span class="dot">·</span>5 dk okuma</div>
+</div></a></div></section>
+<footer><div class="w"><div><div class="foot-brand">Digital Yakalılar</div>İK, endüstri, lojistik ve daha fazlasının dijitalleşme ürünleri; haberler ve kaynaklı rehberler.<br>© 2026 Digital Yakalılar</div>
+<div><a href="https://www.instagram.com/digitalyakalilar/">Instagram @digitalyakalilar</a><br>
+<a href="https://x.com/digiyakalilar">X @digiyakalilar</a></div></div></footer></body></html>
