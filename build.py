@@ -174,7 +174,12 @@ footer .foot-brand{{font-weight:800;font-size:16px;margin-bottom:6px}}
   .nav-right a.plain{{display:none}}
   .feat{{margin-top:12px}}
   .article-shell{{padding:4px 16px 32px}}
-}}"""
+}}
+.ck{{position:fixed;left:12px;right:12px;bottom:12px;z-index:100;max-width:560px;margin:0 auto;background:var(--surface);color:var(--body);border:1px solid var(--border);border-radius:16px;box-shadow:0 12px 40px var(--shadow-lg);padding:14px 16px;font-size:14px;line-height:1.5;display:none}}
+.ck.on{{display:block}}.ck p{{margin:0 0 10px}}.ck a{{color:var(--accent);font-weight:700}}
+.ck .b{{display:flex;gap:10px}}.ck button{{flex:1;min-height:44px;font:inherit;font-weight:800;border-radius:12px;cursor:pointer;border:2px solid var(--accent);background:var(--surface);color:var(--accent)}}
+.ck button:hover{{background:var(--accent);color:#fff}}
+"""
 
 CSS = build_css(P)
 
@@ -376,7 +381,17 @@ def footer(lang):
     u = UI[lang]
     return f"""<footer><div class="w"><div><div class="foot-brand">{NAME}</div>{u['foot']}<br>© {datetime.date.today().year} {NAME}</div>
 <div><a href="https://www.instagram.com/digitalyakalilar/">Instagram @digitalyakalilar</a><br>
-<a href="https://x.com/digiyakalilar">X @digiyakalilar</a></div></div></footer>"""
+<a href="https://x.com/digiyakalilar">X @digiyakalilar</a><br>
+<a href="{'/en/privacy/' if lang=='en' else '/gizlilik/'}">{'Privacy policy' if lang=='en' else 'Gizlilik ve çerez politikası'}</a></div></div></footer>"""
+
+
+def banner(lang):
+    if lang == "en":
+        t, l, a, r, h = "We use Google Analytics cookies only with your consent to see which articles are read. Ad cookies stay off.", "Privacy", "Accept", "Reject", "/en/privacy/"
+    else:
+        t, l, a, r, h = "Hangi yazıların okunduğunu görmek için yalnızca onayınla Google Analytics çerezleri kullanıyoruz. Reklam çerezleri kapalı.", "Gizlilik", "Kabul et", "Reddet", "/gizlilik/"
+    return f"""<div class="ck" id="ck" role="dialog" aria-live="polite" aria-label="{l}"><p>{t} <a href="{h}">{l}</a></p><div class="b"><button type="button" data-c="denied">{r}</button><button type="button" data-c="granted">{a}</button></div></div>
+<script>(function(){{var b=document.getElementById('ck'),v;try{{v=localStorage.getItem('dy_consent')}}catch(e){{}}if(!v)b.className='ck on';b.addEventListener('click',function(e){{var c=e.target.getAttribute('data-c');if(!c)return;try{{localStorage.setItem('dy_consent',c)}}catch(x){{}}if(c==='granted')gtag('consent','update',{{analytics_storage:'granted'}});b.className='ck';}});}})();</script>"""
 
 
 def page(title, desc, body, url, typ="website", lang="tr", alt=None, og=None, extra_head=""):
@@ -396,10 +411,10 @@ def page(title, desc, body, url, typ="website", lang="tr", alt=None, og=None, ex
 <title>{t}</title><meta name="description" content="{d}"><link rel="canonical" href="{SITE}{url}">{hl}
 <meta property="og:type" content="{typ}"><meta property="og:title" content="{t}"><meta property="og:description" content="{d}"><meta property="og:url" content="{SITE}{url}"><meta property="og:image" content="{ogi}"><meta property="og:locale" content="{u['loc']}"><meta property="og:site_name" content="{NAME}">
 <meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="{t}"><meta name="twitter:description" content="{d}"><link rel="alternate" type="application/rss+xml" title="{NAME}" href="{SITE}{u['pre']}/rss.xml"><meta name="twitter:site" content="@digiyakalilar"><meta name="twitter:image" content="{ogi}">
-<link rel="icon" href="/favicon.ico" sizes="any"><link rel="icon" type="image/png" href="/favicon.png"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="preload" href="/montserrat.ttf" as="font" type="font/ttf" crossorigin><link rel="stylesheet" href="/style.css">{extra_head}</head><body>
+<link rel="icon" href="/favicon.ico" sizes="any"><link rel="icon" type="image/png" href="/favicon.png"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="preload" href="/montserrat.ttf" as="font" type="font/ttf" crossorigin><link rel="stylesheet" href="/style.css"><script>window.dataLayer=window.dataLayer||[];function gtag(){{dataLayer.push(arguments);}}gtag('consent','default',{{ad_storage:'denied',analytics_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',wait_for_update:500}});try{{if(localStorage.getItem('dy_consent')==='granted')gtag('consent','update',{{analytics_storage:'granted'}});}}catch(e){{}}gtag('js',new Date());gtag('config','G-Z3LYZKZVL7');</script><script async src="https://www.googletagmanager.com/gtag/js?id=G-Z3LYZKZVL7"></script>{extra_head}</head><body>
 {header(lang,url,alt)}
 {body}
-{footer(lang)}</body></html>"""
+{footer(lang)}{banner(lang)}</body></html>"""
 
 
 def fd(s, lang="tr"):
@@ -749,6 +764,23 @@ def rss(ps, lang, pre):
 
 rss(posts, "tr", "")
 rss(en, "en", "/en")
+
+
+PRIV_TR = """<main class='w'><article class='story'><h1>Gizlilik ve Çerez Politikası</h1>
+<p><strong>Veri sorumlusu:</strong> Digital Yakalılar. İletişim: Instagram <a href="https://www.instagram.com/digitalyakalilar/">@digitalyakalilar</a>.</p>
+<h2>Barındırma (GitHub Pages)</h2><p>Site GitHub Pages üzerinde barındırılır. GitHub, güvenlik ve hizmetin işletilmesi için ziyaretçilerin IP adresi gibi teknik kayıtları tutabilir. Ayrıntılar: <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">GitHub Gizlilik Bildirimi</a>.</p>
+<h2>Google Analytics 4</h2><p>Hangi yazıların okunduğunu ve trafiğin nereden geldiğini anlamak için Google Analytics 4 kullanırız. Analitik çerezleri <strong>yalnızca çerez bannerında “Kabul et” seçerseniz</strong> etkinleşir (Google Consent Mode v2). Reklam ve kişiselleştirme çerezleri kapalıdır. Onay vermezseniz analitik çerez yazılmaz. Veriler Google tarafından işlenir ve yurt dışına aktarılabilir: <a href="https://policies.google.com/privacy">Google Gizlilik Politikası</a>.</p>
+<h2>Tercihinizi değiştirme</h2><p>Seçiminiz tarayıcınızın yerel depolamasında (dy_consent) saklanır. <a href="#" onclick="try{localStorage.removeItem('dy_consent')}catch(e){};location.reload();return false">Çerez tercihimi sıfırla</a>.</p>
+<h2>Haklarınız</h2><p>6698 sayılı KVKK kapsamındaki haklarınız (bilgi talep etme, düzeltme, silme, itiraz) için Instagram üzerinden bize ulaşabilirsiniz.</p></article></main>"""
+PRIV_EN = """<main class='w'><article class='story'><h1>Privacy and Cookie Policy</h1>
+<p><strong>Data controller:</strong> Digital Yakalılar. Contact: Instagram <a href="https://www.instagram.com/digitalyakalilar/">@digitalyakalilar</a>.</p>
+<h2>Hosting (GitHub Pages)</h2><p>This site is hosted on GitHub Pages. GitHub may keep technical logs such as visitors' IP addresses for security and service operation. See the <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">GitHub Privacy Statement</a>.</p>
+<h2>Google Analytics 4</h2><p>We use Google Analytics 4 to understand which articles are read and where traffic comes from. Analytics cookies are enabled <strong>only if you choose “Accept”</strong> in the cookie banner (Google Consent Mode v2). Advertising and personalization storage stays denied. If you do not consent, no analytics cookies are set. Data is processed by Google and may be transferred abroad: <a href="https://policies.google.com/privacy">Google Privacy Policy</a>.</p>
+<h2>Changing your choice</h2><p>Your choice is stored in your browser's local storage (dy_consent). <a href="#" onclick="try{localStorage.removeItem('dy_consent')}catch(e){};location.reload();return false">Reset my cookie choice</a>.</p>
+<h2>Your rights</h2><p>To exercise your rights under Turkish data protection law (KVKK) and similar laws, contact us via Instagram.</p></article></main>"""
+w("/gizlilik/index.html", page("Gizlilik ve Çerez Politikası | " + NAME, "Digital Yakalılar gizlilik ve çerez politikası: GitHub Pages barındırma ve onaya bağlı Google Analytics 4.", PRIV_TR, "/gizlilik/", lang="tr", alt="/en/privacy/"))
+w("/en/privacy/index.html", page("Privacy and Cookie Policy | " + NAME, "Digital Yakalılar privacy and cookie policy: GitHub Pages hosting and consent-based Google Analytics 4.", PRIV_EN, "/en/privacy/", lang="en", alt="/gizlilik/"))
+pairs.append(("/gizlilik/", "/en/privacy/"))
 
 
 def al(a, b):
