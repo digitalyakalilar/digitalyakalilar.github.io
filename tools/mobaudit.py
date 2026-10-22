@@ -7,6 +7,8 @@ H=functools.partial(Q,directory='public')
 s=http.server.ThreadingHTTPServer(('127.0.0.1',8765),H);threading.Thread(target=s.serve_forever,daemon=True).start()
 cat=sorted(os.listdir('public/kategori'))[0]
 pages={'home':'/','cat':f'/kategori/{cat}/','a1':'/telefon-ve-hesap-guvenligi/','a2':'/ucretsiz-yapay-zeka-araclari/','a3':'/linkedin-profil-ipuclari/','enhome':'/en/','enart':'/en/'+[d for d in sorted(os.listdir('public/en')) if os.path.isdir('public/en/'+d) and d not in('kategori','category','about')][0]+'/'}
+# extra pages: DY_AUDIT_EXTRA='/slug/,/en/slug/'
+for i,u in enumerate([x for x in os.environ.get('DY_AUDIT_EXTRA','').split(',') if x]):pages[f'x{i+1}']=u
 JS='''()=>{const W=document.documentElement.clientWidth;const r={sw:document.documentElement.scrollWidth,W,vp:(document.querySelector('meta[name=viewport]')||{}).content};
 r.over=[...document.querySelectorAll('body *')].filter(e=>{const b=e.getBoundingClientRect();return b.width>0&&b.right>W+1&&getComputedStyle(e).position!='fixed'&&!e.closest('.table-wrap,pre,.pills,nav ul,[data-scroll]')}).slice(0,6).map(e=>e.tagName+'.'+e.className+' r='+Math.round(e.getBoundingClientRect().right));
 r.body=getComputedStyle(document.querySelector('article p, main p')||document.body).fontSize;

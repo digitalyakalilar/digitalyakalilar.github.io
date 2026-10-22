@@ -1,0 +1,179 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>How to stop ClickFix attacks: Fake CAPTCHA defense guide</title><meta name="description" content="How to stop ClickFix attacks: ESET saw a 517% surge in fake CAPTCHA lures. Chrome&#x27;s new protection, a new Huntress case and a 10-point checklist for companies."><link rel="canonical" href="https://digitalyakalilar.com/en/how-to-stop-clickfix-attacks/"><link rel="alternate" hreflang="tr" href="https://digitalyakalilar.com/clickfix-saldirisi-sahte-captcha-korunma/"><link rel="alternate" hreflang="en" href="https://digitalyakalilar.com/en/how-to-stop-clickfix-attacks/"><link rel="alternate" hreflang="x-default" href="https://digitalyakalilar.com/clickfix-saldirisi-sahte-captcha-korunma/">
+<meta property="og:type" content="article"><meta property="og:title" content="How to stop ClickFix attacks: Fake CAPTCHA defense guide"><meta property="og:description" content="How to stop ClickFix attacks: ESET saw a 517% surge in fake CAPTCHA lures. Chrome&#x27;s new protection, a new Huntress case and a 10-point checklist for companies."><meta property="og:url" content="https://digitalyakalilar.com/en/how-to-stop-clickfix-attacks/"><meta property="og:image" content="https://digitalyakalilar.com/covers/how-to-stop-clickfix-attacks.jpg"><meta property="og:locale" content="en_US"><meta property="og:site_name" content="Digital Yakalılar">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="How to stop ClickFix attacks: Fake CAPTCHA defense guide"><meta name="twitter:description" content="How to stop ClickFix attacks: ESET saw a 517% surge in fake CAPTCHA lures. Chrome&#x27;s new protection, a new Huntress case and a 10-point checklist for companies."><link rel="alternate" type="application/rss+xml" title="Digital Yakalılar" href="https://digitalyakalilar.com/en/rss.xml"><meta name="twitter:site" content="@digiyakalilar"><meta name="twitter:image" content="https://digitalyakalilar.com/covers/how-to-stop-clickfix-attacks.jpg">
+<link rel="icon" href="/favicon.ico" sizes="any"><link rel="icon" type="image/png" href="/favicon.png"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="preload" href="/montserrat.ttf" as="font" type="font/ttf" crossorigin><link rel="stylesheet" href="/style.css"><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('consent','default',{ad_storage:'denied',analytics_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',wait_for_update:500});try{if(localStorage.getItem('dy_consent')==='granted')gtag('consent','update',{analytics_storage:'granted'});}catch(e){}gtag('js',new Date());gtag('config','G-Z3LYZKZVL7');</script><script async src="https://www.googletagmanager.com/gtag/js?id=G-Z3LYZKZVL7"></script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is a ClickFix attack?", "acceptedAnswer": {"@type": "Answer", "text": "A social engineering technique that uses a fake error or verification screen to trick users into pasting and running a malicious command themselves in the Run dialog, Terminal or PowerShell ."}}, {"@type": "Question", "name": "How can you tell a fake CAPTCHA?", "acceptedAnswer": {"@type": "Answer", "text": "A real CAPTCHA never asks for keyboard shortcuts, the Run dialog or pasting a command. If you see such an instruction, the page is fake ."}}, {"@type": "Question", "name": "How common are ClickFix attacks?", "acceptedAnswer": {"@type": "Answer", "text": "ESET's H1 2025 data showed ClickFix detections up 517%, accounting for nearly 8% of blocked attacks and ranking second after phishing ."}}, {"@type": "Question", "name": "Does Chrome block ClickFix attacks?", "acceptedAnswer": {"@type": "Answer", "text": "Chrome's Enhanced Protection mode now analyzes suspicious command copying and shows a warning if it is judged dangerous. It only works when Enhanced Protection is on ."}}, {"@type": "Question", "name": "What should I do if I ran the command?", "acceptedAnswer": {"@type": "Answer", "text": "Disconnect the device from the network, tell IT or security right away and change your passwords from a clean device. If personal data leaked, a company in Türkiye may have to notify the KVKK board within 72 hours ."}}]}</script><meta property="og:image:width" content="1600"><meta property="og:image:height" content="900"><meta property="article:published_time" content="2026-10-22"><script type="application/ld+json">{"@context": "https://schema.org", "@type": "NewsArticle", "headline": "How to stop ClickFix attacks: A company guide to fake CAPTCHA lures", "description": "How to stop ClickFix attacks: ESET saw a 517% surge in fake CAPTCHA lures. Chrome's new protection, a new Huntress case and a 10-point checklist for companies.", "image": ["https://digitalyakalilar.com/covers/how-to-stop-clickfix-attacks.jpg"], "datePublished": "2026-10-22", "dateModified": "2026-10-22", "inLanguage": "en", "mainEntityOfPage": "https://digitalyakalilar.com/en/how-to-stop-clickfix-attacks/", "keywords": "how to stop ClickFix attacks, ClickFix attack detection, fake CAPTCHA scam, block Run dialog, finger.exe ClickFix, Chrome ClickFix protection, Lumma Stealer", "author": {"@type": "Organization", "name": "Digital Yakalılar", "url": "https://digitalyakalilar.com"}, "publisher": {"@type": "Organization", "name": "Digital Yakalılar", "logo": {"@type": "ImageObject", "url": "https://digitalyakalilar.com/logo.png"}}}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://digitalyakalilar.com/en/"}, {"@type": "ListItem", "position": 2, "name": "Digital Security", "item": "https://digitalyakalilar.com/en/category/digital-security/"}, {"@type": "ListItem", "position": 3, "name": "How to stop ClickFix attacks: A company guide to fake CAPTCHA lures", "item": "https://digitalyakalilar.com/en/how-to-stop-clickfix-attacks/"}]}</script></head><body>
+<header class="site-header"><div class="w"><div class="inner">
+<a class="brand" href="/en/"><img src="/logo.png" alt="Digital Yakalılar logo" width="38" height="38"><span>Digital Yakalılar</span></a>
+<nav class="nav-cats" aria-label="Categories"><a href="/en/category/hr-tech/">HR Tech</a><a href="/en/category/industry-4-0/">Industry 4.0 & Manufacturing</a><a href="/en/category/logistics/">Logistics & Freight</a><a href="/en/category/ai-productivity/">AI & Productivity</a><a href="/en/category/digital-security/">Digital Security</a></nav>
+<div class="nav-right"><a class="plain" href="/en/about/">About</a><a class="lang" href="/clickfix-saldirisi-sahte-captcha-korunma/" hreflang="tr" lang="tr" title="Türkçe">TR</a></div>
+</div></div></header>
+<div class="cover-wrap"><img src="/covers/how-to-stop-clickfix-attacks.webp" srcset="/covers/how-to-stop-clickfix-attacks-800.webp 800w, /covers/how-to-stop-clickfix-attacks.webp 1600w" sizes="(max-width:980px) 100vw, 920px" alt="How to stop ClickFix attacks: company defenses against fake CAPTCHA commands, cover image" width="1600" height="900" fetchpriority="high" decoding="async"></div><div class="article-shell"><article class="story">
+<div class="crumb"><a href="/en/">Home</a> › <a href="/en/category/digital-security/">Digital Security</a></div><h1>How to stop ClickFix attacks: A company guide to fake CAPTCHA lures</h1>
+<p class="lede">A fake &quot;I&#x27;m not a robot&quot; box gets an employee to run the attacker&#x27;s command by hand. Google just added ClickFix protection to Chrome and Huntress documented a new campaign. How ClickFix works and what companies should lock down.</p>
+<div class="meta"><a class="tag" href="/en/category/digital-security/">Digital Security</a>October 22, 2026<span class="dot">·</span>7 min read<span class="updated">Last updated: October 22, 2026</span></div>
+<div class="share top" aria-label="Share"><b>Share:</b><a href="https://x.com/intent/post?url=https%3A%2F%2Fdigitalyakalilar.com%2Fen%2Fhow-to-stop-clickfix-attacks%2F&text=How%20to%20stop%20ClickFix%20attacks%3A%20A%20company%20guide%20to%20fake%20CAPTCHA%20lures" target=_blank rel=noopener>X</a><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fdigitalyakalilar.com%2Fen%2Fhow-to-stop-clickfix-attacks%2F" target=_blank rel=noopener>LinkedIn</a><a href="https://wa.me/?text=How%20to%20stop%20ClickFix%20attacks%3A%20A%20company%20guide%20to%20fake%20CAPTCHA%20lures%20https%3A%2F%2Fdigitalyakalilar.com%2Fen%2Fhow-to-stop-clickfix-attacks%2F" target=_blank rel=noopener>WhatsApp</a><a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdigitalyakalilar.com%2Fen%2Fhow-to-stop-clickfix-attacks%2F" target=_blank rel=noopener>Facebook</a><a href="https://t.me/share/url?url=https%3A%2F%2Fdigitalyakalilar.com%2Fen%2Fhow-to-stop-clickfix-attacks%2F&text=How%20to%20stop%20ClickFix%20attacks%3A%20A%20company%20guide%20to%20fake%20CAPTCHA%20lures" target=_blank rel=noopener>Telegram</a><a href="mailto:?subject=How%20to%20stop%20ClickFix%20attacks%3A%20A%20company%20guide%20to%20fake%20CAPTCHA%20lures&body=https%3A%2F%2Fdigitalyakalilar.com%2Fen%2Fhow-to-stop-clickfix-attacks%2F">Email</a></div>
+<p>You tick an "I'm not a robot" box on a website, and a short instruction appears: press the Windows key and R, paste with Ctrl+V, hit Enter. That is a ClickFix attack, and the person who downloads the malware is the employee, not the attacker <sup class="cite"><a href="#ref-6" aria-label="References 6">[6]</a></sup>. Google added protection against ClickFix commands to Chrome on October 20, 2026 <sup class="cite"><a href="#ref-1" aria-label="References 1">[1]</a></sup>, and a day later security firm Huntress documented a new campaign that started with a sponsored Google ad <sup class="cite"><a href="#ref-3" aria-label="References 3">[3]</a></sup><sup class="cite"><a href="#ref-4" aria-label="References 4">[4]</a></sup>. This guide covers <strong>how to stop ClickFix attacks</strong>: how the technique works, the numbers behind it and which settings companies should lock down, with sources.</p><div class="toc" role="navigation" aria-label="Contents"><strong>Contents</strong><ol><li><a href="#b1">What is a ClickFix attack?</a></li><li><a href="#b2">ClickFix by the numbers</a></li><li><a href="#b3">The new case: From an "amazon business" ad to finger.exe</a></li><li><a href="#b4">What Chrome's new ClickFix protection does</a></li><li><a href="#b5">Real CAPTCHA or ClickFix lure?</a></li><li><a href="#b6">How to stop ClickFix attacks: What to lock down</a></li><li><a href="#b7">The KVKK angle for companies in Türkiye</a></li><li><a href="#b8">Checklist: 10 steps against ClickFix</a></li><li><a href="#b9">Frequently asked questions</a></li></ol></div><div class="ad-slot" id="ad-article-top" data-ad-slot="article-top" aria-hidden="true"></div>
+<h2 id="b1">What is a ClickFix attack?</h2>
+<p>Microsoft describes ClickFix as a social engineering technique that exploits people's tendency to fix minor technical issues themselves and harmless-looking steps like CAPTCHA checks. Users are told to paste and run a command in the Windows Run dialog, Windows Terminal or PowerShell <sup class="cite"><a href="#ref-6" aria-label="References 6">[6]</a></sup>. Microsoft first observed it in an email campaign between March and June 2024, and within a year it was seeing campaigns targeting thousands of enterprise and end-user devices globally every day <sup class="cite"><a href="#ref-6" aria-label="References 6">[6]</a></sup>. MITRE ATT&amp;CK catalogs the behavior as its own sub-technique: T1204.004, "Malicious Copy and Paste" <sup class="cite"><a href="#ref-7" aria-label="References 7">[7]</a></sup>.</p>
+<p>What makes it dangerous is the human in the middle of the chain. Because the user launches the command, it can get past conventional and automated security solutions <sup class="cite"><a href="#ref-6" aria-label="References 6">[6]</a></sup>. Chrome had a similar blind spot: the malicious download happens in the terminal rather than the browser, so Chrome's download protections never came into play <sup class="cite"><a href="#ref-2" aria-label="References 2">[2]</a></sup>.</p>
+<h2 id="b2">ClickFix by the numbers</h2>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Indicator</th>
+<th>Value</th>
+<th>Source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Growth in ESET telemetry (H2 2024 → H1 2025)</td>
+<td>517%</td>
+<td><sup class="cite"><a href="#ref-5" aria-label="References 5">[5]</a></sup></td>
+</tr>
+<tr>
+<td>Share of all blocked attacks (H1 2025)</td>
+<td>Nearly 8%; second only to phishing</td>
+<td><sup class="cite"><a href="#ref-5" aria-label="References 5">[5]</a></sup></td>
+</tr>
+<tr>
+<td>Share of Huntress managed EDR detection signals (2026)</td>
+<td>Roughly 2.2%; nearly 99% of them high severity</td>
+<td><sup class="cite"><a href="#ref-4" aria-label="References 4">[4]</a></sup></td>
+</tr>
+<tr>
+<td>Microsoft's observation</td>
+<td>Campaigns targeting thousands of enterprise and end-user devices daily</td>
+<td><sup class="cite"><a href="#ref-6" aria-label="References 6">[6]</a></sup></td>
+</tr>
+<tr>
+<td>Price of a ClickFix kit subscription</td>
+<td>$200 to $1,500 per month</td>
+<td><sup class="cite"><a href="#ref-6" aria-label="References 6">[6]</a></sup></td>
+</tr>
+<tr>
+<td>Most prolific final payload</td>
+<td>Lumma Stealer (infostealer)</td>
+<td><sup class="cite"><a href="#ref-6" aria-label="References 6">[6]</a></sup></td>
+</tr>
+</tbody>
+</table></div>
+<p>A quotable statistic: <strong>in ESET's data, ClickFix grew 517% in six months to become the second most common attack vector after phishing</strong> <sup class="cite"><a href="#ref-5" aria-label="References 5">[5]</a></sup>.</p>
+<h2 id="b3">The new case: From an "amazon business" ad to finger.exe</h2>
+<p>According to the Huntress report published on October 21, 2026, the attack began with a simple search: the sponsored result for "amazon business" led to a fake Amazon login page <sup class="cite"><a href="#ref-3" aria-label="References 3">[3]</a></sup>. After the user entered an email or phone number, a fake CAPTCHA appeared, the "I'm not a robot" button copied a command to the clipboard, and the user was told to paste it into the Run dialog <sup class="cite"><a href="#ref-3" aria-label="References 3">[3]</a></sup>.</p>
+<p>The command called <code>finger</code>, a Windows utility dating back to the early internet <sup class="cite"><a href="#ref-4" aria-label="References 4">[4]</a></sup>. Huntress says the command was padded with extra spaces and hyphens, so the Run box appeared to say little more than "Push the Enter key" <sup class="cite"><a href="#ref-3" aria-label="References 3">[3]</a></sup>. The chain ended by installing a version of Lumma Stealer and a pirated copy of the NetSupport Client remote management tool <sup class="cite"><a href="#ref-3" aria-label="References 3">[3]</a></sup><sup class="cite"><a href="#ref-4" aria-label="References 4">[4]</a></sup>. Google removed the ad, but the researchers say the attacker infrastructure remains online <sup class="cite"><a href="#ref-4" aria-label="References 4">[4]</a></sup>.</p>
+<p>Huntress analyst Sarah Reddish sums it up for companies: no legitimate CAPTCHA asks users to paste a command into Run, PowerShell or Command Prompt <sup class="cite"><a href="#ref-4" aria-label="References 4">[4]</a></sup>.</p>
+<h2 id="b4">What Chrome's new ClickFix protection does</h2>
+<p>According to Google's October 20 announcement, Chrome's Enhanced Protection mode can now spot when a user is being manipulated into copying a suspicious command. The clipboard payload is scrubbed of personal information and sent to Safe Browsing for analysis, and if the verdict is dangerous, Chrome shows a warning <sup class="cite"><a href="#ref-1" aria-label="References 1">[1]</a></sup>. Google says the system is designed for high precision to avoid disrupting legitimate developer activity <sup class="cite"><a href="#ref-1" aria-label="References 1">[1]</a></sup>.</p>
+<p>The same announcement adds new "suspicious site" warnings for lower-confidence verdicts and server-side Gemini analysis that also targets fake antivirus and fake browser update pages <sup class="cite"><a href="#ref-1" aria-label="References 1">[1]</a></sup>. Google says more than 1 billion users had turned on Enhanced Protection as of 2025 <sup class="cite"><a href="#ref-1" aria-label="References 1">[1]</a></sup>.</p>
+<p>One important caveat: the ClickFix and Gemini protections only work when Enhanced Protection is on <sup class="cite"><a href="#ref-2" aria-label="References 2">[2]</a></sup>. Unless that setting is enabled centrally on company machines, the new protection does not apply.</p>
+<h2 id="b5">Real CAPTCHA or ClickFix lure?</h2>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th></th>
+<th>Real CAPTCHA</th>
+<th>ClickFix lure</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>What it asks</td>
+<td>Pick images, tick a box, drag a puzzle piece</td>
+<td>Keyboard shortcuts like Win+R, Ctrl+V, Enter <sup class="cite"><a href="#ref-6" aria-label="References 6">[6]</a></sup></td>
+</tr>
+<tr>
+<td>What happens to your clipboard</td>
+<td>Nothing is copied</td>
+<td>A command is copied in the background <sup class="cite"><a href="#ref-3" aria-label="References 3">[3]</a></sup><sup class="cite"><a href="#ref-6" aria-label="References 6">[6]</a></sup></td>
+</tr>
+<tr>
+<td>Which window opens</td>
+<td>None; you stay on the page</td>
+<td>Run, Terminal or PowerShell <sup class="cite"><a href="#ref-6" aria-label="References 6">[6]</a></sup></td>
+</tr>
+<tr>
+<td>The text you see</td>
+<td>A verification question</td>
+<td>Often a short phrase that hides the real command <sup class="cite"><a href="#ref-3" aria-label="References 3">[3]</a></sup></td>
+</tr>
+<tr>
+<td>Outcome</td>
+<td>Access to the site</td>
+<td>Infostealer, remote access tool or ransomware <sup class="cite"><a href="#ref-5" aria-label="References 5">[5]</a></sup><sup class="cite"><a href="#ref-6" aria-label="References 6">[6]</a></sup></td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="b6">How to stop ClickFix attacks: What to lock down</h2>
+<p>Read together, Microsoft's and Huntress's recommendations add up to layered defense:</p>
+<ol>
+<li><strong>Restrict the Run dialog.</strong> Disable Win+R via Group Policy for users who don't need it <sup class="cite"><a href="#ref-6" aria-label="References 6">[6]</a></sup><sup class="cite"><a href="#ref-4" aria-label="References 4">[4]</a></sup>.</li>
+<li><strong>Watch or block rarely used utilities.</strong> Huntress recommends alerting on unexpected <code>finger.exe</code> activity and monitoring or blocking outbound TCP/79 <sup class="cite"><a href="#ref-4" aria-label="References 4">[4]</a></sup>.</li>
+<li><strong>Make PowerShell visible.</strong> Turn on script block logging and use execution policies such as AllSigned or RemoteSigned <sup class="cite"><a href="#ref-6" aria-label="References 6">[6]</a></sup>.</li>
+<li><strong>Warn on multi-line paste.</strong> Enable the Windows Terminal setting that warns when pasted text contains multiple lines <sup class="cite"><a href="#ref-6" aria-label="References 6">[6]</a></sup>.</li>
+<li><strong>Manage the browser.</strong> Use enterprise-managed browsers and consider enabling Chrome Enhanced Protection centrally <sup class="cite"><a href="#ref-6" aria-label="References 6">[6]</a></sup><sup class="cite"><a href="#ref-1" aria-label="References 1">[1]</a></sup>.</li>
+<li><strong>Teach one rule.</strong> If a web page asks you to paste a command, close it and call IT <sup class="cite"><a href="#ref-4" aria-label="References 4">[4]</a></sup>.</li>
+</ol>
+<h2 id="b7">The KVKK angle for companies in Türkiye</h2>
+<p>Infostealers, the most common ClickFix payload, target saved browser passwords, cookies and email client data <sup class="cite"><a href="#ref-6" aria-label="References 6">[6]</a></sup>. If personal data leaks, the problem is not only technical: under Turkish data protection board decision 2019/10, a data controller must notify the board without delay and within 72 hours at the latest after learning of a breach, and must prepare a data breach response plan <sup class="cite"><a href="#ref-8" aria-label="References 8">[8]</a></sup>. A "ClickFix command was run" scenario in your incident response plan should cover that clock as well.</p>
+<p>For account and device basics, see our <a href="/en/phone-and-account-security/">phone and account security guide</a>. For the risk of tools employees set up themselves, read our piece on <a href="/en/employee-built-ai-agents-security-risk/">employee-built AI agents</a>, and for isolating software that runs local commands, our <a href="/en/microsoft-execution-containers-ai-agent-security/">Microsoft Execution Containers review</a>. We cover a similar "keystroke injection" risk on the warehouse floor in our article on <a href="/en/barcode-scanner-security-warehouse/">barcode scanner security</a>.</p>
+<h2 id="b8">Checklist: 10 steps against ClickFix</h2>
+<ul>
+<li class="check">Have you identified user groups that don't need the Run dialog and restricted Win+R?</li>
+<li class="check">Are there alert or block rules for rarely used tools such as <code>finger.exe</code> and <code>mshta</code>?</li>
+<li class="check">Is outbound TCP/79 monitored or blocked?</li>
+<li class="check">Is PowerShell script block logging on and feeding a SIEM?</li>
+<li class="check">Is the multi-line paste warning enabled in Windows Terminal?</li>
+<li class="check">Are company browsers centrally managed, and has a Chrome Enhanced Protection policy been considered?</li>
+<li class="check">Are unapproved remote management tools (NetSupport, etc.) blocked?</li>
+<li class="check">Does employee training show a screenshot of a "CAPTCHA that asks you to paste a command"?</li>
+<li class="check">Is there a written flow for an employee who ran the command: disconnect, call IT, change passwords from a clean device?</li>
+<li class="check">Does your incident response plan include KVKK's 72-hour notification window?</li>
+</ul>
+<h2 id="b9">Frequently asked questions</h2>
+<h3>What is a ClickFix attack?</h3>
+<p>A social engineering technique that uses a fake error or verification screen to trick users into pasting and running a malicious command themselves in the Run dialog, Terminal or PowerShell <sup class="cite"><a href="#ref-6" aria-label="References 6">[6]</a></sup>.</p>
+<h3>How can you tell a fake CAPTCHA?</h3>
+<p>A real CAPTCHA never asks for keyboard shortcuts, the Run dialog or pasting a command. If you see such an instruction, the page is fake <sup class="cite"><a href="#ref-4" aria-label="References 4">[4]</a></sup><sup class="cite"><a href="#ref-6" aria-label="References 6">[6]</a></sup>.</p>
+<h3>How common are ClickFix attacks?</h3>
+<p>ESET's H1 2025 data showed ClickFix detections up 517%, accounting for nearly 8% of blocked attacks and ranking second after phishing <sup class="cite"><a href="#ref-5" aria-label="References 5">[5]</a></sup>.</p>
+<h3>Does Chrome block ClickFix attacks?</h3>
+<p>Chrome's Enhanced Protection mode now analyzes suspicious command copying and shows a warning if it is judged dangerous. It only works when Enhanced Protection is on <sup class="cite"><a href="#ref-1" aria-label="References 1">[1]</a></sup><sup class="cite"><a href="#ref-2" aria-label="References 2">[2]</a></sup>.</p>
+<h3>What should I do if I ran the command?</h3>
+<p>Disconnect the device from the network, tell IT or security right away and change your passwords from a clean device. If personal data leaked, a company in Türkiye may have to notify the KVKK board within 72 hours <sup class="cite"><a href="#ref-8" aria-label="References 8">[8]</a></sup>.</p>
+<div class="ad-slot" id="ad-article-bottom" data-ad-slot="article-bottom" aria-hidden="true"></div><section class="refs"><h2 id="reflar">References</h2>
+<ol class="sources">
+<li id="ref-1">Google, Jasika Bawa, "Our latest defenses against evolving web scams", October 20, 2026. <a href="https://blog.google/security/our-latest-defenses-against-evolving-web-scams/" target="_blank" rel="noopener">https://blog.google/security/our-latest-defenses-against-evolving-web-scams/</a> (Accessed: October 22, 2026)</li>
+<li id="ref-2">SecurityWeek, Eduard Kovacs, "Google Hardens Chrome Against ClickFix Attacks, Insecure HTTP Connections", October 21, 2026. <a href="https://www.securityweek.com/google-hardens-chrome-against-clickfix-attacks-insecure-http-connections/" target="_blank" rel="noopener">https://www.securityweek.com/google-hardens-chrome-against-clickfix-attacks-insecure-http-connections/</a> (Accessed: October 22, 2026)</li>
+<li id="ref-3">Huntress, Andrew Brandt and Sarah Reddish, "Amazon-Themed ClickFix Campaign Serves Up Finger-Licking Malware", October 21, 2026. <a href="https://www.huntress.com/blog/amazon-clickfix-finger" target="_blank" rel="noopener">https://www.huntress.com/blog/amazon-clickfix-finger</a> (Accessed: October 22, 2026)</li>
+<li id="ref-4">Dark Reading, Elizabeth Montalbano, "Decades-Old Windows Utility Powers Modern ClickFix Attack", October 21, 2026. <a href="https://www.darkreading.com/cyberattacks-data-breaches/decades-old-windows-utility-modern-clickfix-attack" target="_blank" rel="noopener">https://www.darkreading.com/cyberattacks-data-breaches/decades-old-windows-utility-modern-clickfix-attack</a> (Accessed: October 22, 2026)</li>
+<li id="ref-5">ESET, "ESET Threat Report: ClickFix fake error surges, spreads ransomware and other malware", June 26, 2025. <a href="https://www.eset.com/us/about/newsroom/research/eset-threat-report-clickfix-fake-error-surges-spreads-ransomware-and-other-malware/" target="_blank" rel="noopener">https://www.eset.com/us/about/newsroom/research/eset-threat-report-clickfix-fake-error-surges-spreads-ransomware-and-other-malware/</a> (Accessed: October 22, 2026)</li>
+<li id="ref-6">Microsoft Threat Intelligence, "Think before you Click(Fix): Analyzing the ClickFix social engineering technique", August 21, 2025. <a href="https://www.microsoft.com/en-us/security/blog/2025/08/21/think-before-you-clickfix-analyzing-the-clickfix-social-engineering-technique/" target="_blank" rel="noopener">https://www.microsoft.com/en-us/security/blog/2025/08/21/think-before-you-clickfix-analyzing-the-clickfix-social-engineering-technique/</a> (Accessed: October 22, 2026)</li>
+<li id="ref-7">MITRE ATT&amp;CK, "User Execution: Malicious Copy and Paste (T1204.004)". <a href="https://attack.mitre.org/techniques/T1204/004/" target="_blank" rel="noopener">https://attack.mitre.org/techniques/T1204/004/</a> (Accessed: October 22, 2026)</li>
+<li id="ref-8">Personal Data Protection Authority (KVKK), "The Board Decision No. 2019/10 of 24.01.2019 about Procedures and Principles of Personal Data Breach Notification". <a href="https://www.kvkk.gov.tr/Icerik/6647/The-Board-Decision-No-2019-10-of-24-01-2019-about-Procedures-and-Principles-of-Personal-Data-Breach-Notification-" target="_blank" rel="noopener">https://www.kvkk.gov.tr/Icerik/6647/The-Board-Decision-No-2019-10-of-24-01-2019-about-Procedures-and-Principles-of-Personal-Data-Breach-Notification-</a> (Accessed: October 22, 2026)</li>
+</ol></section><div class="share " aria-label="Share"><b>Share:</b><a href="https://x.com/intent/post?url=https%3A%2F%2Fdigitalyakalilar.com%2Fen%2Fhow-to-stop-clickfix-attacks%2F&text=How%20to%20stop%20ClickFix%20attacks%3A%20A%20company%20guide%20to%20fake%20CAPTCHA%20lures" target=_blank rel=noopener>X</a><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fdigitalyakalilar.com%2Fen%2Fhow-to-stop-clickfix-attacks%2F" target=_blank rel=noopener>LinkedIn</a><a href="https://wa.me/?text=How%20to%20stop%20ClickFix%20attacks%3A%20A%20company%20guide%20to%20fake%20CAPTCHA%20lures%20https%3A%2F%2Fdigitalyakalilar.com%2Fen%2Fhow-to-stop-clickfix-attacks%2F" target=_blank rel=noopener>WhatsApp</a><a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdigitalyakalilar.com%2Fen%2Fhow-to-stop-clickfix-attacks%2F" target=_blank rel=noopener>Facebook</a><a href="https://t.me/share/url?url=https%3A%2F%2Fdigitalyakalilar.com%2Fen%2Fhow-to-stop-clickfix-attacks%2F&text=How%20to%20stop%20ClickFix%20attacks%3A%20A%20company%20guide%20to%20fake%20CAPTCHA%20lures" target=_blank rel=noopener>Telegram</a><a href="mailto:?subject=How%20to%20stop%20ClickFix%20attacks%3A%20A%20company%20guide%20to%20fake%20CAPTCHA%20lures&body=https%3A%2F%2Fdigitalyakalilar.com%2Fen%2Fhow-to-stop-clickfix-attacks%2F">Email</a></div>
+</article></div><section class="related"><h2>You may also like</h2><div class="grid"><a class="card" href="/en/microsoft-execution-containers-ai-agent-security/">
+<div class="card-img"><img src="/covers/microsoft-execution-containers-ai-agent-security-800.webp" alt="AI agent containment security: What Microsoft Execution Containers (MXC) add" width="800" height="450" loading="lazy" decoding="async"></div>
+<div class="card-body"><div class="meta"><span class="tag">Digital Security</span></div>
+<h2>AI agent containment security: What Microsoft Execution Containers (MXC) add</h2>
+<p>Microsoft made Execution Containers generally available to isolate AI agents with file and network policies. What AI agent containment security means against shadow-agent risk at the OS layer.</p>
+<div class="meta">October 16, 2026<span class="dot">·</span>4 min read</div>
+</div></a><a class="card" href="/en/employee-built-ai-agents-security-risk/">
+<div class="card-img"><img src="/covers/employee-built-ai-agents-security-risk-800.webp" alt="Are employee-built AI agents the new security gap? What Pluto&#x27;s funding and OWASP and NIST guidance say" width="800" height="450" loading="lazy" decoding="async"></div>
+<div class="card-body"><div class="meta"><span class="tag">Digital Security</span></div>
+<h2>Are employee-built AI agents the new security gap? What Pluto&#x27;s funding and OWASP and NIST guidance say</h2>
+<p>Pluto&#x27;s funding round, reported by Webrazzi, puts a spotlight on the risks of AI agents that employees build themselves. Drawing on OWASP and NIST sources, we map the risks and the concrete steps companies can take.</p>
+<div class="meta">October 15, 2026<span class="dot">·</span>7 min read</div>
+</div></a><a class="card" href="/en/phone-and-account-security/">
+<div class="card-img"><img src="/covers/phone-and-account-security-800.webp" alt="Phone and account security: An evidence-based guide for professionals" width="800" height="450" loading="lazy" decoding="async"></div>
+<div class="card-body"><div class="meta"><span class="tag">Digital Security</span></div>
+<h2>Phone and account security: An evidence-based guide for professionals</h2>
+<p>From two-factor authentication and passkeys to smishing and a lost-phone plan: a step-by-step guide to protecting your phone and your accounts, backed by NIST, CISA, Google and Apple sources.</p>
+<div class="meta">October 15, 2026<span class="dot">·</span>10 min read</div>
+</div></a></div></section>
+<footer><div class="w"><div><div class="foot-brand">Digital Yakalılar</div>Digitalization products across HR, industry, logistics and beyond — news and sourced guides.<br>© 2026 Digital Yakalılar</div>
+<div><a href="https://www.instagram.com/digitalyakalilar/">Instagram @digitalyakalilar</a><br>
+<a href="https://x.com/digiyakalilar">X @digiyakalilar</a><br>
+<a href="/en/privacy/">Privacy policy</a></div></div></footer><div class="ck" id="ck" role="dialog" aria-live="polite" aria-label="Privacy"><p>We use Google Analytics cookies only with your consent to see which articles are read. Ad cookies stay off. <a href="/en/privacy/">Privacy</a></p><div class="b"><button type="button" data-c="denied">Reject</button><button type="button" data-c="granted">Accept</button></div></div>
+<script>(function(){var b=document.getElementById('ck'),v;try{v=localStorage.getItem('dy_consent')}catch(e){}if(!v)b.className='ck on';b.addEventListener('click',function(e){var c=e.target.getAttribute('data-c');if(!c)return;try{localStorage.setItem('dy_consent',c)}catch(x){}if(c==='granted')gtag('consent','update',{analytics_storage:'granted'});b.className='ck';});})();</script></body></html>
