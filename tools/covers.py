@@ -1,5 +1,5 @@
 """Generate 1600x900 cover JPGs (+ 800px WebP) into static/covers/.
-Needs Chrome + playwright. Frontmatter: cover_title, cover_icon (ai|profile|phone|factory|logistics|hragents|maturity|mes|warehouse|agentshield|resume|twin|costs|audit).
+Needs Chrome + playwright. Frontmatter: cover_title, cover_icon (ai|profile|phone|factory|logistics|hragents|maturity|mes|warehouse|agentshield|resume|twin|costs|audit|captcha|scanner|amr|agents|server|passport|hrsplit|sctalent).
 
 Usage:
   python3 tools/covers.py              # uses build.py PALETTE / DY_PALETTE
@@ -347,6 +347,72 @@ def make_icons(C):
 <g filter="url(#s)"><rect x="240" y="50" width="220" height="90" rx="26" fill="#fff"/></g>
 <rect x="270" y="80" width="30" height="30" rx="6" fill="{PK}" stroke="{P}" stroke-width="5"/><rect x="315" y="80" width="30" height="30" rx="6" fill="{PK}" stroke="{P}" stroke-width="5"/><rect x="360" y="80" width="30" height="30" rx="6" fill="url(#g)"/><rect x="405" y="80" width="30" height="30" rx="6" fill="url(#g)"/>"""
 
+
+    def icon_server():
+        racks = ""
+        for i in range(4):
+            y = 140 + i * 105
+            racks += (f'<rect x="150" y="{y}" width="300" height="84" rx="16" fill="{P}"/>'
+                      f'<circle cx="190" cy="{y+42}" r="10" fill="{C["g1"] if i == 1 else ACC}"/>'
+                      f'<rect x="220" y="{y+30}" width="150" height="10" rx="5" fill="#fff" opacity=".55"/>'
+                      f'<rect x="220" y="{y+48}" width="100" height="8" rx="4" fill="#fff" opacity=".35"/>'
+                      f'<rect x="395" y="{y+26}" width="30" height="32" rx="6" fill="#fff" opacity=".18"/>')
+        return f"""<g filter="url(#s)"><rect x="120" y="110" width="360" height="470" rx="34" fill="#fff"/></g>{racks}
+<g filter="url(#s)"><rect x="420" y="70" width="240" height="180" rx="28" fill="#fff"/></g>
+<rect x="450" y="100" width="180" height="120" rx="14" fill="{PK}"/><rect x="450" y="100" width="180" height="32" rx="14" fill="url(#g2)"/>
+<text x="540" y="196" text-anchor="middle" font-family="M" font-weight="900" font-size="46" fill="{P}">2027</text>
+<g filter="url(#s)"><path d="M560 330 L650 364 V440 C650 500 612 540 560 560 C508 540 470 500 470 440 V364 Z" fill="url(#g)"/></g>
+{chk(560, 440, 2.2, w=14)}
+<g filter="url(#s)"><rect x="30" y="500" width="230" height="110" rx="26" fill="#fff"/></g>
+<path d="M70 555 H200 M170 530 L200 555 L170 580" stroke="{P}" stroke-width="12" fill="none" stroke-linecap="round" stroke-linejoin="round"/><rect x="214" y="530" width="24" height="50" rx="8" fill="url(#g)"/>"""
+
+    def icon_passport():
+        qr = ""
+        pat = ["1110111", "1010101", "1110111", "0001000", "1011101", "0100110", "1110101"]
+        for r, row in enumerate(pat):
+            for c, v in enumerate(row):
+                if v == "1":
+                    qr += f'<rect x="{390+c*30}" y="{250+r*30}" width="27" height="27" rx="4" fill="{P}"/>'
+        return f"""<g filter="url(#s)"><rect x="100" y="100" width="300" height="440" rx="30" fill="{P}"/></g>
+<rect x="130" y="130" width="240" height="380" rx="20" fill="none" stroke="#fff" stroke-width="4" opacity=".35"/>
+<circle cx="250" cy="260" r="70" fill="none" stroke="#fff" stroke-width="10"/><ellipse cx="250" cy="260" rx="30" ry="70" fill="none" stroke="#fff" stroke-width="8"/><line x1="180" y1="260" x2="320" y2="260" stroke="#fff" stroke-width="8"/>
+<rect x="170" y="370" width="160" height="16" rx="8" fill="#fff"/><rect x="190" y="400" width="120" height="12" rx="6" fill="#fff" opacity=".6"/>
+<rect x="200" y="440" width="100" height="36" rx="18" fill="url(#g)"/>
+<g filter="url(#s)"><rect x="360" y="220" width="270" height="270" rx="28" fill="#fff"/></g>{qr}
+<g filter="url(#s)"><rect x="420" y="60" width="230" height="110" rx="28" fill="#fff"/></g>
+<text x="535" y="132" text-anchor="middle" font-family="M" font-weight="900" font-size="46" fill="{P}">DPP</text>
+<g filter="url(#s)"><circle cx="560" cy="560" r="66" fill="#fff"/></g>
+<path d="M530 585 C520 545 545 515 595 515 C595 560 570 590 530 585Z" fill="url(#g)"/><path d="M528 590 C545 565 560 548 580 532" stroke="#fff" stroke-width="6" fill="none" stroke-linecap="round"/>"""
+
+    def icon_hrsplit():
+        bars = "".join(f'<rect x="{430+i*42}" y="{480-h}" width="30" height="{h}" rx="7" fill="url(#g)" opacity="{.55+i*.15}"/>' for i, h in enumerate([60, 100, 140, 180]))
+        return f"""<g filter="url(#s)"><circle cx="350" cy="150" r="80" fill="#fff"/></g>
+<circle cx="350" cy="130" r="26" fill="{P}"/><path d="M308 196 A42 36 0 0 1 392 196Z" fill="{P}"/>
+<path d="M350 240 V300 M350 300 C350 340 200 330 200 380 M350 300 C350 340 500 330 500 380" stroke="#fff" stroke-width="12" fill="none" stroke-linecap="round"/>
+<g filter="url(#s)"><rect x="60" y="380" width="270" height="250" rx="30" fill="#fff"/></g>
+<rect x="90" y="410" width="210" height="40" rx="20" fill="{PK}"/><circle cx="112" cy="430" r="11" fill="{ACC}"/>{chk(112, 430, 0.55, w=4)}<rect x="132" y="425" width="130" height="10" rx="5" fill="{P}" opacity=".7"/>
+<rect x="90" y="465" width="210" height="40" rx="20" fill="{PK}"/><circle cx="112" cy="485" r="11" fill="{ACC}"/>{chk(112, 485, 0.55, w=4)}<rect x="132" y="480" width="100" height="10" rx="5" fill="{P}" opacity=".7"/>
+<rect x="90" y="520" width="210" height="40" rx="20" fill="{PK}"/><circle cx="112" cy="540" r="11" fill="{ACC}"/>{chk(112, 540, 0.55, w=4)}<rect x="132" y="535" width="140" height="10" rx="5" fill="{P}" opacity=".7"/>
+<rect x="90" y="578" width="150" height="12" rx="6" fill="{MU}"/>
+<g filter="url(#s)"><rect x="370" y="380" width="270" height="250" rx="30" fill="#fff"/></g>
+{bars}<rect x="410" y="500" width="200" height="6" rx="3" fill="{LINE}"/>
+<text x="505" y="580" text-anchor="middle" font-family="M" font-weight="900" font-size="38" fill="{P}">SQL · BI</text>"""
+
+    def icon_sctalent():
+        people = ""
+        for i, x in enumerate([150, 280, 410]):
+            people += (f'<g filter="url(#s)"><circle cx="{x}" cy="300" r="62" fill="#fff"/></g>'
+                       f'<circle cx="{x}" cy="285" r="20" fill="{P}"/><path d="M{x-32} 336 A32 26 0 0 1 {x+32} 336Z" fill="{P}"/>')
+        return f"""<g filter="url(#s)"><rect x="60" y="440" width="580" height="170" rx="30" fill="#fff"/></g>
+<rect x="100" y="480" width="150" height="90" rx="14" fill="{P}"/><rect x="270" y="500" width="110" height="70" rx="14" fill="{ACC2}"/><rect x="400" y="460" width="200" height="110" rx="14" fill="url(#g)"/>
+<rect x="420" y="490" width="80" height="12" rx="6" fill="#fff"/><rect x="420" y="512" width="120" height="10" rx="5" fill="#fff" opacity=".7"/>
+{people}
+<path d="M200 200 C260 140 340 140 400 200" stroke="#fff" stroke-width="8" fill="none" stroke-dasharray="14 12" opacity=".8"/>
+<g filter="url(#s)"><rect x="440" y="60" width="210" height="150" rx="30" fill="{P}"/></g>
+<rect x="470" y="96" width="70" height="78" rx="12" fill="#fff"/><circle cx="505" cy="135" r="14" fill="url(#g)"/>
+<rect x="556" y="100" width="70" height="12" rx="6" fill="#fff"/><rect x="556" y="124" width="50" height="10" rx="5" fill="#fff" opacity=".6"/><rect x="556" y="146" width="62" height="10" rx="5" fill="#fff" opacity=".6"/>
+<g filter="url(#s)"><circle cx="560" cy="330" r="56" fill="#fff"/></g>{chk(560, 330, 1.6, c=C['g1'], w=10)}"""
+
     icons = {
         "ai": icon_ai,
         "profile": icon_profile,
@@ -366,6 +432,10 @@ def make_icons(C):
         "scanner": icon_scanner,
         "amr": icon_amr,
         "agents": icon_agents,
+        "server": icon_server,
+        "passport": icon_passport,
+        "hrsplit": icon_hrsplit,
+        "sctalent": icon_sctalent,
     }
     return DEFS, icons
 

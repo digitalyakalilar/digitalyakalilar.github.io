@@ -1,0 +1,216 @@
+<!doctype html><html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Windows Server 2016 destek sonu: geçiş ve ESU rehberi</title><meta name="description" content="Windows Server 2016 destek sonu 12 Ocak 2027: son güncelleme, Azure Arc ESU koşulları, Essentials riski, sürüm tablosu ve BT için 10 maddelik geçiş listesi."><link rel="canonical" href="https://digitalyakalilar.com/windows-server-2016-destek-sonu-gecis-rehberi/"><link rel="alternate" hreflang="tr" href="https://digitalyakalilar.com/windows-server-2016-destek-sonu-gecis-rehberi/"><link rel="alternate" hreflang="en" href="https://digitalyakalilar.com/en/windows-server-2016-end-of-support-migration/"><link rel="alternate" hreflang="x-default" href="https://digitalyakalilar.com/windows-server-2016-destek-sonu-gecis-rehberi/">
+<meta property="og:type" content="article"><meta property="og:title" content="Windows Server 2016 destek sonu: geçiş ve ESU rehberi"><meta property="og:description" content="Windows Server 2016 destek sonu 12 Ocak 2027: son güncelleme, Azure Arc ESU koşulları, Essentials riski, sürüm tablosu ve BT için 10 maddelik geçiş listesi."><meta property="og:url" content="https://digitalyakalilar.com/windows-server-2016-destek-sonu-gecis-rehberi/"><meta property="og:image" content="https://digitalyakalilar.com/covers/windows-server-2016-destek-sonu-gecis-rehberi.jpg"><meta property="og:locale" content="tr_TR"><meta property="og:site_name" content="Digital Yakalılar">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Windows Server 2016 destek sonu: geçiş ve ESU rehberi"><meta name="twitter:description" content="Windows Server 2016 destek sonu 12 Ocak 2027: son güncelleme, Azure Arc ESU koşulları, Essentials riski, sürüm tablosu ve BT için 10 maddelik geçiş listesi."><link rel="alternate" type="application/rss+xml" title="Digital Yakalılar" href="https://digitalyakalilar.com/rss.xml"><meta name="twitter:site" content="@digiyakalilar"><meta name="twitter:image" content="https://digitalyakalilar.com/covers/windows-server-2016-destek-sonu-gecis-rehberi.jpg">
+<link rel="icon" href="/favicon.ico" sizes="any"><link rel="icon" type="image/png" href="/favicon.png"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="preload" href="/montserrat.ttf" as="font" type="font/ttf" crossorigin><link rel="stylesheet" href="/style.css"><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('consent','default',{ad_storage:'denied',analytics_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',wait_for_update:500});try{if(localStorage.getItem('dy_consent')==='granted')gtag('consent','update',{analytics_storage:'granted'});}catch(e){}gtag('js',new Date());gtag('config','G-Z3LYZKZVL7');</script><script async src="https://www.googletagmanager.com/gtag/js?id=G-Z3LYZKZVL7"></script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Windows Server 2016 desteği ne zaman bitiyor?", "acceptedAnswer": {"@type": "Answer", "text": "12 Ocak 2027'de. Ocak 2027 güncellemesi bu sürüm için son ücretsiz güvenlik güncellemesi olacak ."}}, {"@type": "Question", "name": "Destek bitince Windows Server 2016 çalışmayı durdurur mu?", "acceptedAnswer": {"@type": "Answer", "text": "Hayır. Sunucular çalışmaya devam eder ama yeni açıklara karşı güvenlik güncellemesi almaz ."}}, {"@type": "Question", "name": "Windows Server 2016 için ESU alınabilir mi?", "acceptedAnswer": {"@type": "Answer", "text": "Evet, Standard ve Datacenter sürümleri için Azure Arc üzerinden, en fazla üç yıl. Software Assurance veya SPLA/sunucu aboneliği gerekiyor; faturalandırma 13 Ocak 2027'de başlıyor ."}}, {"@type": "Question", "name": "Windows Server 2016 Essentials için ESU var mı?", "acceptedAnswer": {"@type": "Answer", "text": "Microsoft'un ESU koşulları yalnızca Standard ve Datacenter sürümlerini sayıyor; Essentials kullanıcıları için Microsoft geçiş adımlarını öneriyor ."}}, {"@type": "Question", "name": "2016'dan doğrudan Windows Server 2025'e yükseltme yapılabilir mi?", "acceptedAnswer": {"@type": "Answer", "text": "Kümelenmemiş sistemlerde evet: Windows Server 2025'e tek seferde dört sürüme kadar yerinde yükseltme destekleniyor. Kümelerde her seferinde bir sürüm ilerlenir ."}}]}</script><meta property="og:image:width" content="1600"><meta property="og:image:height" content="900"><meta property="article:published_time" content="2026-10-25"><script type="application/ld+json">{"@context": "https://schema.org", "@type": "NewsArticle", "headline": "Windows Server 2016 destek sonu: 12 Ocak 2027'ye kadar geçiş, ESU ve envanter rehberi", "description": "Windows Server 2016 destek sonu 12 Ocak 2027: son güncelleme, Azure Arc ESU koşulları, Essentials riski, sürüm tablosu ve BT için 10 maddelik geçiş listesi.", "image": ["https://digitalyakalilar.com/covers/windows-server-2016-destek-sonu-gecis-rehberi.jpg"], "datePublished": "2026-10-25", "dateModified": "2026-10-25", "inLanguage": "tr", "mainEntityOfPage": "https://digitalyakalilar.com/windows-server-2016-destek-sonu-gecis-rehberi/", "keywords": "Windows Server 2016 destek sonu, Windows Server 2016 desteği ne zaman bitiyor, Windows Server 2016 ESU, Azure Arc ESU, Windows Server 2025 geçiş, sunucu envanteri, yama yönetimi", "author": {"@type": "Organization", "name": "Digital Yakalılar", "url": "https://digitalyakalilar.com"}, "publisher": {"@type": "Organization", "name": "Digital Yakalılar", "logo": {"@type": "ImageObject", "url": "https://digitalyakalilar.com/logo.png"}}}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Ana sayfa", "item": "https://digitalyakalilar.com/"}, {"@type": "ListItem", "position": 2, "name": "Dijital Güvenlik", "item": "https://digitalyakalilar.com/kategori/dijital-guvenlik/"}, {"@type": "ListItem", "position": 3, "name": "Windows Server 2016 destek sonu: 12 Ocak 2027'ye kadar geçiş, ESU ve envanter rehberi", "item": "https://digitalyakalilar.com/windows-server-2016-destek-sonu-gecis-rehberi/"}]}</script></head><body>
+<header class="site-header"><div class="w"><div class="inner">
+<a class="brand" href="/"><img src="/logo.png" alt="Digital Yakalılar logo" width="38" height="38"><span>Digital Yakalılar</span></a>
+<nav class="nav-cats" aria-label="Kategoriler"><a href="/kategori/ik-teknolojileri/">İK Teknolojileri</a><a href="/kategori/endustri-4-0/">Endüstri 4.0 / Üretim</a><a href="/kategori/lojistik-nakliyat/">Lojistik & Nakliyat</a><a href="/kategori/yapay-zeka-verimlilik/">Yapay Zekâ & Verimlilik</a><a href="/kategori/dijital-guvenlik/">Dijital Güvenlik</a></nav>
+<div class="nav-right"><a class="plain" href="/hakkinda/">Hakkında</a><a class="lang" href="/en/windows-server-2016-end-of-support-migration/" hreflang="en" lang="en" title="English">EN</a></div>
+</div></div></header>
+<div class="cover-wrap"><img src="/covers/windows-server-2016-destek-sonu-gecis-rehberi.webp" srcset="/covers/windows-server-2016-destek-sonu-gecis-rehberi-800.webp 800w, /covers/windows-server-2016-destek-sonu-gecis-rehberi.webp 1600w" sizes="(max-width:980px) 100vw, 920px" alt="Windows Server 2016 destek sonu: 12 Ocak 2027 takvimi ve geçiş rehberi kapak görseli" width="1600" height="900" fetchpriority="high" decoding="async"></div><div class="article-shell"><article class="story">
+<div class="crumb"><a href="/">Ana sayfa</a> › <a href="/kategori/dijital-guvenlik/">Dijital Güvenlik</a></div><h1>Windows Server 2016 destek sonu: 12 Ocak 2027&#x27;ye kadar geçiş, ESU ve envanter rehberi</h1>
+<p class="lede">Windows Server 2016 destek sonu 12 Ocak 2027. Microsoft&#x27;un son güncelleme takvimi, Azure Arc ile ESU koşulları, Essentials sürümüne özel riskler, sürüm karşılaştırma tablosu ve BT ekipleri için geçiş kontrol listesi.</p>
+<div class="meta"><a class="tag" href="/kategori/dijital-guvenlik/">Dijital Güvenlik</a>25 Ekim 2026<span class="dot">·</span>6 dk okuma<span class="updated">Son güncelleme: 25 Ekim 2026</span></div>
+<div class="share top" aria-label="Paylaş"><b>Paylaş:</b><a href="https://x.com/intent/post?url=https%3A%2F%2Fdigitalyakalilar.com%2Fwindows-server-2016-destek-sonu-gecis-rehberi%2F&text=Windows%20Server%202016%20destek%20sonu%3A%2012%20Ocak%202027%27ye%20kadar%20ge%C3%A7i%C5%9F%2C%20ESU%20ve%20envanter%20rehberi" target=_blank rel=noopener>X</a><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fdigitalyakalilar.com%2Fwindows-server-2016-destek-sonu-gecis-rehberi%2F" target=_blank rel=noopener>LinkedIn</a><a href="https://wa.me/?text=Windows%20Server%202016%20destek%20sonu%3A%2012%20Ocak%202027%27ye%20kadar%20ge%C3%A7i%C5%9F%2C%20ESU%20ve%20envanter%20rehberi%20https%3A%2F%2Fdigitalyakalilar.com%2Fwindows-server-2016-destek-sonu-gecis-rehberi%2F" target=_blank rel=noopener>WhatsApp</a><a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdigitalyakalilar.com%2Fwindows-server-2016-destek-sonu-gecis-rehberi%2F" target=_blank rel=noopener>Facebook</a><a href="https://t.me/share/url?url=https%3A%2F%2Fdigitalyakalilar.com%2Fwindows-server-2016-destek-sonu-gecis-rehberi%2F&text=Windows%20Server%202016%20destek%20sonu%3A%2012%20Ocak%202027%27ye%20kadar%20ge%C3%A7i%C5%9F%2C%20ESU%20ve%20envanter%20rehberi" target=_blank rel=noopener>Telegram</a><a href="mailto:?subject=Windows%20Server%202016%20destek%20sonu%3A%2012%20Ocak%202027%27ye%20kadar%20ge%C3%A7i%C5%9F%2C%20ESU%20ve%20envanter%20rehberi&body=https%3A%2F%2Fdigitalyakalilar.com%2Fwindows-server-2016-destek-sonu-gecis-rehberi%2F">E-posta</a></div>
+<p>Microsoft, Windows Server 2016'nın Ocak 2027 güncellemesinin bu sürüm için yayımlanacak son güvenlik güncellemesi olacağını hatırlattı <sup class="cite"><a href="#kaynak-1" aria-label="Kaynaklar 1">[1]</a></sup>. <strong>Windows Server 2016 destek sonu</strong> 12 Ocak 2027; bu tarihten sonra Datacenter, Essentials, MultiPoint Premium ve Standard sürümlerinin hiçbiri ücretsiz güvenlik yaması, hata düzeltmesi veya teknik destek almayacak <sup class="cite"><a href="#kaynak-1" aria-label="Kaynaklar 1">[1]</a></sup><sup class="cite"><a href="#kaynak-2" aria-label="Kaynaklar 2">[2]</a></sup>. Geriye yaklaşık 11 hafta kaldı. Bu rehberde tarihleri birincil kaynaklardan derledik, ücretli Genişletilmiş Güvenlik Güncellemeleri (ESU) seçeneğinin koşullarını ve bir geçiş kontrol listesini bir araya getirdik.</p><div class="toc" role="navigation" aria-label="İçindekiler"><strong>İçindekiler</strong><ol><li><a href="#b1">Windows Server 2016 desteği ne zaman bitiyor?</a></li><li><a href="#b2">Windows Server 2016 ESU: Azure Arc ile ücretli uzatma koşulları</a></li><li><a href="#b3">Windows Server 2016 Essentials kullananlar için ayrı uyarı</a></li><li><a href="#b4">Yerinde yükseltme mi, yeni kurulum mu?</a></li><li><a href="#b5">Türkiye'den bakış: Güncel olmayan envanter ulusal risk başlığı</a></li><li><a href="#b6">Windows Server 2016 destek sonu için 10 maddelik geçiş kontrol listesi</a></li><li><a href="#b7">Sıkça sorulan sorular</a></li></ol></div><div class="ad-slot" id="ad-article-top" data-ad-slot="article-top" aria-hidden="true"></div>
+<h2 id="b1">Windows Server 2016 desteği ne zaman bitiyor?</h2>
+<p>Microsoft Learn yaşam döngüsü sayfasına göre Windows Server 2016'nın ana akım desteği 11 Ocak 2022'de bitti; genişletilmiş destek ise 12 Ocak 2027'de (Learn'de UTC olarak 13 Ocak 2027 06:59) sona eriyor <sup class="cite"><a href="#kaynak-2" aria-label="Kaynaklar 2">[2]</a></sup>. Aynı tarih Hyper-V Server 2016, Windows Server 2016 üzerindeki IIS 10, Windows Storage Server 2016 ve Windows Server 2016 için WSUS gibi bileşenleri de kapsıyor; System Center 2016 ise bir gün önce, 11 Ocak 2027'de destek dışı kalıyor <sup class="cite"><a href="#kaynak-3" aria-label="Kaynaklar 3">[3]</a></sup>.</p>
+<p>BleepingComputer'ın aktardığına göre destek bitince sunucular çalışmaya devam edecek ama yeni açıklara karşı korunmayacak; Microsoft müşterilere Windows Server 2025'e geçmeyi öneriyor ve sürümü denemek isteyenler için 180 günlük değerlendirme sürümü sunuyor <sup class="cite"><a href="#kaynak-1" aria-label="Kaynaklar 1">[1]</a></sup>.</p>
+<h3>Sürüm karşılaştırma tablosu: Hangi sunucu ne zamana kadar güvende?</h3>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Sürüm</th>
+<th>Ana akım destek sonu</th>
+<th>Genişletilmiş destek sonu</th>
+<th>Durum (25 Ekim 2026)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Windows Server 2016</td>
+<td>11 Ocak 2022 <sup class="cite"><a href="#kaynak-2" aria-label="Kaynaklar 2">[2]</a></sup></td>
+<td>12 Ocak 2027 <sup class="cite"><a href="#kaynak-2" aria-label="Kaynaklar 2">[2]</a></sup></td>
+<td>Son 11 hafta</td>
+</tr>
+<tr>
+<td>Windows Server 2019</td>
+<td>9 Ocak 2024 <sup class="cite"><a href="#kaynak-4" aria-label="Kaynaklar 4">[4]</a></sup></td>
+<td>9 Ocak 2029 <sup class="cite"><a href="#kaynak-4" aria-label="Kaynaklar 4">[4]</a></sup></td>
+<td>Yalnızca güvenlik güncellemesi</td>
+</tr>
+<tr>
+<td>Windows Server 2022</td>
+<td>13 Ekim 2026 <sup class="cite"><a href="#kaynak-5" aria-label="Kaynaklar 5">[5]</a></sup></td>
+<td>14 Ekim 2031 <sup class="cite"><a href="#kaynak-5" aria-label="Kaynaklar 5">[5]</a></sup></td>
+<td>Ana akım destek yeni bitti</td>
+</tr>
+<tr>
+<td>Windows Server 2025</td>
+<td>13 Kasım 2029 <sup class="cite"><a href="#kaynak-6" aria-label="Kaynaklar 6">[6]</a></sup></td>
+<td>14 Kasım 2034 <sup class="cite"><a href="#kaynak-6" aria-label="Kaynaklar 6">[6]</a></sup></td>
+<td>Ana akım destekte</td>
+</tr>
+<tr>
+<td>SQL Server 2016 (bağlam)</td>
+<td>13 Temmuz 2021 <sup class="cite"><a href="#kaynak-7" aria-label="Kaynaklar 7">[7]</a></sup></td>
+<td>14 Temmuz 2026 <sup class="cite"><a href="#kaynak-7" aria-label="Kaynaklar 7">[7]</a></sup></td>
+<td>Destek bitti, ESU 1. yıl sürüyor <sup class="cite"><a href="#kaynak-7" aria-label="Kaynaklar 7">[7]</a></sup></td>
+</tr>
+</tbody>
+</table></div>
+<p>Not: Tarihler Microsoft Learn'deki UTC saatlerinin bir gün öncesine denk gelen ABD Pasifik saatine göre yazıldı.</p>
+<p>Alıntılanabilir istatistik: <strong>Windows Server 2016'dan 2022'ye geçen bir sunucu, 2031'e kadar; 2025'e geçen bir sunucu ise 2034'e kadar güvenlik güncellemesi alabilir</strong> <sup class="cite"><a href="#kaynak-5" aria-label="Kaynaklar 5">[5]</a></sup><sup class="cite"><a href="#kaynak-6" aria-label="Kaynaklar 6">[6]</a></sup>. Kısa vadeli bir "ara durak" seçmek, birkaç yıl sonra aynı projeyi tekrarlamak anlamına gelebilir.</p>
+<h2 id="b2">Windows Server 2016 ESU: Azure Arc ile ücretli uzatma koşulları</h2>
+<p>Microsoft, Şubat 2026'da Windows Server 2016 için ESU'nun Azure Arc üzerinden sunulacağını duyurdu <sup class="cite"><a href="#kaynak-8" aria-label="Kaynaklar 8">[8]</a></sup>. Microsoft Learn'deki hazırlık sayfasına göre koşullar şöyle <sup class="cite"><a href="#kaynak-9" aria-label="Kaynaklar 9">[9]</a></sup>:</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Konu</th>
+<th>Windows Server 2016 ESU (Azure Arc)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Kapsam</td>
+<td>Kritik ve Önemli güvenlik güncellemeleri, en fazla 3 yıl (2030'a kadar) <sup class="cite"><a href="#kaynak-9" aria-label="Kaynaklar 9">[9]</a></sup></td>
+</tr>
+<tr>
+<td>Yapılandırma</td>
+<td>3 Ağustos 2026'dan itibaren <sup class="cite"><a href="#kaynak-9" aria-label="Kaynaklar 9">[9]</a></sup></td>
+</tr>
+<tr>
+<td>Faturalandırma</td>
+<td>13 Ocak 2027'den itibaren <sup class="cite"><a href="#kaynak-9" aria-label="Kaynaklar 9">[9]</a></sup></td>
+</tr>
+<tr>
+<td>Sürümler</td>
+<td>Yalnızca Standard ve Datacenter <sup class="cite"><a href="#kaynak-9" aria-label="Kaynaklar 9">[9]</a></sup></td>
+</tr>
+<tr>
+<td>Lisans şartı</td>
+<td>Yazılım Güvencesi (Software Assurance) veya SPLA / sunucu aboneliği <sup class="cite"><a href="#kaynak-9" aria-label="Kaynaklar 9">[9]</a></sup></td>
+</tr>
+<tr>
+<td>Ajan</td>
+<td>Azure Connected Machine ajanı 1.62 veya üzeri <sup class="cite"><a href="#kaynak-9" aria-label="Kaynaklar 9">[9]</a></sup></td>
+</tr>
+<tr>
+<td>Kapsam dışı</td>
+<td>Yeni özellikler ve güvenlik dışı hata düzeltmeleri <sup class="cite"><a href="#kaynak-9" aria-label="Kaynaklar 9">[9]</a></sup></td>
+</tr>
+</tbody>
+</table></div>
+<p>Fiyat konusunda dikkatli olun: Microsoft 1 Nisan 2026'dan itibaren ESU liste fiyatının konumdan ve satış kanalından bağımsız olarak aynı olacağını açıkladı <sup class="cite"><a href="#kaynak-10" aria-label="Kaynaklar 10">[10]</a></sup>. Güncel çekirdek başı fiyatı Azure fiyat hesaplayıcısından veya lisans iş ortağınızdan teyit edin; üçüncü taraf sitelerdeki fiyatları bütçe kararına esas almayın.</p>
+<p>ESU bir çıkış planı değil, zaman kazanma aracıdır. Microsoft da duyurusunda bu dönemi Windows Server 2025'e yükseltmek veya Azure'a taşınmak için bir fırsat olarak tanımlıyor <sup class="cite"><a href="#kaynak-8" aria-label="Kaynaklar 8">[8]</a></sup>. Microsoft'un ESU sayfasına göre Azure Arc ile alınan ESU kullandıkça öde abonelik modeliyle faturalanıyor; klasik ESU ise Toplu Lisanslama üzerinden yıllık dilimlerle satın alınıyor <sup class="cite"><a href="#kaynak-11" aria-label="Kaynaklar 11">[11]</a></sup>.</p>
+<h2 id="b3">Windows Server 2016 Essentials kullananlar için ayrı uyarı</h2>
+<p>Küçük ofislerde yaygın olan Essentials sürümü için tablo daha keskin. BleepingComputer, Uzaktan Web Erişimi (Remote Web Access) gibi Essentials özelliklerinin de sona erdiğini aktarıyor <sup class="cite"><a href="#kaynak-1" aria-label="Kaynaklar 1">[1]</a></sup>. Microsoft destek sayfası, Essentials kullanıcıları için geçiş adımlarını anlatıyor ve remotewebaccess.com hizmetinin de sona ereceğini belirtiyor <sup class="cite"><a href="#kaynak-12" aria-label="Kaynaklar 12">[12]</a></sup>. Yukarıdaki tabloda gördüğünüz gibi Azure Arc ESU yalnızca Standard ve Datacenter sürümlerini kapsıyor <sup class="cite"><a href="#kaynak-9" aria-label="Kaynaklar 9">[9]</a></sup>; yani Essentials için "bir yıl daha uzatalım" seçeneği yok.</p>
+<h2 id="b4">Yerinde yükseltme mi, yeni kurulum mu?</h2>
+<p>Microsoft Learn'e göre Windows Server 2025 ile kümelenmemiş sistemlerde tek seferde dört sürüme kadar yerinde yükseltme yapılabiliyor; Windows Server 2022 ve öncesinde bu sınır iki sürümdü. Küme (cluster) sistemlerinde sıralı yükseltme her seferinde bir sürüm ilerliyor ve her yükseltme için ayrı lisans gerekiyor <sup class="cite"><a href="#kaynak-13" aria-label="Kaynaklar 13">[13]</a></sup>. Pratikte bu, 2016'dan 2025'e tek adımda geçişin teknik olarak mümkün olduğu, ancak uygulama uyumluluğu ve rol bazında test gerektirdiği anlamına geliyor.</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Senaryo</th>
+<th>Önerilen yaklaşım</th>
+<th>Neden?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Tek rol (dosya, yazdırma)</td>
+<td>Yeni kurulum + taşıma</td>
+<td>Temiz başlangıç, eski ayar kalıntısı yok</td>
+</tr>
+<tr>
+<td>Kümelenmemiş uygulama sunucusu</td>
+<td>Test sonrası yerinde yükseltme</td>
+<td>2025'e tek adım mümkün <sup class="cite"><a href="#kaynak-13" aria-label="Kaynaklar 13">[13]</a></sup></td>
+</tr>
+<tr>
+<td>Hyper-V / dosya kümesi</td>
+<td>Sıralı küme yükseltmesi</td>
+<td>Her seferinde bir sürüm <sup class="cite"><a href="#kaynak-13" aria-label="Kaynaklar 13">[13]</a></sup></td>
+</tr>
+<tr>
+<td>Essentials</td>
+<td>Yeni platforma taşıma</td>
+<td>ESU yok <sup class="cite"><a href="#kaynak-9" aria-label="Kaynaklar 9">[9]</a></sup><sup class="cite"><a href="#kaynak-12" aria-label="Kaynaklar 12">[12]</a></sup></td>
+</tr>
+<tr>
+<td>Üretici desteği belirsiz eski yazılım</td>
+<td>Ağ segmentasyonu + ESU + yenileme planı</td>
+<td>Zaman kazandırır, riski sıfırlamaz</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="b5">Türkiye'den bakış: Güncel olmayan envanter ulusal risk başlığı</h2>
+<p>Anadolu Ajansı'nın 22 Ekim tarihli haberine göre Cumhurbaşkanlığı Siber Güvenlik Başkanlığı, PHP'deki kritik açıklar ("PHP2Shell") nedeniyle kamu kurumları başta olmak üzere ülke genelindeki sistemlerde güvenlik taramaları başlattı. Haberde Kamusal Siber Savunma Derneği Başkanı Yakup Özdemir, Türkiye açısından riskin boyutunun kurumların yazılım envanterlerinin güncelliği, açıklara müdahale süreleri ve teknik denetim kapasiteleriyle doğrudan ilişkili olduğunu anlatıyor <sup class="cite"><a href="#kaynak-14" aria-label="Kaynaklar 14">[14]</a></sup>. Windows Server 2016 sunucuları da aynı soruya tabi: Envanterde nerede çalıştığını bilmediğiniz bir sunucuyu yamalayamazsınız.</p>
+<p>Destek dışı bir sunucudan kaynaklanan bir ihlal kişisel veri içeriyorsa KVKK'nın 2019/10 sayılı kararı uyarınca ihlalin öğrenilmesinden itibaren en geç 72 saat içinde Kurul'a bildirim gerekir <sup class="cite"><a href="#kaynak-15" aria-label="Kaynaklar 15">[15]</a></sup>. Kimlik avı kaynaklı saldırı zincirlerini <a href="/clickfix-saldirisi-sahte-captcha-korunma/">ClickFix saldırısı rehberimizde</a>, KOBİ'ler için dijital olgunluk ölçümünü ise <a href="/tubitak-ddx-dijital-olgunluk-kobi-rehberi/">TÜBİTAK DDX+ rehberimizde</a> ele almıştık.</p>
+<h2 id="b6">Windows Server 2016 destek sonu için 10 maddelik geçiş kontrol listesi</h2>
+<ul>
+<li class="check">Tüm fiziksel, sanal ve bulut sunucularda işletim sistemi sürümünü listeleyin (Hyper-V Server 2016 ve WSUS dahil) <sup class="cite"><a href="#kaynak-3" aria-label="Kaynaklar 3">[3]</a></sup></li>
+<li class="check">Her sunucunun rolünü, sahibini ve iş kritikliğini yazın</li>
+<li class="check">Essentials sürümlerini ayrı işaretleyin; ESU kapsamında değiller <sup class="cite"><a href="#kaynak-9" aria-label="Kaynaklar 9">[9]</a></sup><sup class="cite"><a href="#kaynak-12" aria-label="Kaynaklar 12">[12]</a></sup></li>
+<li class="check">Üzerinde çalışan uygulamaların Windows Server 2022/2025 desteğini üreticiden teyit edin</li>
+<li class="check">SQL Server 2016 gibi bağımlı ürünlerin kendi destek tarihlerini kontrol edin <sup class="cite"><a href="#kaynak-7" aria-label="Kaynaklar 7">[7]</a></sup></li>
+<li class="check">Yerinde yükseltme mi yeni kurulum mu, rol bazında karar verin <sup class="cite"><a href="#kaynak-13" aria-label="Kaynaklar 13">[13]</a></sup></li>
+<li class="check">ESU gerekiyorsa Software Assurance durumunu ve Azure Arc ajan sürümünü (1.62+) kontrol edin <sup class="cite"><a href="#kaynak-9" aria-label="Kaynaklar 9">[9]</a></sup></li>
+<li class="check">12 Ocak 2027'ye kadar taşınamayacak sunucuları ağda ayırın ve erişimi daraltın</li>
+<li class="check">Yedekleme ve geri dönüş planını test edin</li>
+<li class="check">KVKK ihlal bildirim sürecinin (72 saat) güncel olduğunu doğrulayın <sup class="cite"><a href="#kaynak-15" aria-label="Kaynaklar 15">[15]</a></sup></li>
+</ul>
+<p>Kişisel cihaz tarafındaki temel önlemler için <a href="/telefon-ve-hesap-guvenligi/">telefon ve hesap güvenliği rehberimize</a> de göz atabilirsiniz.</p>
+<h2 id="b7">Sıkça sorulan sorular</h2>
+<h3>Windows Server 2016 desteği ne zaman bitiyor?</h3>
+<p>12 Ocak 2027'de. Ocak 2027 güncellemesi bu sürüm için son ücretsiz güvenlik güncellemesi olacak <sup class="cite"><a href="#kaynak-1" aria-label="Kaynaklar 1">[1]</a></sup><sup class="cite"><a href="#kaynak-2" aria-label="Kaynaklar 2">[2]</a></sup>.</p>
+<h3>Destek bitince Windows Server 2016 çalışmayı durdurur mu?</h3>
+<p>Hayır. Sunucular çalışmaya devam eder ama yeni açıklara karşı güvenlik güncellemesi almaz <sup class="cite"><a href="#kaynak-1" aria-label="Kaynaklar 1">[1]</a></sup>.</p>
+<h3>Windows Server 2016 için ESU alınabilir mi?</h3>
+<p>Evet, Standard ve Datacenter sürümleri için Azure Arc üzerinden, en fazla üç yıl. Software Assurance veya SPLA/sunucu aboneliği gerekiyor; faturalandırma 13 Ocak 2027'de başlıyor <sup class="cite"><a href="#kaynak-9" aria-label="Kaynaklar 9">[9]</a></sup>.</p>
+<h3>Windows Server 2016 Essentials için ESU var mı?</h3>
+<p>Microsoft'un ESU koşulları yalnızca Standard ve Datacenter sürümlerini sayıyor; Essentials kullanıcıları için Microsoft geçiş adımlarını öneriyor <sup class="cite"><a href="#kaynak-9" aria-label="Kaynaklar 9">[9]</a></sup><sup class="cite"><a href="#kaynak-12" aria-label="Kaynaklar 12">[12]</a></sup>.</p>
+<h3>2016'dan doğrudan Windows Server 2025'e yükseltme yapılabilir mi?</h3>
+<p>Kümelenmemiş sistemlerde evet: Windows Server 2025'e tek seferde dört sürüme kadar yerinde yükseltme destekleniyor. Kümelerde her seferinde bir sürüm ilerlenir <sup class="cite"><a href="#kaynak-13" aria-label="Kaynaklar 13">[13]</a></sup>.</p>
+<div class="ad-slot" id="ad-article-bottom" data-ad-slot="article-bottom" aria-hidden="true"></div><section class="refs"><h2 id="kaynaklar">Kaynaklar</h2>
+<ol class="sources">
+<li id="kaynak-1">BleepingComputer, "Microsoft: Windows Server 2016 reaches end of support in January", 23 Ekim 2026. <a href="https://www.bleepingcomputer.com/news/microsoft/microsoft-windows-server-2016-reaches-end-of-support-in-january/" target="_blank" rel="noopener">https://www.bleepingcomputer.com/news/microsoft/microsoft-windows-server-2016-reaches-end-of-support-in-january/</a> (Erişim: 25 Ekim 2026)</li>
+<li id="kaynak-2">Microsoft Learn, "Windows Server 2016 – Lifecycle". <a href="https://learn.microsoft.com/en-us/lifecycle/products/windows-server-2016" target="_blank" rel="noopener">https://learn.microsoft.com/en-us/lifecycle/products/windows-server-2016</a> (Erişim: 25 Ekim 2026)</li>
+<li id="kaynak-3">Microsoft Learn, "Products and Services Reaching End of Support in 2027". <a href="https://learn.microsoft.com/en-us/lifecycle/end-of-support/end-of-support-2027" target="_blank" rel="noopener">https://learn.microsoft.com/en-us/lifecycle/end-of-support/end-of-support-2027</a> (Erişim: 25 Ekim 2026)</li>
+<li id="kaynak-4">Microsoft Learn, "Windows Server 2019 – Lifecycle". <a href="https://learn.microsoft.com/en-us/lifecycle/products/windows-server-2019" target="_blank" rel="noopener">https://learn.microsoft.com/en-us/lifecycle/products/windows-server-2019</a> (Erişim: 25 Ekim 2026)</li>
+<li id="kaynak-5">Microsoft Learn, "Windows Server 2022 – Lifecycle". <a href="https://learn.microsoft.com/en-us/lifecycle/products/windows-server-2022" target="_blank" rel="noopener">https://learn.microsoft.com/en-us/lifecycle/products/windows-server-2022</a> (Erişim: 25 Ekim 2026)</li>
+<li id="kaynak-6">Microsoft Learn, "Windows Server 2025 – Lifecycle". <a href="https://learn.microsoft.com/en-us/lifecycle/products/windows-server-2025" target="_blank" rel="noopener">https://learn.microsoft.com/en-us/lifecycle/products/windows-server-2025</a> (Erişim: 25 Ekim 2026)</li>
+<li id="kaynak-7">Microsoft Learn, "SQL Server 2016 – Lifecycle". <a href="https://learn.microsoft.com/en-us/lifecycle/products/sql-server-2016" target="_blank" rel="noopener">https://learn.microsoft.com/en-us/lifecycle/products/sql-server-2016</a> (Erişim: 25 Ekim 2026)</li>
+<li id="kaynak-8">Microsoft Windows Server Blog, "Planning ahead for Windows Server 2016 end of support", 25 Şubat 2026. <a href="https://www.microsoft.com/en-us/windows-server/blog/2026/02/25/planning-ahead-for-windows-server-2016-end-of-support/" target="_blank" rel="noopener">https://www.microsoft.com/en-us/windows-server/blog/2026/02/25/planning-ahead-for-windows-server-2016-end-of-support/</a> (Erişim: 25 Ekim 2026)</li>
+<li id="kaynak-9">Microsoft Learn, "Prepare to deliver Extended Security Updates for Windows Server through Azure Arc". <a href="https://learn.microsoft.com/en-us/azure/azure-arc/servers/prepare-extended-security-updates" target="_blank" rel="noopener">https://learn.microsoft.com/en-us/azure/azure-arc/servers/prepare-extended-security-updates</a> (Erişim: 25 Ekim 2026)</li>
+<li id="kaynak-10">Microsoft Licensing, "Microsoft Services: Pricing Consistency Update", 27 Mart 2026. <a href="https://www.microsoft.com/en-us/licensing/news/services-pricing-consistency-update" target="_blank" rel="noopener">https://www.microsoft.com/en-us/licensing/news/services-pricing-consistency-update</a> (Erişim: 25 Ekim 2026)</li>
+<li id="kaynak-11">Microsoft, "Plan your Windows Server and SQL Server end of support" (Extended Security Updates). <a href="https://www.microsoft.com/en/windows-server/extended-security-updates" target="_blank" rel="noopener">https://www.microsoft.com/en/windows-server/extended-security-updates</a> (Erişim: 25 Ekim 2026)</li>
+<li id="kaynak-12">Microsoft Destek, "Windows Server 2016 Essentials end of support", Eylül 2026. <a href="https://support.microsoft.com/en-us/servicing/os/windows/docs/2026/09/windows-server-2016-essentials-end-support" target="_blank" rel="noopener">https://support.microsoft.com/en-us/servicing/os/windows/docs/2026/09/windows-server-2016-essentials-end-support</a> (Erişim: 25 Ekim 2026)</li>
+<li id="kaynak-13">Microsoft Learn, "Plan your Windows Server upgrade path". <a href="https://learn.microsoft.com/en-us/windows-server/get-started/upgrade-overview" target="_blank" rel="noopener">https://learn.microsoft.com/en-us/windows-server/get-started/upgrade-overview</a> (Erişim: 25 Ekim 2026)</li>
+<li id="kaynak-14">Anadolu Ajansı, Mert Davut, "Kritik güvenlik açıklarına karşı sistemleri güncelleme uyarısı", 22 Ekim 2026. <a href="https://www.aa.com.tr/tr/bilim-teknoloji/kritik-guvenlik-aciklarina-karsi-sistemleri-guncelleme-uyarisi/4096910" target="_blank" rel="noopener">https://www.aa.com.tr/tr/bilim-teknoloji/kritik-guvenlik-aciklarina-karsi-sistemleri-guncelleme-uyarisi/4096910</a> (Erişim: 25 Ekim 2026)</li>
+<li id="kaynak-15">KVKK, "Veri İhlali Bildirimi" (2019/10 sayılı Kurul Kararı). <a href="https://www.kvkk.gov.tr/Icerik/5362/Veri-Ihlali-Bildirimi" target="_blank" rel="noopener">https://www.kvkk.gov.tr/Icerik/5362/Veri-Ihlali-Bildirimi</a> (Erişim: 25 Ekim 2026)</li>
+</ol></section><div class="share " aria-label="Paylaş"><b>Paylaş:</b><a href="https://x.com/intent/post?url=https%3A%2F%2Fdigitalyakalilar.com%2Fwindows-server-2016-destek-sonu-gecis-rehberi%2F&text=Windows%20Server%202016%20destek%20sonu%3A%2012%20Ocak%202027%27ye%20kadar%20ge%C3%A7i%C5%9F%2C%20ESU%20ve%20envanter%20rehberi" target=_blank rel=noopener>X</a><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fdigitalyakalilar.com%2Fwindows-server-2016-destek-sonu-gecis-rehberi%2F" target=_blank rel=noopener>LinkedIn</a><a href="https://wa.me/?text=Windows%20Server%202016%20destek%20sonu%3A%2012%20Ocak%202027%27ye%20kadar%20ge%C3%A7i%C5%9F%2C%20ESU%20ve%20envanter%20rehberi%20https%3A%2F%2Fdigitalyakalilar.com%2Fwindows-server-2016-destek-sonu-gecis-rehberi%2F" target=_blank rel=noopener>WhatsApp</a><a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdigitalyakalilar.com%2Fwindows-server-2016-destek-sonu-gecis-rehberi%2F" target=_blank rel=noopener>Facebook</a><a href="https://t.me/share/url?url=https%3A%2F%2Fdigitalyakalilar.com%2Fwindows-server-2016-destek-sonu-gecis-rehberi%2F&text=Windows%20Server%202016%20destek%20sonu%3A%2012%20Ocak%202027%27ye%20kadar%20ge%C3%A7i%C5%9F%2C%20ESU%20ve%20envanter%20rehberi" target=_blank rel=noopener>Telegram</a><a href="mailto:?subject=Windows%20Server%202016%20destek%20sonu%3A%2012%20Ocak%202027%27ye%20kadar%20ge%C3%A7i%C5%9F%2C%20ESU%20ve%20envanter%20rehberi&body=https%3A%2F%2Fdigitalyakalilar.com%2Fwindows-server-2016-destek-sonu-gecis-rehberi%2F">E-posta</a></div>
+</article></div><section class="related"><h2>İlgini çekebilir</h2><div class="grid"><a class="card" href="/clickfix-saldirisi-sahte-captcha-korunma/">
+<div class="card-img"><img src="/covers/clickfix-saldirisi-sahte-captcha-korunma-800.webp" alt="ClickFix saldırısı nedir? Sahte CAPTCHA tuzağına karşı kurumsal korunma rehberi" width="800" height="450" loading="lazy" decoding="async"></div>
+<div class="card-body"><div class="meta"><span class="tag">Dijital Güvenlik</span></div>
+<h2>ClickFix saldırısı nedir? Sahte CAPTCHA tuzağına karşı kurumsal korunma rehberi</h2>
+<p>Sahte bir &quot;Ben robot değilim&quot; kutusu, çalışana komutu kendi eliyle çalıştırtıyor. Google Chrome&#x27;a ClickFix koruması geldi, Huntress yeni bir kampanyayı belgeledi. ClickFix saldırısı nasıl işliyor, şirketler neyi kapatmalı?</p>
+<div class="meta">22 Ekim 2026<span class="dot">·</span>7 dk okuma</div>
+</div></a><a class="card" href="/microsoft-execution-containers-ajan-guvenligi/">
+<div class="card-img"><img src="/covers/microsoft-execution-containers-ajan-guvenligi-800.webp" alt="Yapay zekâ ajanı güvenlik izolasyonu: Microsoft Execution Containers (MXC) ne getiriyor?" width="800" height="450" loading="lazy" decoding="async"></div>
+<div class="card-body"><div class="meta"><span class="tag">Dijital Güvenlik</span></div>
+<h2>Yapay zekâ ajanı güvenlik izolasyonu: Microsoft Execution Containers (MXC) ne getiriyor?</h2>
+<p>Microsoft, yapay zekâ ajanlarını dosya ve ağ sınırlarıyla izole eden Execution Containers&#x27;ı genel kullanıma açtı. Yapay zekâ ajanı güvenlik izolasyonu, gölge ajan riskine karşı OS düzeyinde ne vaat ediyor?</p>
+<div class="meta">16 Ekim 2026<span class="dot">·</span>4 dk okuma</div>
+</div></a><a class="card" href="/telefon-ve-hesap-guvenligi/">
+<div class="card-img"><img src="/covers/telefon-ve-hesap-guvenligi-800.webp" alt="Telefon ve hesap güvenliği: Beyaz yakalılar için kanıta dayalı rehber" width="800" height="450" loading="lazy" decoding="async"></div>
+<div class="card-body"><div class="meta"><span class="tag">Dijital Güvenlik</span></div>
+<h2>Telefon ve hesap güvenliği: Beyaz yakalılar için kanıta dayalı rehber</h2>
+<p>İki adımlı doğrulamadan passkey&#x27;lere, oltalama SMS&#x27;lerinden kayıp telefon senaryosuna; NIST, CISA, Google ve Apple kaynaklarıyla telefonunu ve hesaplarını korumanın adım adım yolu.</p>
+<div class="meta">15 Ekim 2026<span class="dot">·</span>9 dk okuma</div>
+</div></a></div></section>
+<footer><div class="w"><div><div class="foot-brand">Digital Yakalılar</div>İK, endüstri, lojistik ve daha fazlasının dijitalleşme ürünleri; haberler ve kaynaklı rehberler.<br>© 2026 Digital Yakalılar</div>
+<div><a href="https://www.instagram.com/digitalyakalilar/">Instagram @digitalyakalilar</a><br>
+<a href="https://x.com/digiyakalilar">X @digiyakalilar</a><br>
+<a href="/gizlilik/">Gizlilik ve çerez politikası</a></div></div></footer><div class="ck" id="ck" role="dialog" aria-live="polite" aria-label="Gizlilik"><p>Hangi yazıların okunduğunu görmek için yalnızca onayınla Google Analytics çerezleri kullanıyoruz. Reklam çerezleri kapalı. <a href="/gizlilik/">Gizlilik</a></p><div class="b"><button type="button" data-c="denied">Reddet</button><button type="button" data-c="granted">Kabul et</button></div></div>
+<script>(function(){var b=document.getElementById('ck'),v;try{v=localStorage.getItem('dy_consent')}catch(e){}if(!v)b.className='ck on';b.addEventListener('click',function(e){var c=e.target.getAttribute('data-c');if(!c)return;try{localStorage.setItem('dy_consent',c)}catch(x){}if(c==='granted')gtag('consent','update',{analytics_storage:'granted'});b.className='ck';});})();</script></body></html>
