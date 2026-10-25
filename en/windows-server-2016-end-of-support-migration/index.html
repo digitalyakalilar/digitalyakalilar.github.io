@@ -1,0 +1,216 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Windows Server 2016 end of support: migration and ESU</title><meta name="description" content="Windows Server 2016 end of support is Jan 12, 2027: the last update, Azure Arc ESU rules, the Essentials gap, a version table and a 10-step migration checklist."><link rel="canonical" href="https://digitalyakalilar.com/en/windows-server-2016-end-of-support-migration/"><link rel="alternate" hreflang="tr" href="https://digitalyakalilar.com/windows-server-2016-destek-sonu-gecis-rehberi/"><link rel="alternate" hreflang="en" href="https://digitalyakalilar.com/en/windows-server-2016-end-of-support-migration/"><link rel="alternate" hreflang="x-default" href="https://digitalyakalilar.com/windows-server-2016-destek-sonu-gecis-rehberi/">
+<meta property="og:type" content="article"><meta property="og:title" content="Windows Server 2016 end of support: migration and ESU"><meta property="og:description" content="Windows Server 2016 end of support is Jan 12, 2027: the last update, Azure Arc ESU rules, the Essentials gap, a version table and a 10-step migration checklist."><meta property="og:url" content="https://digitalyakalilar.com/en/windows-server-2016-end-of-support-migration/"><meta property="og:image" content="https://digitalyakalilar.com/covers/windows-server-2016-end-of-support-migration.jpg"><meta property="og:locale" content="en_US"><meta property="og:site_name" content="Digital Yakalılar">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Windows Server 2016 end of support: migration and ESU"><meta name="twitter:description" content="Windows Server 2016 end of support is Jan 12, 2027: the last update, Azure Arc ESU rules, the Essentials gap, a version table and a 10-step migration checklist."><link rel="alternate" type="application/rss+xml" title="Digital Yakalılar" href="https://digitalyakalilar.com/en/rss.xml"><meta name="twitter:site" content="@digiyakalilar"><meta name="twitter:image" content="https://digitalyakalilar.com/covers/windows-server-2016-end-of-support-migration.jpg">
+<link rel="icon" href="/favicon.ico" sizes="any"><link rel="icon" type="image/png" href="/favicon.png"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="preload" href="/montserrat.ttf" as="font" type="font/ttf" crossorigin><link rel="stylesheet" href="/style.css"><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('consent','default',{ad_storage:'denied',analytics_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',wait_for_update:500});try{if(localStorage.getItem('dy_consent')==='granted')gtag('consent','update',{analytics_storage:'granted'});}catch(e){}gtag('js',new Date());gtag('config','G-Z3LYZKZVL7');</script><script async src="https://www.googletagmanager.com/gtag/js?id=G-Z3LYZKZVL7"></script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "When does Windows Server 2016 support end?", "acceptedAnswer": {"@type": "Answer", "text": "On January 12, 2027. The January 2027 update is the last free security update for this version ."}}, {"@type": "Question", "name": "Will Windows Server 2016 stop working after end of support?", "acceptedAnswer": {"@type": "Answer", "text": "No. Servers keep running but no longer receive security updates for new vulnerabilities ."}}, {"@type": "Question", "name": "Can I get ESU for Windows Server 2016?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, for the Standard and Datacenter editions through Azure Arc, for up to three years. Software Assurance or SPLA/server subscription is required, and billing starts on January 13, 2027 ."}}, {"@type": "Question", "name": "Is there ESU for Windows Server 2016 Essentials?", "acceptedAnswer": {"@type": "Answer", "text": "Microsoft's ESU conditions list only the Standard and Datacenter editions; for Essentials users Microsoft recommends migration steps ."}}, {"@type": "Question", "name": "Can I upgrade directly from 2016 to Windows Server 2025?", "acceptedAnswer": {"@type": "Answer", "text": "On nonclustered systems, yes: Windows Server 2025 supports in-place upgrades of up to four versions at a time. Clusters advance one version at a time ."}}]}</script><meta property="og:image:width" content="1600"><meta property="og:image:height" content="900"><meta property="article:published_time" content="2026-10-25"><script type="application/ld+json">{"@context": "https://schema.org", "@type": "NewsArticle", "headline": "Windows Server 2016 end of support: Migration, ESU and inventory guide before January 12, 2027", "description": "Windows Server 2016 end of support is Jan 12, 2027: the last update, Azure Arc ESU rules, the Essentials gap, a version table and a 10-step migration checklist.", "image": ["https://digitalyakalilar.com/covers/windows-server-2016-end-of-support-migration.jpg"], "datePublished": "2026-10-25", "dateModified": "2026-10-25", "inLanguage": "en", "mainEntityOfPage": "https://digitalyakalilar.com/en/windows-server-2016-end-of-support-migration/", "keywords": "Windows Server 2016 end of support, Windows Server 2016 end of life, Windows Server 2016 ESU, Azure Arc ESU, Windows Server 2016 migration to 2025, server inventory, patch management", "author": {"@type": "Organization", "name": "Digital Yakalılar", "url": "https://digitalyakalilar.com"}, "publisher": {"@type": "Organization", "name": "Digital Yakalılar", "logo": {"@type": "ImageObject", "url": "https://digitalyakalilar.com/logo.png"}}}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://digitalyakalilar.com/en/"}, {"@type": "ListItem", "position": 2, "name": "Digital Security", "item": "https://digitalyakalilar.com/en/category/digital-security/"}, {"@type": "ListItem", "position": 3, "name": "Windows Server 2016 end of support: Migration, ESU and inventory guide before January 12, 2027", "item": "https://digitalyakalilar.com/en/windows-server-2016-end-of-support-migration/"}]}</script></head><body>
+<header class="site-header"><div class="w"><div class="inner">
+<a class="brand" href="/en/"><img src="/logo.png" alt="Digital Yakalılar logo" width="38" height="38"><span>Digital Yakalılar</span></a>
+<nav class="nav-cats" aria-label="Categories"><a href="/en/category/hr-tech/">HR Tech</a><a href="/en/category/industry-4-0/">Industry 4.0 & Manufacturing</a><a href="/en/category/logistics/">Logistics & Freight</a><a href="/en/category/ai-productivity/">AI & Productivity</a><a href="/en/category/digital-security/">Digital Security</a></nav>
+<div class="nav-right"><a class="plain" href="/en/about/">About</a><a class="lang" href="/windows-server-2016-destek-sonu-gecis-rehberi/" hreflang="tr" lang="tr" title="Türkçe">TR</a></div>
+</div></div></header>
+<div class="cover-wrap"><img src="/covers/windows-server-2016-end-of-support-migration.webp" srcset="/covers/windows-server-2016-end-of-support-migration-800.webp 800w, /covers/windows-server-2016-end-of-support-migration.webp 1600w" sizes="(max-width:980px) 100vw, 920px" alt="Windows Server 2016 end of support: January 12, 2027 timeline and migration guide cover image" width="1600" height="900" fetchpriority="high" decoding="async"></div><div class="article-shell"><article class="story">
+<div class="crumb"><a href="/en/">Home</a> › <a href="/en/category/digital-security/">Digital Security</a></div><h1>Windows Server 2016 end of support: Migration, ESU and inventory guide before January 12, 2027</h1>
+<p class="lede">Windows Server 2016 end of support is January 12, 2027. Microsoft&#x27;s final update timeline, Azure Arc ESU conditions, the Essentials edition risk, a version comparison table and a migration checklist for IT teams.</p>
+<div class="meta"><a class="tag" href="/en/category/digital-security/">Digital Security</a>October 25, 2026<span class="dot">·</span>6 min read<span class="updated">Last updated: October 25, 2026</span></div>
+<div class="share top" aria-label="Share"><b>Share:</b><a href="https://x.com/intent/post?url=https%3A%2F%2Fdigitalyakalilar.com%2Fen%2Fwindows-server-2016-end-of-support-migration%2F&text=Windows%20Server%202016%20end%20of%20support%3A%20Migration%2C%20ESU%20and%20inventory%20guide%20before%20January%2012%2C%202027" target=_blank rel=noopener>X</a><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fdigitalyakalilar.com%2Fen%2Fwindows-server-2016-end-of-support-migration%2F" target=_blank rel=noopener>LinkedIn</a><a href="https://wa.me/?text=Windows%20Server%202016%20end%20of%20support%3A%20Migration%2C%20ESU%20and%20inventory%20guide%20before%20January%2012%2C%202027%20https%3A%2F%2Fdigitalyakalilar.com%2Fen%2Fwindows-server-2016-end-of-support-migration%2F" target=_blank rel=noopener>WhatsApp</a><a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdigitalyakalilar.com%2Fen%2Fwindows-server-2016-end-of-support-migration%2F" target=_blank rel=noopener>Facebook</a><a href="https://t.me/share/url?url=https%3A%2F%2Fdigitalyakalilar.com%2Fen%2Fwindows-server-2016-end-of-support-migration%2F&text=Windows%20Server%202016%20end%20of%20support%3A%20Migration%2C%20ESU%20and%20inventory%20guide%20before%20January%2012%2C%202027" target=_blank rel=noopener>Telegram</a><a href="mailto:?subject=Windows%20Server%202016%20end%20of%20support%3A%20Migration%2C%20ESU%20and%20inventory%20guide%20before%20January%2012%2C%202027&body=https%3A%2F%2Fdigitalyakalilar.com%2Fen%2Fwindows-server-2016-end-of-support-migration%2F">Email</a></div>
+<p>Microsoft has reminded customers that the January 2027 update will be the last security update for Windows Server 2016 <sup class="cite"><a href="#ref-1" aria-label="References 1">[1]</a></sup>. <strong>Windows Server 2016 end of support</strong> falls on January 12, 2027; after that date none of the Datacenter, Essentials, MultiPoint Premium or Standard editions will receive free security patches, bug fixes or technical support <sup class="cite"><a href="#ref-1" aria-label="References 1">[1]</a></sup><sup class="cite"><a href="#ref-2" aria-label="References 2">[2]</a></sup>. That leaves roughly 11 weeks. This guide pulls the dates from primary sources, sets out the conditions of the paid Extended Security Updates (ESU) option and closes with a migration checklist.</p><div class="toc" role="navigation" aria-label="Contents"><strong>Contents</strong><ol><li><a href="#b1">When does Windows Server 2016 support end?</a></li><li><a href="#b2">Windows Server 2016 ESU: Paid extension through Azure Arc</a></li><li><a href="#b3">A separate warning for Windows Server 2016 Essentials</a></li><li><a href="#b4">In-place upgrade or clean install?</a></li><li><a href="#b5">The view from Turkey: Outdated inventories are a national risk topic</a></li><li><a href="#b6">A 10-step checklist for Windows Server 2016 end of support</a></li><li><a href="#b7">Frequently asked questions</a></li></ol></div><div class="ad-slot" id="ad-article-top" data-ad-slot="article-top" aria-hidden="true"></div>
+<h2 id="b1">When does Windows Server 2016 support end?</h2>
+<p>According to the Microsoft Learn lifecycle page, mainstream support for Windows Server 2016 ended on January 11, 2022, and extended support ends on January 12, 2027 (listed on Learn as January 13, 2027, 06:59 UTC) <sup class="cite"><a href="#ref-2" aria-label="References 2">[2]</a></sup>. The same date covers components such as Hyper-V Server 2016, IIS 10 on Windows Server 2016, Windows Storage Server 2016 and WSUS for Windows Server 2016, while System Center 2016 goes out of support one day earlier, on January 11, 2027 <sup class="cite"><a href="#ref-3" aria-label="References 3">[3]</a></sup>.</p>
+<p>As BleepingComputer reports, servers will keep running after support ends but will no longer be protected against new vulnerabilities; Microsoft recommends moving to Windows Server 2025 and offers a 180-day evaluation for those who want to test it <sup class="cite"><a href="#ref-1" aria-label="References 1">[1]</a></sup>.</p>
+<h3>Version comparison table: How long is each server covered?</h3>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Version</th>
+<th>Mainstream support ends</th>
+<th>Extended support ends</th>
+<th>Status (October 25, 2026)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Windows Server 2016</td>
+<td>Jan 11, 2022 <sup class="cite"><a href="#ref-2" aria-label="References 2">[2]</a></sup></td>
+<td>Jan 12, 2027 <sup class="cite"><a href="#ref-2" aria-label="References 2">[2]</a></sup></td>
+<td>Final 11 weeks</td>
+</tr>
+<tr>
+<td>Windows Server 2019</td>
+<td>Jan 9, 2024 <sup class="cite"><a href="#ref-4" aria-label="References 4">[4]</a></sup></td>
+<td>Jan 9, 2029 <sup class="cite"><a href="#ref-4" aria-label="References 4">[4]</a></sup></td>
+<td>Security updates only</td>
+</tr>
+<tr>
+<td>Windows Server 2022</td>
+<td>Oct 13, 2026 <sup class="cite"><a href="#ref-5" aria-label="References 5">[5]</a></sup></td>
+<td>Oct 14, 2031 <sup class="cite"><a href="#ref-5" aria-label="References 5">[5]</a></sup></td>
+<td>Mainstream support just ended</td>
+</tr>
+<tr>
+<td>Windows Server 2025</td>
+<td>Nov 13, 2029 <sup class="cite"><a href="#ref-6" aria-label="References 6">[6]</a></sup></td>
+<td>Nov 14, 2034 <sup class="cite"><a href="#ref-6" aria-label="References 6">[6]</a></sup></td>
+<td>In mainstream support</td>
+</tr>
+<tr>
+<td>SQL Server 2016 (context)</td>
+<td>Jul 13, 2021 <sup class="cite"><a href="#ref-7" aria-label="References 7">[7]</a></sup></td>
+<td>Jul 14, 2026 <sup class="cite"><a href="#ref-7" aria-label="References 7">[7]</a></sup></td>
+<td>Out of support, ESU year 1 running <sup class="cite"><a href="#ref-7" aria-label="References 7">[7]</a></sup></td>
+</tr>
+</tbody>
+</table></div>
+<p>Note: Dates are given in US Pacific time, one day before the UTC timestamps shown on Microsoft Learn.</p>
+<p>Quotable stat: <strong>A server moved from Windows Server 2016 to 2022 is covered by security updates until 2031; one moved to 2025 is covered until 2034</strong> <sup class="cite"><a href="#ref-5" aria-label="References 5">[5]</a></sup><sup class="cite"><a href="#ref-6" aria-label="References 6">[6]</a></sup>. Choosing a short-term "stopover" version can mean repeating the same project a few years later.</p>
+<h2 id="b2">Windows Server 2016 ESU: Paid extension through Azure Arc</h2>
+<p>In February 2026 Microsoft announced that ESU for Windows Server 2016 would be delivered through Azure Arc <sup class="cite"><a href="#ref-8" aria-label="References 8">[8]</a></sup>. According to the Microsoft Learn preparation page, the conditions are <sup class="cite"><a href="#ref-9" aria-label="References 9">[9]</a></sup>:</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Windows Server 2016 ESU (Azure Arc)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Coverage</td>
+<td>Critical and Important security updates, up to 3 years (through 2030) <sup class="cite"><a href="#ref-9" aria-label="References 9">[9]</a></sup></td>
+</tr>
+<tr>
+<td>Configuration</td>
+<td>From August 3, 2026 <sup class="cite"><a href="#ref-9" aria-label="References 9">[9]</a></sup></td>
+</tr>
+<tr>
+<td>Billing</td>
+<td>From January 13, 2027 <sup class="cite"><a href="#ref-9" aria-label="References 9">[9]</a></sup></td>
+</tr>
+<tr>
+<td>Editions</td>
+<td>Standard and Datacenter only <sup class="cite"><a href="#ref-9" aria-label="References 9">[9]</a></sup></td>
+</tr>
+<tr>
+<td>Licensing</td>
+<td>Software Assurance, or SPLA / server subscription <sup class="cite"><a href="#ref-9" aria-label="References 9">[9]</a></sup></td>
+</tr>
+<tr>
+<td>Agent</td>
+<td>Azure Connected Machine agent 1.62 or later <sup class="cite"><a href="#ref-9" aria-label="References 9">[9]</a></sup></td>
+</tr>
+<tr>
+<td>Not included</td>
+<td>New features and non-security fixes <sup class="cite"><a href="#ref-9" aria-label="References 9">[9]</a></sup></td>
+</tr>
+</tbody>
+</table></div>
+<p>Be careful with pricing: Microsoft announced that from April 1, 2026, new ESU offerings carry the same list price regardless of deployment location or purchasing channel <sup class="cite"><a href="#ref-10" aria-label="References 10">[10]</a></sup>. Confirm the current per-core price in the Azure pricing calculator or with your licensing partner, and do not base budget decisions on third-party price lists.</p>
+<p>ESU buys time; it is not an exit plan. Microsoft itself frames this period as an opportunity to upgrade to Windows Server 2025 or migrate to Azure <sup class="cite"><a href="#ref-8" aria-label="References 8">[8]</a></sup>. Microsoft's ESU page explains that Arc-enabled ESU is billed on a pay-as-you-go subscription, whereas classic ESU is bought in yearly increments through Volume Licensing <sup class="cite"><a href="#ref-11" aria-label="References 11">[11]</a></sup>.</p>
+<h2 id="b3">A separate warning for Windows Server 2016 Essentials</h2>
+<p>For the Essentials edition, common in small offices, the picture is starker. BleepingComputer notes that Essentials features such as Remote Web Access also end <sup class="cite"><a href="#ref-1" aria-label="References 1">[1]</a></sup>. Microsoft's support page walks Essentials users through migration steps and says the remotewebaccess.com service ends as well <sup class="cite"><a href="#ref-12" aria-label="References 12">[12]</a></sup>. As the table above shows, Azure Arc ESU covers only Standard and Datacenter <sup class="cite"><a href="#ref-9" aria-label="References 9">[9]</a></sup>, so there is no "one more year" option for Essentials.</p>
+<h2 id="b4">In-place upgrade or clean install?</h2>
+<p>According to Microsoft Learn, Windows Server 2025 supports in-place upgrades of up to four versions at a time on nonclustered systems; for Windows Server 2022 and earlier the limit was two. Cluster rolling upgrades advance one version at a time, and each upgrade requires its own license <sup class="cite"><a href="#ref-13" aria-label="References 13">[13]</a></sup>. In practice, a single jump from 2016 to 2025 is technically possible but still needs application compatibility testing role by role.</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Scenario</th>
+<th>Suggested approach</th>
+<th>Why</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Single role (file, print)</td>
+<td>Clean install + migrate</td>
+<td>Clean start, no legacy settings</td>
+</tr>
+<tr>
+<td>Nonclustered application server</td>
+<td>In-place upgrade after testing</td>
+<td>One step to 2025 is supported <sup class="cite"><a href="#ref-13" aria-label="References 13">[13]</a></sup></td>
+</tr>
+<tr>
+<td>Hyper-V / file cluster</td>
+<td>Cluster rolling upgrade</td>
+<td>One version at a time <sup class="cite"><a href="#ref-13" aria-label="References 13">[13]</a></sup></td>
+</tr>
+<tr>
+<td>Essentials</td>
+<td>Move to a new platform</td>
+<td>No ESU <sup class="cite"><a href="#ref-9" aria-label="References 9">[9]</a></sup><sup class="cite"><a href="#ref-12" aria-label="References 12">[12]</a></sup></td>
+</tr>
+<tr>
+<td>Legacy software with unclear vendor support</td>
+<td>Segmentation + ESU + replacement plan</td>
+<td>Buys time, does not remove risk</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="b5">The view from Turkey: Outdated inventories are a national risk topic</h2>
+<p>According to Anadolu Agency on October 22, Turkey's Presidency of Cybersecurity started security scans of systems across the country, public institutions first, after critical PHP flaws ("PHP2Shell") emerged. In the same report, Yakup Özdemir, president of the Public Cyber Defense Association, explains that the scale of Turkey's risk is directly tied to how current organizations' software inventories are, how quickly they respond to vulnerabilities and their technical audit capacity <sup class="cite"><a href="#ref-14" aria-label="References 14">[14]</a></sup>. Windows Server 2016 machines face the same question: you cannot patch a server you do not know you run.</p>
+<p>If a breach through an unsupported server involves personal data, Turkey's data protection authority (KVKK) requires notification to the Board within 72 hours of learning about it under decision 2019/10 <sup class="cite"><a href="#ref-15" aria-label="References 15">[15]</a></sup>. We covered phishing-driven attack chains in our <a href="/en/how-to-stop-clickfix-attacks/">guide to stopping ClickFix attacks</a> and digital maturity measurement for SMEs in our <a href="/en/tubitak-ddx-digital-maturity-sme-guide/">TÜBİTAK DDX+ guide</a>.</p>
+<h2 id="b6">A 10-step checklist for Windows Server 2016 end of support</h2>
+<ul>
+<li class="check">List the OS version on every physical, virtual and cloud server (including Hyper-V Server 2016 and WSUS) <sup class="cite"><a href="#ref-3" aria-label="References 3">[3]</a></sup></li>
+<li class="check">Record each server's role, owner and business criticality</li>
+<li class="check">Flag Essentials editions separately; they are not covered by ESU <sup class="cite"><a href="#ref-9" aria-label="References 9">[9]</a></sup><sup class="cite"><a href="#ref-12" aria-label="References 12">[12]</a></sup></li>
+<li class="check">Confirm Windows Server 2022/2025 support for the applications running on them with each vendor</li>
+<li class="check">Check the support dates of dependent products such as SQL Server 2016 <sup class="cite"><a href="#ref-7" aria-label="References 7">[7]</a></sup></li>
+<li class="check">Decide in-place upgrade versus clean install role by role <sup class="cite"><a href="#ref-13" aria-label="References 13">[13]</a></sup></li>
+<li class="check">If you need ESU, check Software Assurance status and the Azure Arc agent version (1.62+) <sup class="cite"><a href="#ref-9" aria-label="References 9">[9]</a></sup></li>
+<li class="check">Segment servers that cannot be moved by January 12, 2027 and tighten access to them</li>
+<li class="check">Test backups and the rollback plan</li>
+<li class="check">Verify that your breach notification process (72 hours under KVKK) is current <sup class="cite"><a href="#ref-15" aria-label="References 15">[15]</a></sup></li>
+</ul>
+<p>For the personal device side, see our <a href="/en/phone-and-account-security/">phone and account security guide</a>.</p>
+<h2 id="b7">Frequently asked questions</h2>
+<h3>When does Windows Server 2016 support end?</h3>
+<p>On January 12, 2027. The January 2027 update is the last free security update for this version <sup class="cite"><a href="#ref-1" aria-label="References 1">[1]</a></sup><sup class="cite"><a href="#ref-2" aria-label="References 2">[2]</a></sup>.</p>
+<h3>Will Windows Server 2016 stop working after end of support?</h3>
+<p>No. Servers keep running but no longer receive security updates for new vulnerabilities <sup class="cite"><a href="#ref-1" aria-label="References 1">[1]</a></sup>.</p>
+<h3>Can I get ESU for Windows Server 2016?</h3>
+<p>Yes, for the Standard and Datacenter editions through Azure Arc, for up to three years. Software Assurance or SPLA/server subscription is required, and billing starts on January 13, 2027 <sup class="cite"><a href="#ref-9" aria-label="References 9">[9]</a></sup>.</p>
+<h3>Is there ESU for Windows Server 2016 Essentials?</h3>
+<p>Microsoft's ESU conditions list only the Standard and Datacenter editions; for Essentials users Microsoft recommends migration steps <sup class="cite"><a href="#ref-9" aria-label="References 9">[9]</a></sup><sup class="cite"><a href="#ref-12" aria-label="References 12">[12]</a></sup>.</p>
+<h3>Can I upgrade directly from 2016 to Windows Server 2025?</h3>
+<p>On nonclustered systems, yes: Windows Server 2025 supports in-place upgrades of up to four versions at a time. Clusters advance one version at a time <sup class="cite"><a href="#ref-13" aria-label="References 13">[13]</a></sup>.</p>
+<div class="ad-slot" id="ad-article-bottom" data-ad-slot="article-bottom" aria-hidden="true"></div><section class="refs"><h2 id="reflar">References</h2>
+<ol class="sources">
+<li id="ref-1">BleepingComputer, "Microsoft: Windows Server 2016 reaches end of support in January", October 23, 2026. <a href="https://www.bleepingcomputer.com/news/microsoft/microsoft-windows-server-2016-reaches-end-of-support-in-january/" target="_blank" rel="noopener">https://www.bleepingcomputer.com/news/microsoft/microsoft-windows-server-2016-reaches-end-of-support-in-january/</a> (Accessed: October 25, 2026)</li>
+<li id="ref-2">Microsoft Learn, "Windows Server 2016 – Lifecycle". <a href="https://learn.microsoft.com/en-us/lifecycle/products/windows-server-2016" target="_blank" rel="noopener">https://learn.microsoft.com/en-us/lifecycle/products/windows-server-2016</a> (Accessed: October 25, 2026)</li>
+<li id="ref-3">Microsoft Learn, "Products and Services Reaching End of Support in 2027". <a href="https://learn.microsoft.com/en-us/lifecycle/end-of-support/end-of-support-2027" target="_blank" rel="noopener">https://learn.microsoft.com/en-us/lifecycle/end-of-support/end-of-support-2027</a> (Accessed: October 25, 2026)</li>
+<li id="ref-4">Microsoft Learn, "Windows Server 2019 – Lifecycle". <a href="https://learn.microsoft.com/en-us/lifecycle/products/windows-server-2019" target="_blank" rel="noopener">https://learn.microsoft.com/en-us/lifecycle/products/windows-server-2019</a> (Accessed: October 25, 2026)</li>
+<li id="ref-5">Microsoft Learn, "Windows Server 2022 – Lifecycle". <a href="https://learn.microsoft.com/en-us/lifecycle/products/windows-server-2022" target="_blank" rel="noopener">https://learn.microsoft.com/en-us/lifecycle/products/windows-server-2022</a> (Accessed: October 25, 2026)</li>
+<li id="ref-6">Microsoft Learn, "Windows Server 2025 – Lifecycle". <a href="https://learn.microsoft.com/en-us/lifecycle/products/windows-server-2025" target="_blank" rel="noopener">https://learn.microsoft.com/en-us/lifecycle/products/windows-server-2025</a> (Accessed: October 25, 2026)</li>
+<li id="ref-7">Microsoft Learn, "SQL Server 2016 – Lifecycle". <a href="https://learn.microsoft.com/en-us/lifecycle/products/sql-server-2016" target="_blank" rel="noopener">https://learn.microsoft.com/en-us/lifecycle/products/sql-server-2016</a> (Accessed: October 25, 2026)</li>
+<li id="ref-8">Microsoft Windows Server Blog, "Planning ahead for Windows Server 2016 end of support", February 25, 2026. <a href="https://www.microsoft.com/en-us/windows-server/blog/2026/02/25/planning-ahead-for-windows-server-2016-end-of-support/" target="_blank" rel="noopener">https://www.microsoft.com/en-us/windows-server/blog/2026/02/25/planning-ahead-for-windows-server-2016-end-of-support/</a> (Accessed: October 25, 2026)</li>
+<li id="ref-9">Microsoft Learn, "Prepare to deliver Extended Security Updates for Windows Server through Azure Arc". <a href="https://learn.microsoft.com/en-us/azure/azure-arc/servers/prepare-extended-security-updates" target="_blank" rel="noopener">https://learn.microsoft.com/en-us/azure/azure-arc/servers/prepare-extended-security-updates</a> (Accessed: October 25, 2026)</li>
+<li id="ref-10">Microsoft Licensing, "Microsoft Services: Pricing Consistency Update", March 27, 2026. <a href="https://www.microsoft.com/en-us/licensing/news/services-pricing-consistency-update" target="_blank" rel="noopener">https://www.microsoft.com/en-us/licensing/news/services-pricing-consistency-update</a> (Accessed: October 25, 2026)</li>
+<li id="ref-11">Microsoft, "Plan your Windows Server and SQL Server end of support" (Extended Security Updates). <a href="https://www.microsoft.com/en/windows-server/extended-security-updates" target="_blank" rel="noopener">https://www.microsoft.com/en/windows-server/extended-security-updates</a> (Accessed: October 25, 2026)</li>
+<li id="ref-12">Microsoft Support, "Windows Server 2016 Essentials end of support", September 2026. <a href="https://support.microsoft.com/en-us/servicing/os/windows/docs/2026/09/windows-server-2016-essentials-end-support" target="_blank" rel="noopener">https://support.microsoft.com/en-us/servicing/os/windows/docs/2026/09/windows-server-2016-essentials-end-support</a> (Accessed: October 25, 2026)</li>
+<li id="ref-13">Microsoft Learn, "Plan your Windows Server upgrade path". <a href="https://learn.microsoft.com/en-us/windows-server/get-started/upgrade-overview" target="_blank" rel="noopener">https://learn.microsoft.com/en-us/windows-server/get-started/upgrade-overview</a> (Accessed: October 25, 2026)</li>
+<li id="ref-14">Anadolu Agency, Mert Davut, "Kritik güvenlik açıklarına karşı sistemleri güncelleme uyarısı" (in Turkish), October 22, 2026. <a href="https://www.aa.com.tr/tr/bilim-teknoloji/kritik-guvenlik-aciklarina-karsi-sistemleri-guncelleme-uyarisi/4096910" target="_blank" rel="noopener">https://www.aa.com.tr/tr/bilim-teknoloji/kritik-guvenlik-aciklarina-karsi-sistemleri-guncelleme-uyarisi/4096910</a> (Accessed: October 25, 2026)</li>
+<li id="ref-15">KVKK (Turkish Personal Data Protection Authority), "Veri İhlali Bildirimi" (Board decision 2019/10, in Turkish). <a href="https://www.kvkk.gov.tr/Icerik/5362/Veri-Ihlali-Bildirimi" target="_blank" rel="noopener">https://www.kvkk.gov.tr/Icerik/5362/Veri-Ihlali-Bildirimi</a> (Accessed: October 25, 2026)</li>
+</ol></section><div class="share " aria-label="Share"><b>Share:</b><a href="https://x.com/intent/post?url=https%3A%2F%2Fdigitalyakalilar.com%2Fen%2Fwindows-server-2016-end-of-support-migration%2F&text=Windows%20Server%202016%20end%20of%20support%3A%20Migration%2C%20ESU%20and%20inventory%20guide%20before%20January%2012%2C%202027" target=_blank rel=noopener>X</a><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fdigitalyakalilar.com%2Fen%2Fwindows-server-2016-end-of-support-migration%2F" target=_blank rel=noopener>LinkedIn</a><a href="https://wa.me/?text=Windows%20Server%202016%20end%20of%20support%3A%20Migration%2C%20ESU%20and%20inventory%20guide%20before%20January%2012%2C%202027%20https%3A%2F%2Fdigitalyakalilar.com%2Fen%2Fwindows-server-2016-end-of-support-migration%2F" target=_blank rel=noopener>WhatsApp</a><a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdigitalyakalilar.com%2Fen%2Fwindows-server-2016-end-of-support-migration%2F" target=_blank rel=noopener>Facebook</a><a href="https://t.me/share/url?url=https%3A%2F%2Fdigitalyakalilar.com%2Fen%2Fwindows-server-2016-end-of-support-migration%2F&text=Windows%20Server%202016%20end%20of%20support%3A%20Migration%2C%20ESU%20and%20inventory%20guide%20before%20January%2012%2C%202027" target=_blank rel=noopener>Telegram</a><a href="mailto:?subject=Windows%20Server%202016%20end%20of%20support%3A%20Migration%2C%20ESU%20and%20inventory%20guide%20before%20January%2012%2C%202027&body=https%3A%2F%2Fdigitalyakalilar.com%2Fen%2Fwindows-server-2016-end-of-support-migration%2F">Email</a></div>
+</article></div><section class="related"><h2>You may also like</h2><div class="grid"><a class="card" href="/en/how-to-stop-clickfix-attacks/">
+<div class="card-img"><img src="/covers/how-to-stop-clickfix-attacks-800.webp" alt="How to stop ClickFix attacks: A company guide to fake CAPTCHA lures" width="800" height="450" loading="lazy" decoding="async"></div>
+<div class="card-body"><div class="meta"><span class="tag">Digital Security</span></div>
+<h2>How to stop ClickFix attacks: A company guide to fake CAPTCHA lures</h2>
+<p>A fake &quot;I&#x27;m not a robot&quot; box gets an employee to run the attacker&#x27;s command by hand. Google just added ClickFix protection to Chrome and Huntress documented a new campaign. How ClickFix works and what companies should lock down.</p>
+<div class="meta">October 22, 2026<span class="dot">·</span>8 min read</div>
+</div></a><a class="card" href="/en/microsoft-execution-containers-ai-agent-security/">
+<div class="card-img"><img src="/covers/microsoft-execution-containers-ai-agent-security-800.webp" alt="AI agent containment security: What Microsoft Execution Containers (MXC) add" width="800" height="450" loading="lazy" decoding="async"></div>
+<div class="card-body"><div class="meta"><span class="tag">Digital Security</span></div>
+<h2>AI agent containment security: What Microsoft Execution Containers (MXC) add</h2>
+<p>Microsoft made Execution Containers generally available to isolate AI agents with file and network policies. What AI agent containment security means against shadow-agent risk at the OS layer.</p>
+<div class="meta">October 16, 2026<span class="dot">·</span>4 min read</div>
+</div></a><a class="card" href="/en/employee-built-ai-agents-security-risk/">
+<div class="card-img"><img src="/covers/employee-built-ai-agents-security-risk-800.webp" alt="Are employee-built AI agents the new security gap? What Pluto&#x27;s funding and OWASP and NIST guidance say" width="800" height="450" loading="lazy" decoding="async"></div>
+<div class="card-body"><div class="meta"><span class="tag">Digital Security</span></div>
+<h2>Are employee-built AI agents the new security gap? What Pluto&#x27;s funding and OWASP and NIST guidance say</h2>
+<p>Pluto&#x27;s funding round, reported by Webrazzi, puts a spotlight on the risks of AI agents that employees build themselves. Drawing on OWASP and NIST sources, we map the risks and the concrete steps companies can take.</p>
+<div class="meta">October 15, 2026<span class="dot">·</span>7 min read</div>
+</div></a></div></section>
+<footer><div class="w"><div><div class="foot-brand">Digital Yakalılar</div>Digitalization products across HR, industry, logistics and beyond — news and sourced guides.<br>© 2026 Digital Yakalılar</div>
+<div><a href="https://www.instagram.com/digitalyakalilar/">Instagram @digitalyakalilar</a><br>
+<a href="https://x.com/digiyakalilar">X @digiyakalilar</a><br>
+<a href="/en/privacy/">Privacy policy</a></div></div></footer><div class="ck" id="ck" role="dialog" aria-live="polite" aria-label="Privacy"><p>We use Google Analytics cookies only with your consent to see which articles are read. Ad cookies stay off. <a href="/en/privacy/">Privacy</a></p><div class="b"><button type="button" data-c="denied">Reject</button><button type="button" data-c="granted">Accept</button></div></div>
+<script>(function(){var b=document.getElementById('ck'),v;try{v=localStorage.getItem('dy_consent')}catch(e){}if(!v)b.className='ck on';b.addEventListener('click',function(e){var c=e.target.getAttribute('data-c');if(!c)return;try{localStorage.setItem('dy_consent',c)}catch(x){}if(c==='granted')gtag('consent','update',{analytics_storage:'granted'});b.className='ck';});})();</script></body></html>
