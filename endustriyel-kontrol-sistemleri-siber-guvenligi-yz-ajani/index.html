@@ -1,0 +1,163 @@
+<!doctype html><html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Endüstriyel kontrol sistemlerinin siber güvenliği ve YZ</title><meta name="description" content="Endüstriyel kontrol sistemlerinin siber güvenliği: YZ ajanı EPICS&#x27;te 4 saatte 4 açık buldu. OT zafiyet yönetimi tablosu, Türkiye verisi ve kontrol listesi."><link rel="canonical" href="https://digitalyakalilar.com/endustriyel-kontrol-sistemleri-siber-guvenligi-yz-ajani/"><link rel="alternate" hreflang="tr" href="https://digitalyakalilar.com/endustriyel-kontrol-sistemleri-siber-guvenligi-yz-ajani/"><link rel="alternate" hreflang="en" href="https://digitalyakalilar.com/en/ot-vulnerability-management-best-practices/"><link rel="alternate" hreflang="x-default" href="https://digitalyakalilar.com/endustriyel-kontrol-sistemleri-siber-guvenligi-yz-ajani/">
+<meta property="og:type" content="article"><meta property="og:title" content="Endüstriyel kontrol sistemlerinin siber güvenliği ve YZ"><meta property="og:description" content="Endüstriyel kontrol sistemlerinin siber güvenliği: YZ ajanı EPICS&#x27;te 4 saatte 4 açık buldu. OT zafiyet yönetimi tablosu, Türkiye verisi ve kontrol listesi."><meta property="og:url" content="https://digitalyakalilar.com/endustriyel-kontrol-sistemleri-siber-guvenligi-yz-ajani/"><meta property="og:image" content="https://digitalyakalilar.com/covers/endustriyel-kontrol-sistemleri-siber-guvenligi-yz-ajani.jpg"><meta property="og:locale" content="tr_TR"><meta property="og:site_name" content="Digital Yakalılar">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Endüstriyel kontrol sistemlerinin siber güvenliği ve YZ"><meta name="twitter:description" content="Endüstriyel kontrol sistemlerinin siber güvenliği: YZ ajanı EPICS&#x27;te 4 saatte 4 açık buldu. OT zafiyet yönetimi tablosu, Türkiye verisi ve kontrol listesi."><link rel="alternate" type="application/rss+xml" title="Digital Yakalılar" href="https://digitalyakalilar.com/rss.xml"><meta name="twitter:site" content="@digiyakalilar"><meta name="twitter:image" content="https://digitalyakalilar.com/covers/endustriyel-kontrol-sistemleri-siber-guvenligi-yz-ajani.jpg">
+<link rel="icon" href="/favicon.ico" sizes="any"><link rel="icon" type="image/png" href="/favicon.png"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="preload" href="/montserrat.ttf" as="font" type="font/ttf" crossorigin><link rel="stylesheet" href="/style.css"><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('consent','default',{ad_storage:'denied',analytics_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',wait_for_update:500});try{if(localStorage.getItem('dy_consent')==='granted')gtag('consent','update',{analytics_storage:'granted'});}catch(e){}gtag('js',new Date());gtag('config','G-Z3LYZKZVL7');</script><script async src="https://www.googletagmanager.com/gtag/js?id=G-Z3LYZKZVL7"></script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Endüstriyel kontrol sistemlerinin siber güvenliği neden zor?", "acceptedAnswer": {"@type": "Answer", "text": "OT sistemlerinde öncelik kesintisiz çalışma ve fiziksel güvenlik; yama ancak planlı duruşlarda ve üretici onayıyla yapılabiliyor. Bu yüzden segmentasyon ve erişim kısıtlama genellikle ilk savunma hattı ."}}, {"@type": "Question", "name": "EPICS açıkları hangi sürümü etkiliyor?", "acceptedAnswer": {"@type": "Answer", "text": "CISA'ya göre EPICS Base 7.0.10 ve öncesi etkileniyor; düzeltmeler 7.0.11'de ."}}, {"@type": "Question", "name": "Yapay zekâ OT sistemlerinde açık bulabiliyor mu?", "acceptedAnswer": {"@type": "Answer", "text": "Evet. Causal Security'nin Cipher ajanı EPICS'te dört açığı 3 saat 49 dakikada buldu ve doğruladı ."}}, {"@type": "Question", "name": "Açığı istismar etmek için ne gerekiyor?", "acceptedAnswer": {"@type": "Answer", "text": "The Register'a göre saldırganın kontrol ağındaki EPICS servislerine ulaşması gerekiyor; yetersiz segmentasyon bu yolu açabiliyor ."}}, {"@type": "Question", "name": "Türkiye'de endüstriyel sistemler ne kadar hedefte?", "acceptedAnswer": {"@type": "Answer", "text": "Kaspersky'nin 2023 ilk yarı verisine göre Türkiye'de ICS bilgisayarlarının %41,9'unda kötü amaçlı nesne engellendi (dünya: %34) . Daha güncel Türkiye'ye özgü kamuya açık veri bulamadık."}}]}</script><meta property="og:image:width" content="1600"><meta property="og:image:height" content="900"><meta property="article:published_time" content="2026-10-28"><script type="application/ld+json">{"@context": "https://schema.org", "@type": "NewsArticle", "headline": "Endüstriyel kontrol sistemlerinin siber güvenliği: Bir YZ ajanı 4 saatte 4 ciddi açık buldu, fabrikalar ne yap", "description": "Endüstriyel kontrol sistemlerinin siber güvenliği: YZ ajanı EPICS'te 4 saatte 4 açık buldu. OT zafiyet yönetimi tablosu, Türkiye verisi ve kontrol listesi.", "image": ["https://digitalyakalilar.com/covers/endustriyel-kontrol-sistemleri-siber-guvenligi-yz-ajani.jpg"], "datePublished": "2026-10-28", "dateModified": "2026-10-28", "inLanguage": "tr", "mainEntityOfPage": "https://digitalyakalilar.com/endustriyel-kontrol-sistemleri-siber-guvenligi-yz-ajani/", "keywords": "endüstriyel kontrol sistemlerinin siber güvenliği, OT güvenliği, SCADA güvenliği, OT zafiyet yönetimi, ağ segmentasyonu, CISA ICS bildirimi, EPICS, yapay zekâ ile zafiyet tespiti", "author": {"@type": "Organization", "name": "Digital Yakalılar", "url": "https://digitalyakalilar.com"}, "publisher": {"@type": "Organization", "name": "Digital Yakalılar", "logo": {"@type": "ImageObject", "url": "https://digitalyakalilar.com/logo.png"}}}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Ana sayfa", "item": "https://digitalyakalilar.com/"}, {"@type": "ListItem", "position": 2, "name": "Endüstri 4.0 / Üretim", "item": "https://digitalyakalilar.com/kategori/endustri-4-0/"}, {"@type": "ListItem", "position": 3, "name": "Endüstriyel kontrol sistemlerinin siber güvenliği: Bir YZ ajanı 4 saatte 4 ciddi açık buldu, fabrikalar ne yapmalı?", "item": "https://digitalyakalilar.com/endustriyel-kontrol-sistemleri-siber-guvenligi-yz-ajani/"}]}</script></head><body>
+<header class="site-header"><div class="w"><div class="inner">
+<a class="brand" href="/"><img src="/logo.png" alt="Digital Yakalılar logo" width="38" height="38"><span>Digital Yakalılar</span></a>
+<nav class="nav-cats" aria-label="Kategoriler"><a href="/kategori/ik-teknolojileri/">İK Teknolojileri</a><a href="/kategori/endustri-4-0/">Endüstri 4.0 / Üretim</a><a href="/kategori/lojistik-nakliyat/">Lojistik & Nakliyat</a><a href="/kategori/yapay-zeka-verimlilik/">Yapay Zekâ & Verimlilik</a><a href="/kategori/dijital-guvenlik/">Dijital Güvenlik</a></nav>
+<div class="nav-right"><a class="plain" href="/hakkinda/">Hakkında</a><a class="lang" href="/en/ot-vulnerability-management-best-practices/" hreflang="en" lang="en" title="English">EN</a></div>
+</div></div></header>
+<div class="cover-wrap"><img src="/covers/endustriyel-kontrol-sistemleri-siber-guvenligi-yz-ajani.webp" srcset="/covers/endustriyel-kontrol-sistemleri-siber-guvenligi-yz-ajani-800.webp 800w, /covers/endustriyel-kontrol-sistemleri-siber-guvenligi-yz-ajani.webp 1600w" sizes="(max-width:980px) 100vw, 920px" alt="Endüstriyel kontrol sistemlerinin siber güvenliği: ayrılmış ağ bölgeleri ve kalkanla korunan kontrol paneli kapak görseli" width="1600" height="900" fetchpriority="high" decoding="async"></div><div class="article-shell"><article class="story">
+<div class="crumb"><a href="/">Ana sayfa</a> › <a href="/kategori/endustri-4-0/">Endüstri 4.0 / Üretim</a></div><h1>Endüstriyel kontrol sistemlerinin siber güvenliği: Bir YZ ajanı 4 saatte 4 ciddi açık buldu, fabrikalar ne yapmalı?</h1>
+<p class="lede">Otonom bir yapay zekâ ajanı, parçacık hızlandırıcılarını yöneten EPICS yazılımında 3 saat 49 dakikada dört ciddi açık buldu. Endüstriyel kontrol sistemlerinin siber güvenliği için OT zafiyet yönetimi tablosu, Türkiye verisi ve kontrol listesi.</p>
+<div class="meta"><a class="tag" href="/kategori/endustri-4-0/">Endüstri 4.0 / Üretim</a>28 Ekim 2026<span class="dot">·</span>5 dk okuma<span class="updated">Son güncelleme: 28 Ekim 2026</span></div>
+<div class="share top" aria-label="Paylaş"><b>Paylaş:</b><a href="https://x.com/intent/post?url=https%3A%2F%2Fdigitalyakalilar.com%2Fendustriyel-kontrol-sistemleri-siber-guvenligi-yz-ajani%2F&text=End%C3%BCstriyel%20kontrol%20sistemlerinin%20siber%20g%C3%BCvenli%C4%9Fi%3A%20Bir%20YZ%20ajan%C4%B1%204%20saatte%204%20ciddi%20a%C3%A7%C4%B1k%20buldu%2C%20fabrikalar%20ne%20yapmal%C4%B1%3F" target=_blank rel=noopener>X</a><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fdigitalyakalilar.com%2Fendustriyel-kontrol-sistemleri-siber-guvenligi-yz-ajani%2F" target=_blank rel=noopener>LinkedIn</a><a href="https://wa.me/?text=End%C3%BCstriyel%20kontrol%20sistemlerinin%20siber%20g%C3%BCvenli%C4%9Fi%3A%20Bir%20YZ%20ajan%C4%B1%204%20saatte%204%20ciddi%20a%C3%A7%C4%B1k%20buldu%2C%20fabrikalar%20ne%20yapmal%C4%B1%3F%20https%3A%2F%2Fdigitalyakalilar.com%2Fendustriyel-kontrol-sistemleri-siber-guvenligi-yz-ajani%2F" target=_blank rel=noopener>WhatsApp</a><a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdigitalyakalilar.com%2Fendustriyel-kontrol-sistemleri-siber-guvenligi-yz-ajani%2F" target=_blank rel=noopener>Facebook</a><a href="https://t.me/share/url?url=https%3A%2F%2Fdigitalyakalilar.com%2Fendustriyel-kontrol-sistemleri-siber-guvenligi-yz-ajani%2F&text=End%C3%BCstriyel%20kontrol%20sistemlerinin%20siber%20g%C3%BCvenli%C4%9Fi%3A%20Bir%20YZ%20ajan%C4%B1%204%20saatte%204%20ciddi%20a%C3%A7%C4%B1k%20buldu%2C%20fabrikalar%20ne%20yapmal%C4%B1%3F" target=_blank rel=noopener>Telegram</a><a href="mailto:?subject=End%C3%BCstriyel%20kontrol%20sistemlerinin%20siber%20g%C3%BCvenli%C4%9Fi%3A%20Bir%20YZ%20ajan%C4%B1%204%20saatte%204%20ciddi%20a%C3%A7%C4%B1k%20buldu%2C%20fabrikalar%20ne%20yapmal%C4%B1%3F&body=https%3A%2F%2Fdigitalyakalilar.com%2Fendustriyel-kontrol-sistemleri-siber-guvenligi-yz-ajani%2F">E-posta</a></div>
+<p>Yıllarca "kimse bu eski kontrol yazılımını incelemez" varsayımıyla korunan fabrika ve tesis sistemleri için kötü bir haber var. The Register'ın 27 Ekim'de aktardığına göre otonom bir yapay zekâ ajanı, dünyanın büyük bilim tesislerinde kullanılan açık kaynaklı EPICS kontrol yazılımında dört ciddi açığı yalnızca 3 saat 49 dakikada buldu ve doğruladı <sup class="cite"><a href="#kaynak-1" aria-label="Kaynaklar 1">[1]</a></sup>. Aynı gün ABD Siber Güvenlik ve Altyapı Güvenliği Ajansı (CISA) bir endüstriyel kontrol sistemi bildirimi yayımladı <sup class="cite"><a href="#kaynak-2" aria-label="Kaynaklar 2">[2]</a></sup>. Bu yazıda olayın <strong>endüstriyel kontrol sistemlerinin siber güvenliği</strong> için ne anlama geldiğini ve fabrikaların atabileceği somut adımları ele alıyoruz.</p><div class="toc" role="navigation" aria-label="İçindekiler"><strong>İçindekiler</strong><ol><li><a href="#b1">Ne oldu? EPICS'te dört açık, düzeltme 7.0.11'de</a></li><li><a href="#b2">Asıl ders: "Gizlilikle güvenlik" dönemi bitiyor</a></li><li><a href="#b3">Tek örnek değil: Aynı hafta başka ICS bildirimleri</a></li><li><a href="#b4">Türkiye için okuma</a></li><li><a href="#b5">OT zafiyet yönetimi: BT yaması ile farkı</a></li><li><a href="#b6">Endüstriyel kontrol sistemlerinin siber güvenliği: 10 maddelik kontrol listesi</a></li><li><a href="#b7">Sıkça sorulan sorular</a></li></ol></div><div class="ad-slot" id="ad-article-top" data-ad-slot="article-top" aria-hidden="true"></div>
+<h2 id="b1">Ne oldu? EPICS'te dört açık, düzeltme 7.0.11'de</h2>
+<p>EPICS (Experimental Physics and Industrial Control System), Los Alamos ve Argonne ulusal laboratuvarlarında geliştirilmiş, dağıtık SCADA sistemleri kurmak ve fiziksel cihazları uzaktan yönetmek için kullanılan bir yazılım çatısı. The Register'a göre dünya genelinde yaklaşık 90 büyük bilimsel, üniversite ve endüstriyel projede kullanılıyor <sup class="cite"><a href="#kaynak-1" aria-label="Kaynaklar 1">[1]</a></sup>.</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>CVE</th>
+<th>CVSS v3.1</th>
+<th>Tür</th>
+<th>Olası etki</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CVE-2026-114595</td>
+<td>9,8 (kritik)</td>
+<td>Tamsayı taşması → yığın dışı yazma</td>
+<td>Uzaktan kod çalıştırma potansiyeli</td>
+</tr>
+<tr>
+<td>CVE-2026-114596</td>
+<td>8,2 (yüksek)</td>
+<td>Mesaj uzunluğu doğrulama hatası</td>
+<td>Bellek yazma, kontrol sürecinin çökmesi</td>
+</tr>
+<tr>
+<td>CVE-2026-114597</td>
+<td>7,5 (yüksek)</td>
+<td>Yetersiz sınır kontrolü</td>
+<td>Bellek okuma, süreç çökmesi</td>
+</tr>
+<tr>
+<td>CVE-2026-114598</td>
+<td>7,5 (yüksek)</td>
+<td>Tür karışıklığı</td>
+<td>Hizmet engelleme, bitişik bellek ifşası</td>
+</tr>
+</tbody>
+</table></div>
+<p>Kaynak: The Register <sup class="cite"><a href="#kaynak-1" aria-label="Kaynaklar 1">[1]</a></sup>, CISA ICSA-26-300-01 <sup class="cite"><a href="#kaynak-2" aria-label="Kaynaklar 2">[2]</a></sup>. Etkilenen sürümler EPICS Base 7.0.10 ve öncesi; düzeltmeler 7.0.11 sürümünde <sup class="cite"><a href="#kaynak-2" aria-label="Kaynaklar 2">[2]</a></sup><sup class="cite"><a href="#kaynak-3" aria-label="Kaynaklar 3">[3]</a></sup>.</p>
+<p>CISA'ya göre açıkların başarılı istismarı hizmet engelleme, bellek bozulması, hassas bilgi ifşası ya da potansiyel olarak keyfi kod çalıştırma ile sonuçlanabilir <sup class="cite"><a href="#kaynak-2" aria-label="Kaynaklar 2">[2]</a></sup>. Bildirim, sektör olarak "Kritik İmalat"ı işaretliyor <sup class="cite"><a href="#kaynak-2" aria-label="Kaynaklar 2">[2]</a></sup>.</p>
+<p>Alıntılanabilir istatistik: <strong>Causal Security'nin "Cipher" adlı YZ ajanı, daha önce tanımadığı EPICS sisteminde dört bilinmeyen açığı bulup istismar edilebilirliğini 3 saat 49 dakikada doğruladı</strong> <sup class="cite"><a href="#kaynak-1" aria-label="Kaynaklar 1">[1]</a></sup>.</p>
+<h2 id="b2">Asıl ders: "Gizlilikle güvenlik" dönemi bitiyor</h2>
+<p>Causal Security kurucu ortağı Shubham Raj, ilk incelemenin insan müdahalesi olmadan yapıldığını; yalnızca derin istismar testleri için güvenli bir ortamda tek bir onay verildiğini söylüyor <sup class="cite"><a href="#kaynak-1" aria-label="Kaynaklar 1">[1]</a></sup>. Raj'a göre bu açıkları istismar etmek için parçacık fiziği ya da derin OT bilgisi gerekmiyor; geleneksel istismar becerisi olan biri, giderek yetenekli YZ sistemlerinin yardımıyla bunu yapabilir <sup class="cite"><a href="#kaynak-1" aria-label="Kaynaklar 1">[1]</a></sup>.</p>
+<p>The Register'ın değerlendirmesi de aynı yönde: Bu bulgular, YZ ajanlarının eskiden "bilinmezlik" sayesinde korunan endüstriyel ve operasyonel teknoloji (OT) sistemlerinde açık bulmakta ne kadar iyi olduğunu gösteriyor <sup class="cite"><a href="#kaynak-1" aria-label="Kaynaklar 1">[1]</a></sup>. Yani saldırgan tarafında açık bulma maliyeti düşüyor; savunma tarafında yama ve segmentasyon temposu artmak zorunda.</p>
+<p>İyi haber şu: Bu açıkları gerçek bir tesiste istismar etmenin ön koşulu, kontrol ağındaki EPICS servislerine ulaşabilmek. Bu da ağlar yeterince ayrılmamışsa ya da başka bir sistem bu ağa erişebiliyorsa mümkün oluyor <sup class="cite"><a href="#kaynak-1" aria-label="Kaynaklar 1">[1]</a></sup>. Ağ segmentasyonu hâlâ en güçlü kalkan.</p>
+<h2 id="b3">Tek örnek değil: Aynı hafta başka ICS bildirimleri</h2>
+<p>CISA, EPICS bildirimiyle aynı gün Mitsubishi Electric'in GENESIS, ICONICS Suite ve MC Works64 gibi SCADA/HMI ürünleri için de ayrı bir bildirim (ICSA-26-300-02) yayımladı; bu bildirimde kimlik doğrulamanın atlatılması ve keyfi kod çalıştırma riskleri sayılıyor <sup class="cite"><a href="#kaynak-4" aria-label="Kaynaklar 4">[4]</a></sup>. Fabrikalar için gerçek iş, tek bir açığı kapatmak değil, bu bildirim akışını düzenli bir süreçle yönetmek.</p>
+<p>CISA'ya göre EPICS açıklarının kamuya açık şekilde istismar edildiğine dair bir bildirim henüz yok; ajans ayrıca savunma önlemlerini devreye almadan önce etki analizi ve risk değerlendirmesi yapılmasını hatırlatıyor <sup class="cite"><a href="#kaynak-2" aria-label="Kaynaklar 2">[2]</a></sup>. OT'de aceleyle yapılan bir değişiklik de üretimi durdurabilir.</p>
+<h2 id="b4">Türkiye için okuma</h2>
+<p>Türkiye'ye özgü en güncel kamuya açık veri biraz eski: Kaspersky'nin 2023'ün ilk yarısına ait verilerine göre Türkiye'de ICS bilgisayarlarının %41,9'unda kötü amaçlı nesne engellendi; dünya ortalaması %34'tü <sup class="cite"><a href="#kaynak-5" aria-label="Kaynaklar 5">[5]</a></sup>. Kaspersky ICS CERT'in 2026 ikinci çeyrek raporuna göre ise küresel oran 2022'den bu yana en düşük seviyeye inerken, fidye yazılımlarının hedef aldığı ICS bilgisayarlarının sayısı Orta Doğu'da çeyrekten çeyreğe %11 arttı <sup class="cite"><a href="#kaynak-6" aria-label="Kaynaklar 6">[6]</a></sup>. Kaspersky uzmanları düzenli güvenlik değerlendirmesi, zafiyetlerin önceliklendirilmesi, kritik bileşenlerin zamanında güncellenmesi ve BT ile OT personelinin eğitimini öneriyor <sup class="cite"><a href="#kaynak-6" aria-label="Kaynaklar 6">[6]</a></sup>.</p>
+<p>Fabrikada tarayıcı, robot ve MES gibi bileşenlerin güvenliğini daha önce <a href="/barkod-okuyucu-guvenligi-depo-siber-saldiri/">barkod okuyucu güvenliği</a> ve <a href="/kardemir-seviye-3-mes-isa-95/">ISA-95 ile seviye 3 MES</a> yazılarımızda ele almıştık. ISA-95'in seviye modeli, aşağıdaki segmentasyon adımları için de doğal bir harita sunuyor.</p>
+<h2 id="b5">OT zafiyet yönetimi: BT yaması ile farkı</h2>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Boyut</th>
+<th>Kurumsal BT</th>
+<th>OT / endüstriyel kontrol</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Öncelik</td>
+<td>Gizlilik</td>
+<td>Erişilebilirlik ve fiziksel güvenlik</td>
+</tr>
+<tr>
+<td>Yama penceresi</td>
+<td>Haftalık / aylık</td>
+<td>Planlı duruşlar, bazen yılda birkaç kez</td>
+</tr>
+<tr>
+<td>Test</td>
+<td>Otomatik dağıtım yaygın</td>
+<td>Üretici onayı ve test ortamı şart</td>
+</tr>
+<tr>
+<td>Telafi edici kontrol</td>
+<td>Daha az gerekli</td>
+<td>Segmentasyon, erişim kısıtlama, izleme çoğu zaman ilk savunma</td>
+</tr>
+<tr>
+<td>Envanter</td>
+<td>Ajan tabanlı tarama</td>
+<td>Pasif keşif; aktif tarama riskli olabilir</td>
+</tr>
+</tbody>
+</table></div>
+<p>Tablo, CISA'nın ağ maruziyetini azaltma ve izolasyon önerileri <sup class="cite"><a href="#kaynak-2" aria-label="Kaynaklar 2">[2]</a></sup> ile Kaspersky'nin önerileri <sup class="cite"><a href="#kaynak-6" aria-label="Kaynaklar 6">[6]</a></sup> temel alınarak tarafımızca derlenmiştir.</p>
+<h2 id="b6">Endüstriyel kontrol sistemlerinin siber güvenliği: 10 maddelik kontrol listesi</h2>
+<ul>
+<li class="check">Tüm kontrol sistemi cihaz ve yazılımlarının sürümlü envanterini çıkarın (EPICS, SCADA, HMI, PLC yazılımları)</li>
+<li class="check">EPICS kullanıyorsanız 7.0.11'e yükseltin; kullanmıyorsanız CISA ICS bildirimlerini haftalık takip edin <sup class="cite"><a href="#kaynak-2" aria-label="Kaynaklar 2">[2]</a></sup><sup class="cite"><a href="#kaynak-3" aria-label="Kaynaklar 3">[3]</a></sup><sup class="cite"><a href="#kaynak-4" aria-label="Kaynaklar 4">[4]</a></sup></li>
+<li class="check">Kontrol ağını internetten ve iş ağından ayırın, güvenlik duvarının arkasına alın <sup class="cite"><a href="#kaynak-2" aria-label="Kaynaklar 2">[2]</a></sup></li>
+<li class="check">Uzaktan erişim gerekiyorsa VPN gibi güvenli yöntemler kullanın ve VPN'i en güncel sürümde tutun <sup class="cite"><a href="#kaynak-2" aria-label="Kaynaklar 2">[2]</a></sup></li>
+<li class="check">Kontrol ağına erişebilen her BT sistemini listeleyin; gereksiz yolları kapatın <sup class="cite"><a href="#kaynak-1" aria-label="Kaynaklar 1">[1]</a></sup></li>
+<li class="check">Yama yapılamayan sistemler için telafi edici kontrol tanımlayın (erişim listesi, izleme)</li>
+<li class="check">Zafiyetleri CVSS'in yanında istismar edilebilirlik ve üretime etkiye göre önceliklendirin <sup class="cite"><a href="#kaynak-6" aria-label="Kaynaklar 6">[6]</a></sup></li>
+<li class="check">Planlı duruş takvimine yama pencereleri ekleyin</li>
+<li class="check">BT ve OT ekiplerine ortak eğitim ve tatbikat planlayın <sup class="cite"><a href="#kaynak-6" aria-label="Kaynaklar 6">[6]</a></sup></li>
+<li class="check">Fidye yazılımı senaryosu için çevrimdışı yedek ve geri dönüş planı hazırlayın <sup class="cite"><a href="#kaynak-6" aria-label="Kaynaklar 6">[6]</a></sup></li>
+</ul>
+<p>Eski Windows sunucuları da OT ağlarında sık görülen bir risk; bkz. <a href="/windows-server-2016-destek-sonu-gecis-rehberi/">Windows Server 2016 destek sonu</a>.</p>
+<h2 id="b7">Sıkça sorulan sorular</h2>
+<h3>Endüstriyel kontrol sistemlerinin siber güvenliği neden zor?</h3>
+<p>OT sistemlerinde öncelik kesintisiz çalışma ve fiziksel güvenlik; yama ancak planlı duruşlarda ve üretici onayıyla yapılabiliyor. Bu yüzden segmentasyon ve erişim kısıtlama genellikle ilk savunma hattı <sup class="cite"><a href="#kaynak-2" aria-label="Kaynaklar 2">[2]</a></sup>.</p>
+<h3>EPICS açıkları hangi sürümü etkiliyor?</h3>
+<p>CISA'ya göre EPICS Base 7.0.10 ve öncesi etkileniyor; düzeltmeler 7.0.11'de <sup class="cite"><a href="#kaynak-2" aria-label="Kaynaklar 2">[2]</a></sup><sup class="cite"><a href="#kaynak-3" aria-label="Kaynaklar 3">[3]</a></sup>.</p>
+<h3>Yapay zekâ OT sistemlerinde açık bulabiliyor mu?</h3>
+<p>Evet. Causal Security'nin Cipher ajanı EPICS'te dört açığı 3 saat 49 dakikada buldu ve doğruladı <sup class="cite"><a href="#kaynak-1" aria-label="Kaynaklar 1">[1]</a></sup>.</p>
+<h3>Açığı istismar etmek için ne gerekiyor?</h3>
+<p>The Register'a göre saldırganın kontrol ağındaki EPICS servislerine ulaşması gerekiyor; yetersiz segmentasyon bu yolu açabiliyor <sup class="cite"><a href="#kaynak-1" aria-label="Kaynaklar 1">[1]</a></sup>.</p>
+<h3>Türkiye'de endüstriyel sistemler ne kadar hedefte?</h3>
+<p>Kaspersky'nin 2023 ilk yarı verisine göre Türkiye'de ICS bilgisayarlarının %41,9'unda kötü amaçlı nesne engellendi (dünya: %34) <sup class="cite"><a href="#kaynak-5" aria-label="Kaynaklar 5">[5]</a></sup>. Daha güncel Türkiye'ye özgü kamuya açık veri bulamadık.</p>
+<div class="ad-slot" id="ad-article-bottom" data-ad-slot="article-bottom" aria-hidden="true"></div><section class="refs"><h2 id="kaynaklar">Kaynaklar</h2>
+<ol class="sources">
+<li id="kaynak-1">The Register, Jessica Lyons, "AI 'hacker' finds 4 severe bugs in popular industrial control software in under 4 hours", 27 Ekim 2026. <a href="https://www.theregister.com/security/2026/10/27/ai-hacker-finds-4-severe-bugs-in-popular-industrial-control-software-in-under-4-hours/5305811" target="_blank" rel="noopener">https://www.theregister.com/security/2026/10/27/ai-hacker-finds-4-severe-bugs-in-popular-industrial-control-software-in-under-4-hours/5305811</a> (Erişim: 28 Ekim 2026)</li>
+<li id="kaynak-2">CISA, "ICSA-26-300-01: EPICS Base", 27 Ekim 2026. <a href="https://www.cisa.gov/news-events/ics-advisories/icsa-26-300-01" target="_blank" rel="noopener">https://www.cisa.gov/news-events/ics-advisories/icsa-26-300-01</a> (Erişim: 28 Ekim 2026)</li>
+<li id="kaynak-3">GitHub, epics-base/epics-base, sürüm notları (7.0.11). <a href="https://github.com/epics-base/epics-base/releases" target="_blank" rel="noopener">https://github.com/epics-base/epics-base/releases</a> (Erişim: 28 Ekim 2026)</li>
+<li id="kaynak-4">CISA, "ICSA-26-300-02: Mitsubishi Electric GENESIS, GENESIS64, ICONICS Suite ve diğerleri", 27 Ekim 2026. <a href="https://www.cisa.gov/news-events/ics-advisories/icsa-26-300-02" target="_blank" rel="noopener">https://www.cisa.gov/news-events/ics-advisories/icsa-26-300-02</a> (Erişim: 28 Ekim 2026)</li>
+<li id="kaynak-5">Kaspersky Türkiye, "Türkiye, 2023'ün ilk yarısında endüstriyel kontrol sistemleri en fazla saldırıya uğrayan bölgeler arasında" (basın bülteni). <a href="https://www.kaspersky.com.tr/about/press-releases/turkiye-2023un-ilk-yarisinda-endustriyel-kontrol-sistemleri-en-fazla-saldiriya-ugrayan-bolgeler-arasinda" target="_blank" rel="noopener">https://www.kaspersky.com.tr/about/press-releases/turkiye-2023un-ilk-yarisinda-endustriyel-kontrol-sistemleri-en-fazla-saldiriya-ugrayan-bolgeler-arasinda</a> (Erişim: 28 Ekim 2026)</li>
+<li id="kaynak-6">Anadolu Ajansı, Sibel Morrow, "Kaspersky 'Endüstriyel Otomasyon Sistemlerine Yönelik Tehdit Ortamı' raporunu paylaştı", 26 Ağustos 2026. <a href="https://www.aa.com.tr/tr/isdunyasi/bilisim/kaspersky-endustriyel-otomasyon-sistemlerine-yonelik-tehdit-ortami-raporunu-paylasti/704086" target="_blank" rel="noopener">https://www.aa.com.tr/tr/isdunyasi/bilisim/kaspersky-endustriyel-otomasyon-sistemlerine-yonelik-tehdit-ortami-raporunu-paylasti/704086</a> (Erişim: 28 Ekim 2026)</li>
+</ol></section><div class="share " aria-label="Paylaş"><b>Paylaş:</b><a href="https://x.com/intent/post?url=https%3A%2F%2Fdigitalyakalilar.com%2Fendustriyel-kontrol-sistemleri-siber-guvenligi-yz-ajani%2F&text=End%C3%BCstriyel%20kontrol%20sistemlerinin%20siber%20g%C3%BCvenli%C4%9Fi%3A%20Bir%20YZ%20ajan%C4%B1%204%20saatte%204%20ciddi%20a%C3%A7%C4%B1k%20buldu%2C%20fabrikalar%20ne%20yapmal%C4%B1%3F" target=_blank rel=noopener>X</a><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fdigitalyakalilar.com%2Fendustriyel-kontrol-sistemleri-siber-guvenligi-yz-ajani%2F" target=_blank rel=noopener>LinkedIn</a><a href="https://wa.me/?text=End%C3%BCstriyel%20kontrol%20sistemlerinin%20siber%20g%C3%BCvenli%C4%9Fi%3A%20Bir%20YZ%20ajan%C4%B1%204%20saatte%204%20ciddi%20a%C3%A7%C4%B1k%20buldu%2C%20fabrikalar%20ne%20yapmal%C4%B1%3F%20https%3A%2F%2Fdigitalyakalilar.com%2Fendustriyel-kontrol-sistemleri-siber-guvenligi-yz-ajani%2F" target=_blank rel=noopener>WhatsApp</a><a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdigitalyakalilar.com%2Fendustriyel-kontrol-sistemleri-siber-guvenligi-yz-ajani%2F" target=_blank rel=noopener>Facebook</a><a href="https://t.me/share/url?url=https%3A%2F%2Fdigitalyakalilar.com%2Fendustriyel-kontrol-sistemleri-siber-guvenligi-yz-ajani%2F&text=End%C3%BCstriyel%20kontrol%20sistemlerinin%20siber%20g%C3%BCvenli%C4%9Fi%3A%20Bir%20YZ%20ajan%C4%B1%204%20saatte%204%20ciddi%20a%C3%A7%C4%B1k%20buldu%2C%20fabrikalar%20ne%20yapmal%C4%B1%3F" target=_blank rel=noopener>Telegram</a><a href="mailto:?subject=End%C3%BCstriyel%20kontrol%20sistemlerinin%20siber%20g%C3%BCvenli%C4%9Fi%3A%20Bir%20YZ%20ajan%C4%B1%204%20saatte%204%20ciddi%20a%C3%A7%C4%B1k%20buldu%2C%20fabrikalar%20ne%20yapmal%C4%B1%3F&body=https%3A%2F%2Fdigitalyakalilar.com%2Fendustriyel-kontrol-sistemleri-siber-guvenligi-yz-ajani%2F">E-posta</a></div>
+</article></div><section class="related"><h2>İlgini çekebilir</h2><div class="grid"><a class="card" href="/dijital-urun-pasaportu-zorunlulugu-ihracatci-rehberi/">
+<div class="card-img"><img src="/covers/dijital-urun-pasaportu-zorunlulugu-ihracatci-rehberi-800.webp" alt="Dijital ürün pasaportu zorunluluğu: Sektör sektör AB takvimi, Türkiye ihracat verisi ve üreticiler için hazırlık listesi" width="800" height="450" loading="lazy" decoding="async"></div>
+<div class="card-body"><div class="meta"><span class="tag">Endüstri 4.0 / Üretim</span></div>
+<h2>Dijital ürün pasaportu zorunluluğu: Sektör sektör AB takvimi, Türkiye ihracat verisi ve üreticiler için hazırlık listesi</h2>
+<p>Dijital ürün pasaportu (DPP) zorunluluğu 18 Şubat 2027&#x27;de bataryalarla başlıyor; çelik, tekstil, alüminyum ve mobilya izleyecek. AB takvimi, Türkiye&#x27;nin ilgili sektörlerdeki ihracatı, İzmir&#x27;den Loading Bag örneği ve üreticiler için kontrol listesi.</p>
+<div class="meta">25 Ekim 2026<span class="dot">·</span>7 dk okuma</div>
+</div></a><a class="card" href="/otonom-mobil-robot-amr-guvenlik-sertifikasyonu/">
+<div class="card-img"><img src="/covers/otonom-mobil-robot-amr-guvenlik-sertifikasyonu-800.webp" alt="Otonom mobil robot (AMR) güvenliği: ISO 3691-4, yeni Makine Emniyeti Yönetmeliği ve simülasyonla sertifikasyon" width="800" height="450" loading="lazy" decoding="async"></div>
+<div class="card-body"><div class="meta"><span class="tag">Endüstri 4.0 / Üretim</span></div>
+<h2>Otonom mobil robot (AMR) güvenliği: ISO 3691-4, yeni Makine Emniyeti Yönetmeliği ve simülasyonla sertifikasyon</h2>
+<p>TÜV SÜD ve Accenture, otonom mobil robotların güvenlik sertifikasyonunu dijital ikiz ve simülasyonla hızlandıran bir konsept tanıttı. Türkiye&#x27;de ise 2023/1230 uyumlu Makine Emniyeti Yönetmeliği 20 Ocak 2027&#x27;de yürürlüğe giriyor. Fabrika ve depolar neye hazırlanmalı?</p>
+<div class="meta">22 Ekim 2026<span class="dot">·</span>6 dk okuma</div>
+</div></a><a class="card" href="/uretimde-dijital-ikiz-unilever-40-fabrika/">
+<div class="card-img"><img src="/covers/uretimde-dijital-ikiz-unilever-40-fabrika-800.webp" alt="Üretimde dijital ikiz: Unilever&#x27;in 40 yeni ikiz planı ve Türkiye&#x27;den örnekler" width="800" height="450" loading="lazy" decoding="async"></div>
+<div class="card-body"><div class="meta"><span class="tag">Endüstri 4.0 / Üretim</span></div>
+<h2>Üretimde dijital ikiz: Unilever&#x27;in 40 yeni ikiz planı ve Türkiye&#x27;den örnekler</h2>
+<p>Unilever, beş fabrikada test ettiği yapay zekâ destekli dijital ikizleri Accenture ile 40&#x27;tan fazla yeni ikize taşıyor. Üretimde dijital ikiz kurarken hangi metrikler, hangi altyapı ve hangi eğitim gerekiyor? Türkiye&#x27;den Arçelik, Tekkan ve Ford Otosan örnekleriyle.</p>
+<div class="meta">19 Ekim 2026<span class="dot">·</span>6 dk okuma</div>
+</div></a></div></section>
+<footer><div class="w"><div><div class="foot-brand">Digital Yakalılar</div>İK, endüstri, lojistik ve daha fazlasının dijitalleşme ürünleri; haberler ve kaynaklı rehberler.<br>© 2026 Digital Yakalılar</div>
+<div><a href="https://www.instagram.com/digitalyakalilar/">Instagram @digitalyakalilar</a><br>
+<a href="https://x.com/digiyakalilar">X @digiyakalilar</a><br>
+<a href="/gizlilik/">Gizlilik ve çerez politikası</a></div></div></footer><div class="ck" id="ck" role="dialog" aria-live="polite" aria-label="Gizlilik"><p>Hangi yazıların okunduğunu görmek için yalnızca onayınla Google Analytics çerezleri kullanıyoruz. Reklam çerezleri kapalı. <a href="/gizlilik/">Gizlilik</a></p><div class="b"><button type="button" data-c="denied">Reddet</button><button type="button" data-c="granted">Kabul et</button></div></div>
+<script>(function(){var b=document.getElementById('ck'),v;try{v=localStorage.getItem('dy_consent')}catch(e){}if(!v)b.className='ck on';b.addEventListener('click',function(e){var c=e.target.getAttribute('data-c');if(!c)return;try{localStorage.setItem('dy_consent',c)}catch(x){}if(c==='granted')gtag('consent','update',{analytics_storage:'granted'});b.className='ck';});})();</script></body></html>
