@@ -1,5 +1,5 @@
 """Generate 1600x900 cover JPGs (+ 800px WebP) into static/covers/.
-Needs Chrome + playwright. Frontmatter: cover_title, cover_icon (ai|profile|phone|factory|logistics|hragents|maturity|mes|warehouse|agentshield|resume|twin|costs|audit|captcha|scanner|amr|agents|server|passport|hrsplit|sctalent|jobad|ot|ship|capacity).
+Needs Chrome + playwright. Frontmatter: cover_title, cover_icon (ai|profile|phone|factory|logistics|hragents|maturity|mes|warehouse|agentshield|resume|twin|costs|audit|captcha|scanner|amr|agents|server|passport|hrsplit|sctalent|jobad|ot|ship|capacity|habit|robotarm|pickup|aiops).
 
 Usage:
   python3 tools/covers.py              # uses build.py PALETTE / DY_PALETTE
@@ -476,6 +476,74 @@ def make_icons(C):
 <text x="565" y="142" text-anchor="middle" font-family="M" font-weight="900" font-size="46" fill="#fff">3%</text>
 <g filter="url(#s)"><circle cx="110" cy="560" r="62" fill="#fff"/></g><path d="M80 580 L105 550 L125 565 L150 530" stroke="{C['g1']}" stroke-width="10" fill="none" stroke-linecap="round" stroke-linejoin="round"/>"""
 
+    def icon_habit():
+        # old path (muted, dashed) vs new path (gradient) + 41% badge + manager check
+        return f"""<g filter="url(#s)"><rect x="60" y="150" width="440" height="420" rx="34" fill="#fff"/></g>
+<rect x="100" y="190" width="200" height="16" rx="8" fill="{P}"/><rect x="100" y="218" width="130" height="12" rx="6" fill="{MU}"/>
+<path d="M120 500 C180 420 220 470 270 400 S360 330 430 300" stroke="{MU}" stroke-width="14" fill="none" stroke-linecap="round" stroke-dasharray="4 26" opacity=".8"/>
+<path d="M120 500 C190 470 240 380 300 360 S390 300 440 250" stroke="url(#g)" stroke-width="18" fill="none" stroke-linecap="round"/>
+<circle cx="120" cy="500" r="20" fill="{P}"/><circle cx="440" cy="250" r="22" fill="url(#g)" stroke="#fff" stroke-width="6"/>
+<rect x="100" y="530" width="90" height="12" rx="6" fill="{MU}"/><rect x="330" y="530" width="130" height="12" rx="6" fill="{C['g1']}"/>
+<g filter="url(#s)"><rect x="470" y="70" width="200" height="130" rx="30" fill="{P}"/></g>
+<text x="570" y="152" text-anchor="middle" font-family="M" font-weight="900" font-size="56" fill="#fff">41%</text>
+<g filter="url(#s)"><circle cx="575" cy="470" r="95" fill="#fff"/></g>
+<circle cx="575" cy="440" r="30" fill="{P}"/><path d="M520 530 C520 490 630 490 630 530 Z" fill="{P}"/>
+<g filter="url(#s)"><circle cx="640" cy="390" r="34" fill="url(#g)"/></g>{chk(640, 390, 1.3, w=9)}
+<g filter="url(#s)"><rect x="30" y="590" width="260" height="70" rx="22" fill="#fff"/></g><rect x="60" y="613" width="26" height="26" rx="6" fill="url(#g)"/><rect x="100" y="619" width="150" height="14" rx="7" fill="{P}"/>"""
+
+    def icon_robotarm():
+        bars = "".join(
+            f'<rect x="{430+i*50}" y="{620-h}" width="34" height="{h}" rx="8" fill="{c}"/>'
+            for i, (h, c) in enumerate([(70, MU), (110, ACC2), (150, P), (200, "url(#g)")]))
+        return f"""<g filter="url(#s)"><rect x="60" y="540" width="260" height="60" rx="18" fill="#fff"/></g>
+<rect x="130" y="500" width="120" height="50" rx="14" fill="{P}"/>
+<path d="M190 500 L250 330" stroke="#fff" stroke-width="56" stroke-linecap="round"/>
+<path d="M190 500 L250 330" stroke="url(#g)" stroke-width="36" stroke-linecap="round"/>
+<path d="M250 330 L410 260" stroke="#fff" stroke-width="48" stroke-linecap="round"/>
+<path d="M250 330 L410 260" stroke="url(#g)" stroke-width="30" stroke-linecap="round"/>
+<circle cx="190" cy="500" r="34" fill="#fff" stroke="{P}" stroke-width="12"/><circle cx="250" cy="330" r="30" fill="#fff" stroke="{P}" stroke-width="12"/><circle cx="410" cy="260" r="24" fill="{P}"/>
+<path d="M410 260 L455 300 M410 260 L465 240" stroke="{P}" stroke-width="14" stroke-linecap="round"/>
+<g filter="url(#s)"><rect x="400" y="380" width="280" height="260" rx="30" fill="#fff"/></g>
+{bars}
+<rect x="430" y="404" width="120" height="14" rx="7" fill="{P}"/>
+<g filter="url(#s)"><rect x="450" y="70" width="220" height="140" rx="30" fill="{P}"/></g>
+<text x="560" y="140" text-anchor="middle" font-family="M" font-weight="900" font-size="52" fill="#fff">52</text>
+<rect x="500" y="160" width="120" height="12" rx="6" fill="#fff" opacity=".7"/>
+<g filter="url(#s)"><circle cx="110" cy="150" r="64" fill="#fff"/></g>{gear(110, 150, 38, 8, 10, C['g1'])}<circle cx="110" cy="150" r="14" fill="#fff"/>"""
+
+    def icon_pickup():
+        return f"""<g filter="url(#s)"><rect x="60" y="300" width="330" height="200" rx="22" fill="#fff"/></g>
+<rect x="90" y="330" width="270" height="18" rx="9" fill="{PK}"/><rect x="90" y="362" width="200" height="14" rx="7" fill="{MU}" opacity=".6"/>
+<g filter="url(#s)"><path d="M390 360 H480 L540 420 V500 H390 Z" fill="{P}"/></g><rect x="410" y="378" width="60" height="40" rx="8" fill="#fff" opacity=".85"/>
+<circle cx="150" cy="512" r="38" fill="{P}" stroke="#fff" stroke-width="10"/><circle cx="300" cy="512" r="38" fill="{P}" stroke="#fff" stroke-width="10"/><circle cx="470" cy="512" r="38" fill="{P}" stroke="#fff" stroke-width="10"/>
+<rect x="400" y="455" width="90" height="26" rx="6" fill="#fff"/><text x="445" y="474" text-anchor="middle" font-family="M" font-weight="900" font-size="18" fill="{P}">34 ?? 00</text>
+<g filter="url(#s)"><rect x="410" y="60" width="250" height="200" rx="30" fill="#fff"/></g>
+<circle cx="470" cy="130" r="34" fill="url(#g)"/><path d="M440 200 C440 170 500 170 500 200 Z" fill="url(#g)"/>
+<rect x="525" y="105" width="110" height="14" rx="7" fill="{P}"/><rect x="525" y="132" width="80" height="12" rx="6" fill="{MU}"/><rect x="525" y="160" width="100" height="12" rx="6" fill="{MU}"/>
+<g filter="url(#s)"><circle cx="640" cy="250" r="44" fill="{P}"/></g>
+<path d="M622 232 L658 268 M658 232 L622 268" stroke="#fff" stroke-width="12" stroke-linecap="round"/>
+<g filter="url(#s)"><path d="M150 70 L240 104 V180 C240 240 202 280 150 300 C98 280 60 240 60 180 V104 Z" fill="url(#g)"/></g>
+{chk(150, 180, 2.2, w=14)}
+<g filter="url(#s)"><rect x="380" y="580" width="290" height="70" rx="22" fill="#fff"/></g><rect x="406" y="603" width="24" height="24" rx="6" fill="url(#g)"/><rect x="444" y="609" width="190" height="13" rx="6.5" fill="{P}"/>"""
+
+    def icon_aiops():
+        racks = "".join(
+            f'<rect x="90" y="{200+i*84}" width="250" height="64" rx="14" fill="{P}"/>'
+            f'<circle cx="122" cy="{232+i*84}" r="9" fill="{c}"/><circle cx="150" cy="{232+i*84}" r="9" fill="#fff" opacity=".5"/>'
+            f'<rect x="190" y="{226+i*84}" width="120" height="12" rx="6" fill="#fff" opacity=".55"/>'
+            for i, c in enumerate([ACC, "#ff5a5a", ACC]))
+        return f"""<g filter="url(#s)"><rect x="60" y="170" width="310" height="300" rx="30" fill="#fff"/></g>
+{racks}
+<g filter="url(#s)"><rect x="400" y="240" width="270" height="240" rx="30" fill="#fff"/></g>
+<path d="M425 420 L470 400 L505 430 L545 340 L585 370 L645 300" stroke="url(#g)" stroke-width="12" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="545" cy="340" r="14" fill="#ff5a5a" stroke="#fff" stroke-width="5"/>
+<rect x="425" y="268" width="130" height="14" rx="7" fill="{P}"/><rect x="425" y="446" width="90" height="12" rx="6" fill="{MU}"/>
+<g filter="url(#s)"><rect x="440" y="60" width="200" height="150" rx="36" fill="{P}"/></g>
+<rect x="490" y="100" width="100" height="70" rx="20" fill="url(#g)"/><circle cx="520" cy="135" r="9" fill="#fff"/><circle cx="560" cy="135" r="9" fill="#fff"/><rect x="535" y="80" width="10" height="22" rx="5" fill="{P}"/>
+<g filter="url(#s)"><rect x="80" y="520" width="320" height="110" rx="28" fill="#fff"/></g>
+<text x="110" y="590" font-family="M" font-weight="900" font-size="34" fill="{P}">L2</text><rect x="170" y="560" width="200" height="30" rx="15" fill="{PK}"/><rect x="170" y="560" width="120" height="30" rx="15" fill="url(#g)"/>
+<g filter="url(#s)"><circle cx="580" cy="560" r="62" fill="url(#g)"/></g>{chk(580, 560, 2, w=13)}"""
+
     icons = {
         "ai": icon_ai,
         "profile": icon_profile,
@@ -503,6 +571,10 @@ def make_icons(C):
         "ot": icon_ot,
         "ship": icon_ship,
         "capacity": icon_capacity,
+        "habit": icon_habit,
+        "robotarm": icon_robotarm,
+        "pickup": icon_pickup,
+        "aiops": icon_aiops,
     }
     return DEFS, icons
 
