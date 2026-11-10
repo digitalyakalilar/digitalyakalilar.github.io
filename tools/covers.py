@@ -544,6 +544,78 @@ def make_icons(C):
 <text x="110" y="590" font-family="M" font-weight="900" font-size="34" fill="{P}">L2</text><rect x="170" y="560" width="200" height="30" rx="15" fill="{PK}"/><rect x="170" y="560" width="120" height="30" rx="15" fill="url(#g)"/>
 <g filter="url(#s)"><circle cx="580" cy="560" r="62" fill="url(#g)"/></g>{chk(580, 560, 2, w=13)}"""
 
+    def icon_deepfake():
+        # video call window with executive silhouette, half "glitched" mask, audio waveform, verify shield
+        wave = "".join(f'<rect x="{110+i*26}" y="{560-h//2}" width="14" height="{h}" rx="7" fill="{c}"/>'
+            for i, (h, c) in enumerate([(30, MU), (60, ACC2), (90, P), (50, ACC2), (110, P), (70, ACC2), (40, MU), (80, P), (30, MU)]))
+        return f"""<g filter="url(#s)"><rect x="60" y="120" width="420" height="340" rx="30" fill="#fff"/></g>
+<rect x="60" y="120" width="420" height="56" rx="28" fill="{P}"/><circle cx="96" cy="148" r="9" fill="#ff5a5a"/><circle cx="124" cy="148" r="9" fill="{ACC}"/><rect x="160" y="141" width="140" height="14" rx="7" fill="#fff" opacity=".6"/>
+<circle cx="270" cy="270" r="62" fill="{P}"/><path d="M170 440 C170 360 370 360 370 440 Z" fill="{P}"/>
+<path d="M270 208 A62 62 0 0 1 270 332 Z" fill="url(#g)"/><path d="M270 372 C330 372 370 400 370 440 L270 440 Z" fill="url(#g)"/>
+<rect x="286" y="240" width="40" height="8" rx="4" fill="#fff" opacity=".8"/><rect x="296" y="262" width="30" height="8" rx="4" fill="#fff" opacity=".8"/><rect x="290" y="284" width="36" height="8" rx="4" fill="#fff" opacity=".8"/>
+<g filter="url(#s)"><rect x="80" y="500" width="300" height="120" rx="28" fill="#fff"/></g>{wave}
+<g filter="url(#s)"><rect x="500" y="80" width="170" height="110" rx="28" fill="{P}"/></g>
+<text x="585" y="152" text-anchor="middle" font-family="M" font-weight="900" font-size="44" fill="#fff">$129M</text>
+<g filter="url(#s)"><path d="M560 300 L650 334 V410 C650 470 612 510 560 530 C508 510 470 470 470 410 V334 Z" fill="url(#g)"/></g>
+{chk(560, 412, 2.2, w=14)}"""
+
+    def icon_coldchain():
+        # refrigerated cabinet, thermometer rising, broken network link to controller panel, warning
+        return f"""<g filter="url(#s)"><rect x="70" y="110" width="290" height="500" rx="30" fill="#fff"/></g>
+<rect x="100" y="140" width="230" height="200" rx="18" fill="{LG}"/><rect x="100" y="360" width="230" height="220" rx="18" fill="{LG}"/>
+<rect x="300" y="200" width="12" height="80" rx="6" fill="{MU}"/><rect x="300" y="420" width="12" height="100" rx="6" fill="{MU}"/>
+<path d="M150 200 l20 -20 l20 20 M170 180 v60 M140 210 h60" stroke="{ACC}" stroke-width="10" stroke-linecap="round" fill="none" opacity=".8"/>
+<rect x="130" y="420" width="130" height="16" rx="8" fill="{MU}" opacity=".6"/><rect x="130" y="450" width="90" height="16" rx="8" fill="{MU}" opacity=".6"/>
+<g filter="url(#s)"><rect x="410" y="300" width="250" height="190" rx="28" fill="{P}"/></g>
+<rect x="436" y="326" width="198" height="70" rx="14" fill="#0b1020" opacity=".35"/>
+<text x="535" y="378" text-anchor="middle" font-family="M" font-weight="900" font-size="46" fill="#ff5a5a">50°C</text>
+<circle cx="460" cy="440" r="14" fill="#ff5a5a"/><circle cx="500" cy="440" r="14" fill="{ACC}"/><rect x="530" y="432" width="100" height="16" rx="8" fill="#fff" opacity=".5"/>
+<path d="M360 400 C380 400 390 400 410 400" stroke="{P}" stroke-width="10" stroke-dasharray="14 12"/>
+<g filter="url(#s)"><rect x="470" y="60" width="80" height="210" rx="40" fill="#fff"/></g>
+<rect x="497" y="90" width="26" height="130" rx="13" fill="{LG}"/><rect x="497" y="120" width="26" height="100" rx="13" fill="#ff5a5a"/><circle cx="510" cy="230" r="28" fill="#ff5a5a"/>
+<path d="M590 90 L650 196 H530 Z" fill="url(#g)" stroke="#fff" stroke-width="6" stroke-linejoin="round" transform="translate(30,0)"/>
+<rect x="615" y="122" width="10" height="38" rx="5" fill="#fff"/><circle cx="620" cy="176" r="7" fill="#fff"/>
+<g filter="url(#s)"><rect x="390" y="540" width="280" height="80" rx="24" fill="#fff"/></g><rect x="418" y="566" width="28" height="28" rx="7" fill="url(#g)"/><rect x="462" y="573" width="170" height="14" rx="7" fill="{P}"/>"""
+
+    def icon_engagement():
+        # gauge with low needle (8%), team avatars, manager support check
+        return f"""<g filter="url(#s)"><rect x="60" y="120" width="440" height="330" rx="34" fill="#fff"/></g>
+<path d="M130 380 A150 150 0 0 1 430 380" stroke="{LG}" stroke-width="40" fill="none" stroke-linecap="round"/>
+<path d="M130 380 A150 150 0 0 1 162 288" stroke="#ff5a5a" stroke-width="40" fill="none" stroke-linecap="round"/>
+<path d="M280 380 L170 330" stroke="{P}" stroke-width="14" stroke-linecap="round"/><circle cx="280" cy="380" r="22" fill="{P}"/>
+<text x="280" y="250" text-anchor="middle" font-family="M" font-weight="900" font-size="64" fill="{P}">8%</text>
+<rect x="200" y="410" width="160" height="14" rx="7" fill="{MU}"/>
+<g filter="url(#s)"><rect x="60" y="490" width="380" height="140" rx="30" fill="#fff"/></g>
+<circle cx="130" cy="545" r="24" fill="{MU}"/><path d="M96 600 C96 572 164 572 164 600 Z" fill="{MU}"/>
+<circle cx="220" cy="545" r="24" fill="{ACC2}"/><path d="M186 600 C186 572 254 572 254 600 Z" fill="{ACC2}"/>
+<circle cx="310" cy="545" r="24" fill="{P}"/><path d="M276 600 C276 572 344 572 344 600 Z" fill="{P}"/>
+<circle cx="390" cy="545" r="24" fill="url(#g)"/><path d="M356 600 C356 572 424 572 424 600 Z" fill="url(#g)"/>
+<g filter="url(#s)"><rect x="500" y="80" width="170" height="150" rx="32" fill="{P}"/></g>
+<text x="585" y="170" text-anchor="middle" font-family="M" font-weight="900" font-size="52" fill="#fff">48%</text>
+<g filter="url(#s)"><circle cx="580" cy="420" r="90" fill="#fff"/></g>
+<circle cx="580" cy="395" r="30" fill="{P}"/><path d="M528 478 C528 438 632 438 632 478 Z" fill="{P}"/>
+<g filter="url(#s)"><circle cx="648" cy="345" r="34" fill="url(#g)"/></g>{chk(648, 345, 1.3, w=9)}"""
+
+    def icon_intralogistics():
+        # AS/RS rack grid, conveyor with boxes, AGV, connected data layer
+        cells = "".join(f'<rect x="{90+c*62}" y="{140+r*62}" width="50" height="50" rx="8" fill="{col}"/>'
+            for r in range(4) for c in range(4)
+            for col in [[P, MU, ACC2, P][(r+c) % 4]])
+        boxes = "".join(f'<rect x="{110+i*90}" y="500" width="60" height="50" rx="8" fill="{c}"/>' for i, c in enumerate([ACC2, P, ACC2, P]))
+        return f"""<g filter="url(#s)"><rect x="60" y="110" width="300" height="300" rx="28" fill="#fff"/></g>
+{cells}
+<g filter="url(#s)"><rect x="60" y="470" width="420" height="120" rx="26" fill="#fff"/></g>
+{boxes}<rect x="90" y="556" width="370" height="12" rx="6" fill="{MU}"/>
+<g filter="url(#s)"><rect x="420" y="320" width="230" height="110" rx="26" fill="{P}"/></g>
+<rect x="450" y="300" width="170" height="30" rx="10" fill="url(#g)"/><circle cx="470" cy="440" r="22" fill="#fff" stroke="{P}" stroke-width="10"/><circle cx="600" cy="440" r="22" fill="#fff" stroke="{P}" stroke-width="10"/>
+<rect x="450" y="352" width="110" height="14" rx="7" fill="#fff" opacity=".6"/><circle cx="615" cy="370" r="12" fill="{ACC}"/>
+<g filter="url(#s)"><circle cx="560" cy="160" r="90" fill="url(#g)"/></g>
+<circle cx="560" cy="160" r="16" fill="#fff"/><circle cx="510" cy="120" r="11" fill="#fff"/><circle cx="612" cy="118" r="11" fill="#fff"/><circle cx="520" cy="210" r="11" fill="#fff"/><circle cx="606" cy="206" r="11" fill="#fff"/>
+<path d="M560 160 L510 120 M560 160 L612 118 M560 160 L520 210 M560 160 L606 206" stroke="#fff" stroke-width="6"/>
+<path d="M360 260 C420 260 440 200 470 180" stroke="#fff" stroke-width="8" stroke-dasharray="12 10" fill="none" opacity=".9"/>
+<g filter="url(#s)"><rect x="470" y="560" width="200" height="80" rx="24" fill="#fff"/></g>
+<text x="570" y="614" text-anchor="middle" font-family="M" font-weight="900" font-size="38" fill="{P}">-15%</text>"""
+
     icons = {
         "ai": icon_ai,
         "profile": icon_profile,
@@ -575,6 +647,10 @@ def make_icons(C):
         "robotarm": icon_robotarm,
         "pickup": icon_pickup,
         "aiops": icon_aiops,
+        "deepfake": icon_deepfake,
+        "coldchain": icon_coldchain,
+        "engagement": icon_engagement,
+        "intralogistics": icon_intralogistics,
     }
     return DEFS, icons
 
