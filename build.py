@@ -5,6 +5,11 @@ import os, re, shutil, markdown, html, datetime
 SITE = "https://digitalyakalilar.com"
 NAME = "Digital Yakalılar"
 AUTHOR = "Cem Kalkan"
+AUTHOR_URL = "https://www.linkedin.com/in/cmklkn"
+BIO = {
+    "tr": "Cem Kalkan’ın misyonu, süreçlerin dijitalleşmesinde kimin neyi sahiplendiğini yazılı hale getirmek. İnsan kaynaklarında da aynı ölçü geçerli: yazılım almak yetmez. Veri temiz olmalı, son karar insanda kalmalı, yönetici sistemi sahiplenmeli. Turkcell’de Genel Koordinatör olarak satış, operasyon ve İK ekiplerini yönetiyor. Yüksek lisansı Yıldız Teknik Üniversitesi İnsan Kaynakları Yönetimi.",
+    "en": "Cem Kalkan’s mission in digitalizing work processes is to write down who owns each step. The same measure applies in human resources: buying software is not enough. Data must be clean, the final decision must stay with a person, and the manager must own the system. He is General Coordinator at Turkcell, leading sales, operations and HR teams. His master’s degree is in Human Resources Management at Yıldız Technical University.",
+}
 B = os.path.dirname(os.path.abspath(__file__))
 OUT = B + "/public"
 # --- Palette switch (A | B | C) — one config value ---
@@ -132,7 +137,7 @@ ol.sources a{{word-break:break-all}}
 .searchbar{{display:flex;gap:8px;margin:14px 0 8px}}
 .searchbar input{{flex:1;min-height:48px;border:1px solid var(--border2);border-radius:14px;padding:0 16px;font:inherit;font-size:16px;background:var(--surface);color:var(--text)}}
 .authorbox{{display:flex;flex-direction:column;gap:2px;margin:14px 0 4px;padding:12px 16px;border-radius:14px;background:var(--soft);color:var(--text)}}
-.authorbox b{{font-weight:800}}.authorbox span{{color:var(--muted);font-size:14px;font-weight:600}}
+.authorbox b{{font-weight:800}}.authorbox span{{color:var(--body);font-size:15px;font-weight:500;line-height:1.45}}.authorbox a{{color:var(--accent);font-weight:700;font-size:14px}}
 .more{{margin:18px 0 0}}.more a{{font-weight:800;text-decoration:none}}
 .related{{margin:48px auto 20px;max-width:1180px;padding:0 22px}}
 .related>h2{{font-size:22px;font-weight:900;color:var(--text);margin:0 0 18px}}
@@ -612,7 +617,7 @@ def build(ps, lang, pre, link):
         import json
         ld = json.dumps({"@context": "https://schema.org", "@type": "NewsArticle", "headline": p["title"][:110], "description": p.get("meta_description", p["description"]),
             "image": [og], "datePublished": p["date"], "dateModified": p.get("updated", p["date"]), "inLanguage": lang,
-            "mainEntityOfPage": SITE + me, **({"keywords": p["keywords"]} if p.get("keywords") else {}), "author": {"@type": "Person", "name": AUTHOR, "url": SITE + ("/hakkinda/" if lang == "tr" else "/en/about/")},
+            "mainEntityOfPage": SITE + me, **({"keywords": p["keywords"]} if p.get("keywords") else {}), "author": {"@type": "Person", "name": AUTHOR, "description": BIO[lang], "url": SITE + ("/hakkinda/" if lang == "tr" else "/en/about/"), "sameAs": AUTHOR_URL},
             "publisher": {"@type": "Organization", "name": NAME, "logo": {"@type": "ImageObject", "url": SITE + "/logo.png"}}}, ensure_ascii=False)
         bc = json.dumps({"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
             {"@type": "ListItem", "position": 1, "name": home_l, "item": SITE + (pre + "/" if pre else "/")},
@@ -627,7 +632,7 @@ def build(ps, lang, pre, link):
 {crumb}<h1>{html.escape(p["title"])}</h1>
 <p class="lede">{html.escape(p["description"])}</p>
 <div class="meta"><a class="tag" href="{caturl(k,lang)}">{catname(k,lang)}</a>{fd(p["date"],lang)}<span class="dot">·</span>{p["mins"]} {u["read"]}{upd}</div>
-<aside class="authorbox"><b>{html.escape(AUTHOR)}</b><span>{u["by"]}</span></aside>
+<aside class="authorbox"><b>{html.escape(AUTHOR)}</b><span>{html.escape(BIO[lang])}</span><a href="{html.escape(AUTHOR_URL)}" rel="noopener">LinkedIn</a></aside>
 {share_top}
 {body}{ad("article-bottom")}{src}{share}
 </article></div>{rel}"""
@@ -732,7 +737,8 @@ contact(
     f"""<p>Yazışma kanalı Instagram: <a href="https://www.instagram.com/digitalyakalilar/">@digitalyakalilar</a>.</p>
 <h2>Haftalık bülten</h2>
 <p>Notun biçimi: <strong>5 gelişme + 1 rehber</strong>. E-posta toplama servisi henüz bağlı değil; kayıt açıldığında bu sayfadan duyurulacak. O zamana kadar aynı özeti Instagram hesabından takip edebilirsiniz.</p>
-<p>Rehberlerin yazarı <strong>{AUTHOR}</strong>.</p>""",
+<p>{html.escape(BIO["tr"])}</p>
+<p><a href="{html.escape(AUTHOR_URL)}" rel="noopener">Cem Kalkan, LinkedIn</a></p>""",
 )
 contact(
     "en", "/en", "/en/contact/", "/iletisim/", "Contact",
@@ -740,7 +746,8 @@ contact(
     f"""<p>The contact channel is Instagram: <a href="https://www.instagram.com/digitalyakalilar/">@digitalyakalilar</a>.</p>
 <h2>Weekly note</h2>
 <p>The format is <strong>5 developments + 1 guide</strong>. An email signup service is not connected yet; it will be announced on this page. Until then, follow the same brief on Instagram.</p>
-<p>The guides are written by <strong>{AUTHOR}</strong>.</p>""",
+<p>{html.escape(BIO["en"])}</p>
+<p><a href="{html.escape(AUTHOR_URL)}" rel="noopener">Cem Kalkan on LinkedIn</a></p>""",
 )
 pairs.append(("/iletisim/", "/en/contact/"))
 
@@ -749,7 +756,7 @@ ab = f"""<main class="w"><div class="page-head"><h1>Hakkında</h1></div>
 <p><strong>Digital Yakalılar</strong>, İK, endüstri, lojistik ve daha fazlasının dijitalleşme ürünlerini takip eden bir içerik platformu.</p>
 <p>Burada sektörlerin dijitalleşme haberlerini ve kaynaklı rehberleri paylaşıyoruz: yapay zekâ ile verimlilik, telefon ve hesap güvenliği, LinkedIn ve İK teknolojileri ve daha fazlası.</p>
 <p>Satış yok, e-ticaret yok; sadece işine yarayacak bilgi.</p>
-<p>Rehberleri <strong>{AUTHOR}</strong> yazar. İletişim ve haftalık bülten notu için <a href="/iletisim/">iletişim sayfasına</a> bakın.</p>
+<p>{html.escape(BIO["tr"])} <a href="{html.escape(AUTHOR_URL)}" rel="noopener">LinkedIn profili</a>. İletişim ve haftalık bülten notu için <a href="/iletisim/">iletişim sayfasına</a> bakın.</p>
 <p>Günlük ipuçları için Instagram'da <a href="https://www.instagram.com/digitalyakalilar/">@digitalyakalilar</a> hesabını takip et.</p>
 </article></main>"""
 w(
@@ -767,7 +774,7 @@ ab_en = f"""<main class="w"><div class="page-head"><h1>About</h1></div>
 <p><strong>Digital Yakalılar</strong> is a content platform that follows digitalization products across HR, industry, logistics and beyond.</p>
 <p>Here we share sector digitalization news and sourced guides: AI for productivity, phone and account security, LinkedIn and HR tech, and more.</p>
 <p>No sales pitches, no e-commerce — just information you can use.</p>
-<p>The guides are written by <strong>{AUTHOR}</strong>. For contact and the weekly note, see the <a href="/en/contact/">contact page</a>.</p>
+<p>{html.escape(BIO["en"])} <a href="{html.escape(AUTHOR_URL)}" rel="noopener">LinkedIn profile</a>. For contact and the weekly note, see the <a href="/en/contact/">contact page</a>.</p>
 <p>For daily tips, follow <a href="https://www.instagram.com/digitalyakalilar/">@digitalyakalilar</a> on Instagram.</p>
 </article></main>"""
 w(
