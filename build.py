@@ -485,8 +485,11 @@ def home_ld(lang, pre):
     org = {"@type": "Organization", "@id": SITE + "/#org", "name": NAME, "url": SITE + "/",
            "logo": {"@type": "ImageObject", "url": SITE + "/logo.png"},
            "sameAs": ["https://www.instagram.com/digitalyakalilar/", "https://x.com/digiyakalilar"]}
+    search_path = "/en/posts/?q={search_term_string}" if lang == "en" else "/yazilar/?q={search_term_string}"
     web = {"@type": "WebSite", "@id": SITE + (pre or "") + "/#website", "name": NAME, "url": SITE + (pre or "") + "/",
-           "inLanguage": lang, "publisher": {"@id": SITE + "/#org"}}
+           "inLanguage": lang, "publisher": {"@id": SITE + "/#org"},
+           "potentialAction": {"@type": "SearchAction", "target": {"@type": "EntryPoint", "urlTemplate": SITE + search_path},
+                               "query-input": "required name=search_term_string"}}
     d = json.dumps({"@context": "https://schema.org", "@graph": [org, web]}, ensure_ascii=False)
     return f'<script type="application/ld+json">{d}</script>'
 

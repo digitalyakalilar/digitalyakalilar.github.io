@@ -7,6 +7,9 @@ description: Yetkinlik odaklı işe alım yaygınlaşırken LinkedIn profilin na
 cover_title: LinkedIn profilini modern işe alıma hazırla
 cover_icon: profile
 category: ik-teknolojileri
+seo_title: LinkedIn profil ipuçları: yetkinlik ve doğrulama
+focus_kw: LinkedIn profil ipuçları
+keywords: LinkedIn profil ipuçları, yetkinlik odaklı işe alım, profil doğrulama, iş ilanı dolandırıcılığı
 ---
 İşe alım ekipleri adayları giderek daha çok dijital araçlar üzerinden buluyor ve LinkedIn bu araçların merkezinde duruyor. Senin açından mesele, profilinin hem arama ve eşleştirme sistemlerinde görünür olması hem de bir insan tarafından okunduğunda güven vermesi.
 

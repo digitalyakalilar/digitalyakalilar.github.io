@@ -7,6 +7,9 @@ description: İki adımlı doğrulamadan passkey'lere, oltalama SMS'lerinden kay
 cover_title: Telefon ve hesap güvenliği rehberi
 cover_icon: phone
 category: dijital-guvenlik
+seo_title: Telefon ve hesap güvenliği: iki adımlı doğrulama
+focus_kw: telefon ve hesap güvenliği
+keywords: telefon ve hesap güvenliği, iki adımlı doğrulama, passkey, oltalama SMS, kayıp telefon
 ---
 İş e-postan, şirket içi mesajlaşma uygulaman, banka uygulaman ve çoğu hesabının doğrulama kodları artık aynı cihazda: telefonunda. Bu da telefonu hem çok değerli hem de saldırganlar için cazip bir hedef hâline getiriyor.
 

@@ -8,6 +8,9 @@ cover_title: Phone and account security guide
 cover_icon: phone
 category: dijital-guvenlik
 tr: telefon-ve-hesap-guvenligi
+seo_title: Phone and account security: 2FA and passkeys
+focus_kw: phone and account security
+keywords: phone and account security, two-factor authentication, passkeys, smishing, lost phone
 ---
 Your work email, your company chat app, your banking app and the verification codes for most of your accounts now live on one device: your phone. That makes it both extremely valuable and an attractive target.
 

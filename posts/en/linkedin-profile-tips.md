@@ -8,6 +8,9 @@ cover_title: Get your LinkedIn profile ready for modern hiring
 cover_icon: profile
 category: ik-teknolojileri
 tr: linkedin-profil-ipuclari
+seo_title: LinkedIn profile tips for skills-based hiring
+focus_kw: LinkedIn profile tips
+keywords: LinkedIn profile tips, skills-based hiring, profile verification, job scams
 ---
 Hiring teams increasingly find candidates through digital tools, and LinkedIn sits at the center of them. For you, the challenge is twofold: your profile needs to be visible to search and matching systems, and it needs to build trust when a human reads it.
 
