@@ -4,6 +4,7 @@ import os, re, shutil, markdown, html, datetime
 
 SITE = "https://digitalyakalilar.com"
 NAME = "Digital Yakalılar"
+AUTHOR = "Cem Kalkan"
 B = os.path.dirname(os.path.abspath(__file__))
 OUT = B + "/public"
 # --- Palette switch (A | B | C) — one config value ---
@@ -128,6 +129,11 @@ ol.sources a{{word-break:break-all}}
 .share{{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:28px 0 8px}}.share.top{{margin:16px 0 4px}}.share b{{font-size:13px;color:var(--muted2);margin-right:2px}}
 .share a{{display:inline-flex;align-items:center;gap:6px;padding:11px 16px;min-height:44px;border-radius:22px;background:var(--surface);border:1px solid var(--border2);color:var(--text);text-decoration:none;font-weight:700;font-size:13px}}
 .share a:hover{{border-color:var(--accent);color:var(--accent)}}
+.searchbar{{display:flex;gap:8px;margin:14px 0 8px}}
+.searchbar input{{flex:1;min-height:48px;border:1px solid var(--border2);border-radius:14px;padding:0 16px;font:inherit;font-size:16px;background:var(--surface);color:var(--text)}}
+.authorbox{{display:flex;flex-direction:column;gap:2px;margin:14px 0 4px;padding:12px 16px;border-radius:14px;background:var(--soft);color:var(--text)}}
+.authorbox b{{font-weight:800}}.authorbox span{{color:var(--muted);font-size:14px;font-weight:600}}
+.more{{margin:18px 0 0}}.more a{{font-weight:800;text-decoration:none}}
 .related{{margin:48px auto 20px;max-width:1180px;padding:0 22px}}
 .related>h2{{font-size:22px;font-weight:900;color:var(--text);margin:0 0 18px}}
 .related .grid{{grid-template-columns:repeat(3,minmax(0,1fr))}}
@@ -198,7 +204,15 @@ UI = {
         toc="İçindekiler",
         empty="Bu kategoride yakında yazılar yayımlanacak.",
         cat="Kategori",
-        popular="En çok okunanlar",
+        popular="Son çıkanlar",
+        search="Ara",
+        search_ph="Başlık veya konu",
+        archive="Tüm yazılar",
+        archive_slug="yazilar",
+        contact="İletişim",
+        contact_slug="iletisim",
+        none="Eşleşen yazı yok.",
+        by="Yazar",
         cats="Kategoriler",
         latest="Son yazılar",
         related="İlgini çekebilir",
@@ -222,7 +236,15 @@ UI = {
         toc="Contents",
         empty="Posts in this category are coming soon.",
         cat="Category",
-        popular="Most read",
+        popular="Latest posts",
+        search="Search",
+        search_ph="Title or topic",
+        archive="All posts",
+        archive_slug="posts",
+        contact="Contact",
+        contact_slug="contact",
+        none="No matching posts.",
+        by="Author",
         cats="Categories",
         latest="Latest",
         related="You may also like",
@@ -373,14 +395,16 @@ def header(lang, url, alt=None):
     return f"""<header class="site-header"><div class="w"><div class="inner">
 <a class="brand" href="{u['pre']}/"><img src="/logo.png" alt="{NAME} logo" width="38" height="38"><span>{NAME}</span></a>
 <nav class="nav-cats" aria-label="{u['cats']}">{cats}</nav>
-<div class="nav-right"><a class="plain" href="{u['pre']}/{u['aboutslug']}/">{u['about']}</a>{sw}</div>
+<div class="nav-right"><a class="plain" href="{u['pre']}/{u['contact_slug']}/">{u['contact']}</a><a class="plain" href="{u['pre']}/{u['aboutslug']}/">{u['about']}</a>{sw}</div>
 </div></div></header>"""
 
 
 def footer(lang):
     u = UI[lang]
     return f"""<footer><div class="w"><div><div class="foot-brand">{NAME}</div>{u['foot']}<br>© {datetime.date.today().year} {NAME}</div>
-<div><a href="https://www.instagram.com/digitalyakalilar/">Instagram @digitalyakalilar</a><br>
+<div><a href="{u['pre']}/{u['contact_slug']}/">{u['contact']}</a><br>
+<a href="{u['pre']}/{u['archive_slug']}/">{u['archive']}</a><br>
+<a href="https://www.instagram.com/digitalyakalilar/">Instagram @digitalyakalilar</a><br>
 <a href="https://x.com/digiyakalilar">X @digiyakalilar</a><br>
 <a href="{'/en/privacy/' if lang=='en' else '/gizlilik/'}">{'Privacy policy' if lang=='en' else 'Gizlilik ve çerez politikası'}</a></div></div></footer>"""
 
@@ -427,7 +451,8 @@ def card(p, lang, pre, size="card"):
     k = p.get("category", "")
     slug = p["slug"]
     img = cover_url(slug, size) if cover_exists(slug) else "/og.png"
-    return f"""<a class="card" href="{pre}/{slug}/">
+    blob = html.escape(f"{p['title']} {p['description']} {catname(k, lang)}", quote=True)
+    return f"""<a class="card" data-s="{blob}" href="{pre}/{slug}/">
 <div class="card-img"><img src="{img}" alt="{html.escape(p["title"],quote=True)}" width="800" height="450" loading="lazy" decoding="async"></div>
 <div class="card-body"><div class="meta"><span class="tag">{catname(k,lang)}</span></div>
 <h2>{html.escape(p["title"])}</h2>
@@ -587,7 +612,7 @@ def build(ps, lang, pre, link):
         import json
         ld = json.dumps({"@context": "https://schema.org", "@type": "NewsArticle", "headline": p["title"][:110], "description": p.get("meta_description", p["description"]),
             "image": [og], "datePublished": p["date"], "dateModified": p.get("updated", p["date"]), "inLanguage": lang,
-            "mainEntityOfPage": SITE + me, **({"keywords": p["keywords"]} if p.get("keywords") else {}), "author": {"@type": "Organization", "name": NAME, "url": SITE},
+            "mainEntityOfPage": SITE + me, **({"keywords": p["keywords"]} if p.get("keywords") else {}), "author": {"@type": "Person", "name": AUTHOR, "url": SITE + ("/hakkinda/" if lang == "tr" else "/en/about/")},
             "publisher": {"@type": "Organization", "name": NAME, "logo": {"@type": "ImageObject", "url": SITE + "/logo.png"}}}, ensure_ascii=False)
         bc = json.dumps({"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
             {"@type": "ListItem", "position": 1, "name": home_l, "item": SITE + (pre + "/" if pre else "/")},
@@ -602,6 +627,7 @@ def build(ps, lang, pre, link):
 {crumb}<h1>{html.escape(p["title"])}</h1>
 <p class="lede">{html.escape(p["description"])}</p>
 <div class="meta"><a class="tag" href="{caturl(k,lang)}">{catname(k,lang)}</a>{fd(p["date"],lang)}<span class="dot">·</span>{p["mins"]} {u["read"]}{upd}</div>
+<aside class="authorbox"><b>{html.escape(AUTHOR)}</b><span>{u["by"]}</span></aside>
 {share_top}
 {body}{ad("article-bottom")}{src}{share}
 </article></div>{rel}"""
@@ -633,16 +659,22 @@ build(en, "en", "/en", lambda p: f'/{p["tr"]}/')
 pairs += [(f"/{k}/", f"/en/{v}/") for k, v in tr2en.items()]
 
 
+def searchbox(u, pre):
+    return (
+        f'<form class="searchbar" action="{pre}/{u["archive_slug"]}/" method="get" role="search">'
+        f'<input id="q" name="q" type="search" placeholder="{html.escape(u["search_ph"], quote=True)}" aria-label="{html.escape(u["search"], quote=True)}"></form>'
+    )
+
+
+def search_script():
+    return """<script>(function(){var q=document.getElementById('q'),grid=document.getElementById('plist'),note=document.getElementById('qempty');if(!q||!grid)return;var cards=[].slice.call(grid.querySelectorAll('a.card'));function apply(){var s=q.value.trim().toLocaleLowerCase('tr'),n=0;cards.forEach(function(c){var ok=!s||(c.getAttribute('data-s')||'').toLocaleLowerCase('tr').indexOf(s)>=0;c.style.display=ok?'':'none';if(ok)n++;});if(note)note.style.display=n?'none':'block';}q.addEventListener('input',apply);var m=/[?&]q=([^&]+)/.exec(location.search);if(m){try{q.value=decodeURIComponent(m[1].replace(/\\+/g,' '));}catch(e){}apply();}})();</script>"""
+
+
 def home(ps, lang, pre, alt):
     u = UI[lang]
     feat = featured(ps[0], lang, pre) if ps else ""
-    rest = ps[1:]
+    rest = ps[1:7]
     cards = "".join(card(p, lang, pre) for p in rest)
-    if len(rest) >= 2:
-        # inject ad after 2nd card visually — wrap mid
-        parts = [card(p, lang, pre) for p in rest]
-        mid = "".join(parts[:2]) + ad("list-inline") + "".join(parts[2:])
-        cards = mid
     grid = f'<div class="grid">{cards}</div>' if rest else f'<div class="empty">{u["empty"]}</div>'
     def cnt(k):
         n = sum(1 for p in ps if p.get("category") == k)
@@ -654,9 +686,11 @@ def home(ps, lang, pre, alt):
         for k, *_ in CATS
     )
     brand_l = "Digital Yakalılar:"
+    more = f'<p class="more"><a href="{pre}/{u["archive_slug"]}/">{u["archive"]}</a></p>'
     body = f"""<main class="w"><p class="tagline"><span><b>{brand_l}</b> {html.escape(u["home_lead"])}</span></p>
+{searchbox(u, pre)}
 {feat}{ad("home-below-hero")}
-<div class="layout"><div><h2 class="sec-h">{u["latest"]}</h2>{grid}<h2 class="sec-h" style="margin-top:38px">{u["cats"]}</h2><div class="tiles" style="margin-top:0">{tiles}</div></div>{sidebar(ps,lang)}</div></main>"""
+<div class="layout"><div><h2 class="sec-h">{u["cats"]}</h2><div class="tiles" style="margin-top:0">{tiles}</div><h2 class="sec-h" style="margin-top:38px">{u["latest"]}</h2>{grid}{more}</div>{sidebar(ps,lang)}</div></main>"""
     og = SITE + cover_url(ps[0]["slug"]) if ps and cover_exists(ps[0]["slug"]) else None
     w(
         (pre or "") + "/index.html" if pre else "/index.html",
@@ -667,11 +701,55 @@ def home(ps, lang, pre, alt):
 home(posts, "tr", "", "/en/")
 home(en, "en", "/en", "/")
 
+
+def archive(ps, lang, pre, alt):
+    u = UI[lang]
+    cards = "".join(card(p, lang, pre) for p in ps)
+    body = f"""<main class="w"><div class="page-head"><h1>{u["archive"]}</h1></div>
+{searchbox(u, pre)}
+<p id="qempty" class="empty" style="display:none">{u["none"]}</p>
+<div class="grid" id="plist">{cards}</div>
+{search_script()}</main>"""
+    w(
+        f"{pre}/{u['archive_slug']}/index.html",
+        page(u["archive"] + " | " + NAME, u["home_desc"], body, f"{pre}/{u['archive_slug']}/", lang=lang, alt=alt),
+    )
+
+
+archive(posts, "tr", "", "/en/posts/")
+archive(en, "en", "/en", "/yazilar/")
+pairs.append(("/yazilar/", "/en/posts/"))
+
+
+def contact(lang, pre, path, alt, title, desc, inner):
+    body = f'<main class="w"><div class="page-head"><h1>{title}</h1></div><article class="story" style="max-width:720px">{inner}</article></main>'
+    w(path + "index.html", page(title + " | " + NAME, desc, body, path, lang=lang, alt=alt))
+
+
+contact(
+    "tr", "", "/iletisim/", "/en/contact/", "İletişim",
+    "Digital Yakalılar iletişim ve haftalık bülten notu.",
+    f"""<p>Yazışma kanalı Instagram: <a href="https://www.instagram.com/digitalyakalilar/">@digitalyakalilar</a>.</p>
+<h2>Haftalık bülten</h2>
+<p>Notun biçimi: <strong>5 gelişme + 1 rehber</strong>. E-posta toplama servisi henüz bağlı değil; kayıt açıldığında bu sayfadan duyurulacak. O zamana kadar aynı özeti Instagram hesabından takip edebilirsiniz.</p>
+<p>Rehberlerin yazarı <strong>{AUTHOR}</strong>.</p>""",
+)
+contact(
+    "en", "/en", "/en/contact/", "/iletisim/", "Contact",
+    "Digital Yakalılar contact and weekly note.",
+    f"""<p>The contact channel is Instagram: <a href="https://www.instagram.com/digitalyakalilar/">@digitalyakalilar</a>.</p>
+<h2>Weekly note</h2>
+<p>The format is <strong>5 developments + 1 guide</strong>. An email signup service is not connected yet; it will be announced on this page. Until then, follow the same brief on Instagram.</p>
+<p>The guides are written by <strong>{AUTHOR}</strong>.</p>""",
+)
+pairs.append(("/iletisim/", "/en/contact/"))
+
 ab = f"""<main class="w"><div class="page-head"><h1>Hakkında</h1></div>
 <article class="story" style="max-width:720px">
 <p><strong>Digital Yakalılar</strong>, İK, endüstri, lojistik ve daha fazlasının dijitalleşme ürünlerini takip eden bir içerik platformu.</p>
 <p>Burada sektörlerin dijitalleşme haberlerini ve kaynaklı rehberleri paylaşıyoruz: yapay zekâ ile verimlilik, telefon ve hesap güvenliği, LinkedIn ve İK teknolojileri ve daha fazlası.</p>
 <p>Satış yok, e-ticaret yok; sadece işine yarayacak bilgi.</p>
+<p>Rehberleri <strong>{AUTHOR}</strong> yazar. İletişim ve haftalık bülten notu için <a href="/iletisim/">iletişim sayfasına</a> bakın.</p>
 <p>Günlük ipuçları için Instagram'da <a href="https://www.instagram.com/digitalyakalilar/">@digitalyakalilar</a> hesabını takip et.</p>
 </article></main>"""
 w(
@@ -689,6 +767,7 @@ ab_en = f"""<main class="w"><div class="page-head"><h1>About</h1></div>
 <p><strong>Digital Yakalılar</strong> is a content platform that follows digitalization products across HR, industry, logistics and beyond.</p>
 <p>Here we share sector digitalization news and sourced guides: AI for productivity, phone and account security, LinkedIn and HR tech, and more.</p>
 <p>No sales pitches, no e-commerce — just information you can use.</p>
+<p>The guides are written by <strong>{AUTHOR}</strong>. For contact and the weekly note, see the <a href="/en/contact/">contact page</a>.</p>
 <p>For daily tips, follow <a href="https://www.instagram.com/digitalyakalilar/">@digitalyakalilar</a> on Instagram.</p>
 </article></main>"""
 w(
