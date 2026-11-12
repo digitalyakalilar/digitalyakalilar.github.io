@@ -39,6 +39,7 @@ a{color:var(--accent)}img{max-width:100%;height:auto;display:block}
 .tagline::before{content:'';flex:none;width:6px;align-self:stretch;border-radius:4px;background:var(--accent)}
 .tagline b{font-weight:900;white-space:nowrap}
 .sec-h{display:flex;align-items:center;gap:12px;margin:0 0 16px;font-size:20px;font-weight:900;color:var(--text)}
+.sec-h a{color:inherit;text-decoration:none}
 .sec-h::after{content:'';flex:1;height:2px;background:var(--border)}
 .sec-h::before{content:'';width:14px;height:14px;border-radius:4px;background:var(--accent)}
 .tiles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:34px}
@@ -51,6 +52,12 @@ a{color:var(--accent)}img{max-width:100%;height:auto;display:block}
 html,body{overflow-x:hidden}img{max-width:100%}
 .layout{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:36px;align-items:start;margin:22px 0 40px}
 .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}
+.band{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,.75fr);gap:18px;margin:8px 0 28px}
+.band .band-lead{grid-row:span 2}
+.band .stack{display:flex;flex-direction:column;gap:18px}
+.band .stack .card{flex-direction:row}
+.band .stack .card-img{width:148px;flex:none}
+.band .stack .card p{display:none}
 .card{display:flex;flex-direction:column;background:var(--surface);border-radius:18px;overflow:hidden;text-decoration:none;color:inherit;box-shadow:0 6px 24px var(--shadow);transition:.2s;height:100%}
 .card:hover{transform:translateY(-3px);box-shadow:0 14px 36px var(--shadow-md)}
 .card-img{aspect-ratio:16/9;background:var(--soft2);overflow:hidden}
@@ -136,6 +143,9 @@ footer .foot-brand{font-weight:800;font-size:16px;margin-bottom:6px}
   .feat{grid-template-columns:1fr}
   .feat-body{padding:22px}
   .feat-body h1{font-size:26px}
+  .band{grid-template-columns:1fr}
+  .band .stack .card{flex-direction:column}
+  .band .stack .card-img{width:auto}
   .related .grid{grid-template-columns:repeat(2,minmax(0,1fr))}
   .cat-hero{grid-template-columns:1fr}
   .cat-hero h1{font-size:26px}.cat-hero .t{padding:20px 22px 24px}
@@ -145,7 +155,9 @@ footer .foot-brand{font-weight:800;font-size:16px;margin-bottom:6px}
   .site-header .inner{padding:10px 0;gap:10px}
   .brand span{font-size:15px}
   .nav-cats{order:3;width:100%;flex-basis:100%}
-  .grid{grid-template-columns:1fr}
+  .grid,.band{grid-template-columns:1fr}
+  .band .stack .card{flex-direction:column}
+  .band .stack .card-img{width:auto}
   .related .grid{grid-template-columns:1fr}
   article.story h1{font-size:28px}
   .page-head h1{font-size:28px}

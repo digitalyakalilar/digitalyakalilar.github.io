@@ -66,6 +66,7 @@ a{{color:var(--accent)}}img{{max-width:100%;height:auto;display:block}}
 .tagline::before{{content:'';flex:none;width:6px;align-self:stretch;border-radius:4px;background:var(--accent)}}
 .tagline b{{font-weight:900;white-space:nowrap}}
 .sec-h{{display:flex;align-items:center;gap:12px;margin:0 0 16px;font-size:20px;font-weight:900;color:var(--text)}}
+.sec-h a{{color:inherit;text-decoration:none}}
 .sec-h::after{{content:'';flex:1;height:2px;background:var(--border)}}
 .sec-h::before{{content:'';width:14px;height:14px;border-radius:4px;background:var(--accent)}}
 .tiles{{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:34px}}
@@ -78,6 +79,12 @@ a{{color:var(--accent)}}img{{max-width:100%;height:auto;display:block}}
 html,body{{overflow-x:hidden}}img{{max-width:100%}}
 .layout{{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:36px;align-items:start;margin:22px 0 40px}}
 .grid{{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}}
+.band{{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,.75fr);gap:18px;margin:8px 0 28px}}
+.band .band-lead{{grid-row:span 2}}
+.band .stack{{display:flex;flex-direction:column;gap:18px}}
+.band .stack .card{{flex-direction:row}}
+.band .stack .card-img{{width:148px;flex:none}}
+.band .stack .card p{{display:none}}
 .card{{display:flex;flex-direction:column;background:var(--surface);border-radius:18px;overflow:hidden;text-decoration:none;color:inherit;box-shadow:0 6px 24px var(--shadow);transition:.2s;height:100%}}
 .card:hover{{transform:translateY(-3px);box-shadow:0 14px 36px var(--shadow-md)}}
 .card-img{{aspect-ratio:16/9;background:var(--soft2);overflow:hidden}}
@@ -163,6 +170,9 @@ footer .foot-brand{{font-weight:800;font-size:16px;margin-bottom:6px}}
   .feat{{grid-template-columns:1fr}}
   .feat-body{{padding:22px}}
   .feat-body h1{{font-size:26px}}
+  .band{{grid-template-columns:1fr}}
+  .band .stack .card{{flex-direction:column}}
+  .band .stack .card-img{{width:auto}}
   .related .grid{{grid-template-columns:repeat(2,minmax(0,1fr))}}
   .cat-hero{{grid-template-columns:1fr}}
   .cat-hero h1{{font-size:26px}}.cat-hero .t{{padding:20px 22px 24px}}
@@ -172,7 +182,9 @@ footer .foot-brand{{font-weight:800;font-size:16px;margin-bottom:6px}}
   .site-header .inner{{padding:10px 0;gap:10px}}
   .brand span{{font-size:15px}}
   .nav-cats{{order:3;width:100%;flex-basis:100%}}
-  .grid{{grid-template-columns:1fr}}
+  .grid,.band{{grid-template-columns:1fr}}
+  .band .stack .card{{flex-direction:column}}
+  .band .stack .card-img{{width:auto}}
   .related .grid{{grid-template-columns:1fr}}
   article.story h1{{font-size:28px}}
   .page-head h1{{font-size:28px}}
@@ -451,16 +463,20 @@ def fd(s, lang="tr"):
     return f"{d} {AY[m-1]} {y}" if lang == "tr" else f"{MO[m-1]} {d}, {y}"
 
 
+def show(p):
+    return p.get("cover_title") or p["title"]
+
+
 def card(p, lang, pre, size="card"):
     u = UI[lang]
     k = p.get("category", "")
     slug = p["slug"]
     img = cover_url(slug, size) if cover_exists(slug) else "/og.png"
-    blob = html.escape(f"{p['title']} {p['description']} {catname(k, lang)}", quote=True)
+    blob = html.escape(f"{p['title']} {show(p)} {p['description']} {catname(k, lang)}", quote=True)
     return f"""<a class="card" data-s="{blob}" href="{pre}/{slug}/">
-<div class="card-img"><img src="{img}" alt="{html.escape(p["title"],quote=True)}" width="800" height="450" loading="lazy" decoding="async"></div>
+<div class="card-img"><img src="{img}" alt="{html.escape(show(p),quote=True)}" width="800" height="450" loading="lazy" decoding="async"></div>
 <div class="card-body"><div class="meta"><span class="tag">{catname(k,lang)}</span></div>
-<h2>{html.escape(p["title"])}</h2>
+<h2>{html.escape(show(p))}</h2>
 <p>{html.escape(p["description"])}</p>
 <div class="meta">{fd(p["date"],lang)}<span class="dot">·</span>{p["mins"]} {u["read"]}</div>
 </div></a>"""
@@ -497,7 +513,7 @@ def home_ld(lang, pre):
 def sidebar(ps, lang, current_cat=None):
     u = UI[lang]
     pop = "".join(
-        f'<li><a href="{UI[lang]["pre"]}/{p["slug"]}/">{html.escape(p["title"])}</a>'
+        f'<li><a href="{UI[lang]["pre"]}/{p["slug"]}/">{html.escape(show(p))}</a>'
         f'<span class="sm">{fd(p["date"],lang)} · {p["mins"]} {u["read"]}</span></li>'
         for p in ps[:5]
     )
@@ -681,24 +697,23 @@ def search_script():
 def home(ps, lang, pre, alt):
     u = UI[lang]
     feat = featured(ps[0], lang, pre) if ps else ""
-    rest = ps[1:7]
-    cards = "".join(card(p, lang, pre) for p in rest)
-    grid = f'<div class="grid">{cards}</div>' if rest else f'<div class="empty">{u["empty"]}</div>'
-    def cnt(k):
-        n = sum(1 for p in ps if p.get("category") == k)
-        return f"{n} yazı" if lang == "tr" else f"{n} post" + ("" if n == 1 else "s")
-
-    tiles = "".join(
-        f'<a class="tile" href="{caturl(k,lang)}"><img src="/covers/cat-{k}-{lang}-800.webp" alt="{catname(k,lang)}" width="800" height="450" loading="lazy" decoding="async">'
-        f'<span>{catname(k,lang)}<em>{cnt(k)}</em></span></a>'
-        for k, *_ in CATS
-    )
+    bands = []
+    for k, *_ in CATS:
+        group = [p for p in ps if p.get("category") == k][:3]
+        if not group:
+            continue
+        lead = card(group[0], lang, pre).replace('class="card"', 'class="card band-lead"', 1)
+        stack = "".join(card(p, lang, pre) for p in group[1:])
+        bands.append(
+            f'<h2 class="sec-h"><a href="{caturl(k,lang)}">{catname(k,lang)}</a></h2>'
+            f'<div class="band">{lead}<div class="stack">{stack}</div></div>'
+        )
     brand_l = "Digital Yakalılar:"
     more = f'<p class="more"><a href="{pre}/{u["archive_slug"]}/">{u["archive"]}</a></p>'
     body = f"""<main class="w"><p class="tagline"><span><b>{brand_l}</b> {html.escape(u["home_lead"])}</span></p>
 {searchbox(u, pre)}
 {feat}{ad("home-below-hero")}
-<div class="layout"><div><h2 class="sec-h">{u["cats"]}</h2><div class="tiles" style="margin-top:0">{tiles}</div><h2 class="sec-h" style="margin-top:38px">{u["latest"]}</h2>{grid}{more}</div>{sidebar(ps,lang)}</div></main>"""
+{''.join(bands)}{more}</main>"""
     og = SITE + cover_url(ps[0]["slug"]) if ps and cover_exists(ps[0]["slug"]) else None
     w(
         (pre or "") + "/index.html" if pre else "/index.html",
