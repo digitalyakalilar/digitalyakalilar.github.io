@@ -213,7 +213,7 @@ UI = {
         about="Hakkında",
         aboutslug="hakkinda",
         loc="tr_TR",
-        foot="İK, endüstri, lojistik ve daha fazlasının dijitalleşme ürünleri; haberler ve kaynaklı rehberler.",
+        foot="Dijitalleşen iş dünyasında kariyer: iş arama, dijital güvenlik ve sektör rehberleri.",
         other="EN",
         otherlabel="English",
         read="dk okuma",
@@ -234,9 +234,9 @@ UI = {
         latest="Son yazılar",
         related="İlgini çekebilir",
         share="Paylaş",
-        home_title=NAME + " | Sektörlerin dijitalleşme haberleri ve rehberleri",
-        home_desc="İK, endüstri, lojistik ve daha fazlasının dijitalleşme ürünleri; haberler ve kaynaklı rehberler. Digital Yakalılar.",
-        home_lead="İK, endüstri, lojistik ve daha fazlasının dijitalleşme ürünleri; haberler ve kaynaklı rehberler.",
+        home_title=NAME + " | Kariyer ipuçları ve dijital iş dünyası rehberleri",
+        home_desc="Mavi yaka, beyaz yaka... Şimdi sıra dijital yakalılarda. CV, iş arama, dijital güvenlik ve sektörlerin dijitalleşmesi üzerine kaynaklı rehberler.",
+        home_lead="Mavi yaka, beyaz yaka... Şimdi sıra dijital yakalılarda. Kariyer ipuçları, iş arama ve dijital güvenlik rehberleri.",
         all_posts="Tüm yazılar",
     ),
     "en": dict(
@@ -245,7 +245,7 @@ UI = {
         about="About",
         aboutslug="about",
         loc="en_US",
-        foot="Digitalization products across HR, industry, logistics and beyond — news and sourced guides.",
+        foot="Careers in a digital working world: job search, digital security and sector guides.",
         other="TR",
         otherlabel="Türkçe",
         read="min read",
@@ -266,14 +266,15 @@ UI = {
         latest="Latest",
         related="You may also like",
         share="Share",
-        home_title=NAME + " | Sector digitalization news and guides",
-        home_desc="Digitalization products across HR, industry, logistics and beyond — news and sourced guides. Digital Yakalılar.",
-        home_lead="Digitalization products across HR, industry, logistics and beyond — news and sourced guides.",
+        home_title=NAME + " | Career tips and guides to the digital workplace",
+        home_desc="Blue collar, white collar... now it's the digital collars' turn. Sourced guides on CVs, job search, digital security and sector digitalization.",
+        home_lead="Blue collar, white collar... now it's the digital collars' turn. Career tips, job search and digital security guides.",
         all_posts="All posts",
     ),
 }
 
 CATS = [
+    ("kariyer", "Kariyer & İş Arama", "career", "Career & Job Search"),
     ("ik-teknolojileri", "İK Teknolojileri", "hr-tech", "HR Tech"),
     ("endustri-4-0", "Endüstri 4.0 / Üretim", "industry-4-0", "Industry 4.0 & Manufacturing"),
     ("lojistik-nakliyat", "Lojistik & Nakliyat", "logistics", "Logistics & Freight"),
@@ -285,6 +286,10 @@ CAT = {
     for k, tn, es, en in CATS
 }
 CATDESC = {
+    "kariyer": (
+        "CV, iş ilanı, mülakat ve iş ararken dolandırıcılıktan korunma için pratik rehberler.",
+        "Practical guides to CVs, job ads, interviews and staying safe from job scams.",
+    ),
     "ik-teknolojileri": (
         "İşe alım, yetenek yönetimi ve İK yazılımlarında dijitalleşme.",
         "Digitalization in recruiting, talent management and HR software.",
@@ -771,8 +776,8 @@ pairs.append(("/iletisim/", "/en/contact/"))
 
 ab = f"""<main class="w"><div class="page-head"><h1>Hakkında</h1></div>
 <article class="story" style="max-width:720px">
-<p><strong>Digital Yakalılar</strong>, İK, endüstri, lojistik ve daha fazlasının dijitalleşme ürünlerini takip eden bir içerik platformu.</p>
-<p>Burada sektörlerin dijitalleşme haberlerini ve kaynaklı rehberleri paylaşıyoruz: yapay zekâ ile verimlilik, telefon ve hesap güvenliği, LinkedIn ve İK teknolojileri ve daha fazlası.</p>
+<p><strong>Digital Yakalılar</strong>, dijitalleşen iş dünyasında çalışanlar ve iş arayanlar için bir kariyer platformu. Mavi yaka, beyaz yaka... Şimdi sıra dijital yakalılarda.</p>
+<p>Burada pratik kariyer ipuçları ve kaynaklı rehberler paylaşıyoruz: CV ve iş ilanları, mülakat, iş ararken dolandırıcılıktan korunma, telefon ve hesap güvenliği, iş hayatında yapay zekâ ve sektörlerin dijitalleşmesi.</p>
 <p>Satış yok, e-ticaret yok; sadece işine yarayacak bilgi.</p>
 <p>{html.escape(BIO["tr"])} <a href="{html.escape(AUTHOR_URL)}" rel="noopener">LinkedIn profili</a>. İletişim ve haftalık bülten notu için <a href="/iletisim/">iletişim sayfasına</a> bakın.</p>
 <p>Günlük ipuçları için Instagram'da <a href="https://www.instagram.com/digitalyakalilar/">@digitalyakalilar</a> hesabını takip et.</p>
@@ -781,7 +786,7 @@ w(
     "/hakkinda/index.html",
     page(
         "Hakkında | " + NAME,
-        "Digital Yakalılar: sektörlerin dijitalleşme haberleri ve kaynaklı rehberleri.",
+        "Digital Yakalılar: kariyer ipuçları, iş arama ve dijital güvenlik rehberleri.",
         ab,
         "/hakkinda/",
         alt="/en/about/",
@@ -789,8 +794,8 @@ w(
 )
 ab_en = f"""<main class="w"><div class="page-head"><h1>About</h1></div>
 <article class="story" style="max-width:720px">
-<p><strong>Digital Yakalılar</strong> is a content platform that follows digitalization products across HR, industry, logistics and beyond.</p>
-<p>Here we share sector digitalization news and sourced guides: AI for productivity, phone and account security, LinkedIn and HR tech, and more.</p>
+<p><strong>Digital Yakalılar</strong> is a career platform for people working and job hunting in a digital working world. Blue collar, white collar... now it's the digital collars' turn.</p>
+<p>Here we share practical career tips and sourced guides: CVs and job ads, interviews, avoiding job scams, phone and account security, AI at work and sector digitalization.</p>
 <p>No sales pitches, no e-commerce — just information you can use.</p>
 <p>{html.escape(BIO["en"])} <a href="{html.escape(AUTHOR_URL)}" rel="noopener">LinkedIn profile</a>. For contact and the weekly note, see the <a href="/en/contact/">contact page</a>.</p>
 <p>For daily tips, follow <a href="https://www.instagram.com/digitalyakalilar/">@digitalyakalilar</a> on Instagram.</p>
