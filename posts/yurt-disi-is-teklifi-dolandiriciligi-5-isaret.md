@@ -4,7 +4,7 @@ date: 2026-11-20
 updated: 2026-11-20
 description: Yüksek maaş, ücretsiz konaklama, hızlı vize... Sahte yurt dışı iş teklifleri insanları dolandırıcılık merkezlerine kadar götürebiliyor. Yurt dışı iş teklifi dolandırıcılığının 5 işaretini, İŞKUR ve konsolosluk üzerinden doğrulama yollarını anlatıyoruz.
 cover_title: Sahte yurt dışı iş teklifi
-cover_icon: passport
+cover_icon: jobscam
 category: kariyer
 seo_title: Yurt dışı iş teklifi dolandırıcılığı: 5 uyarı işareti
 meta_description: Yurt dışından gelen iş teklifi gerçek mi? Ön ödeme, doğrulanamayan şirket, acele mülakat dahil 5 uyarı işareti, İŞKUR doğrulaması ve kontrol listesi.

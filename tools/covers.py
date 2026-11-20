@@ -16,6 +16,7 @@ sys.path.insert(0, B)
 from palette import PALETTES  # noqa: E402
 
 CATS = {
+    "kariyer": ("Kariyer & İş Arama", "Career & Job Search", "resume"),
     "ik-teknolojileri": ("İK Teknolojileri", "HR Tech", "profile"),
     "endustri-4-0": ("Endüstri 4.0 / Üretim", "Industry 4.0 & Manufacturing", "factory"),
     "lojistik-nakliyat": ("Lojistik & Nakliyat", "Logistics & Freight", "logistics"),
@@ -23,6 +24,10 @@ CATS = {
     "dijital-guvenlik": ("Dijital Güvenlik", "Digital Security", "phone"),
 }
 CATDESC = {
+    "kariyer": (
+        "CV, iş ilanı, mülakat ve iş ararken dolandırıcılıktan korunma için pratik rehberler.",
+        "Practical guides to CVs, job ads, interviews and staying safe from job scams.",
+    ),
     "ik-teknolojileri": (
         "İşe alım, yetenek yönetimi ve İK yazılımlarında dijitalleşme.",
         "Digitalization in recruiting, talent management and HR software.",
@@ -366,6 +371,17 @@ def make_icons(C):
 <g filter="url(#s)"><rect x="30" y="500" width="230" height="110" rx="26" fill="#fff"/></g>
 <path d="M70 555 H200 M170 530 L200 555 L170 580" stroke="{P}" stroke-width="12" fill="none" stroke-linecap="round" stroke-linejoin="round"/><rect x="214" y="530" width="24" height="50" rx="8" fill="url(#g)"/>"""
 
+    def icon_jobscam():
+        return f"""<g filter="url(#s)"><rect x="110" y="120" width="290" height="430" rx="30" fill="{P}"/></g>
+<rect x="140" y="150" width="230" height="370" rx="20" fill="none" stroke="#fff" stroke-width="4" opacity=".35"/>
+<circle cx="255" cy="280" r="70" fill="none" stroke="#fff" stroke-width="10"/><ellipse cx="255" cy="280" rx="30" ry="70" fill="none" stroke="#fff" stroke-width="8"/><line x1="185" y1="280" x2="325" y2="280" stroke="#fff" stroke-width="8"/>
+<rect x="175" y="390" width="160" height="16" rx="8" fill="#fff"/><rect x="195" y="420" width="120" height="12" rx="6" fill="#fff" opacity=".6"/>
+<g filter="url(#s)"><rect x="360" y="90" width="290" height="150" rx="28" fill="#fff"/></g>
+<path d="M400 240 L392 280 L440 240Z" fill="#fff"/>
+<rect x="395" y="125" width="200" height="18" rx="9" fill="{P}"/><rect x="395" y="158" width="150" height="14" rx="7" fill="{MU}"/><rect x="395" y="188" width="110" height="26" rx="13" fill="url(#g)"/>
+<g filter="url(#s)"><path d="M520 340 L640 550 H400Z" fill="url(#g)" stroke="url(#g)" stroke-width="24" stroke-linejoin="round"/></g>
+<rect x="508" y="400" width="24" height="88" rx="12" fill="#fff"/><circle cx="520" cy="522" r="15" fill="#fff"/>"""
+
     def icon_passport():
         qr = ""
         pat = ["1110111", "1010101", "1110111", "0001000", "1011101", "0100110", "1110101"]
@@ -637,6 +653,7 @@ def make_icons(C):
         "agents": icon_agents,
         "server": icon_server,
         "passport": icon_passport,
+        "jobscam": icon_jobscam,
         "hrsplit": icon_hrsplit,
         "sctalent": icon_sctalent,
         "jobad": icon_jobad,
@@ -656,7 +673,8 @@ def make_icons(C):
 
 
 def htmldoc(pill, title, icon, C, icons, defs, small=None):
-    font = "file://" + B + "/static/montserrat.ttf"
+    import pathlib
+    font = pathlib.Path(B, "static", "montserrat.ttf").resolve().as_uri()
     logo = "file://" + B + "/static/logo.png"
     fs = 78 if len(title) < 34 else (68 if len(title) < 52 else 60)
     sm = f'<div class="sm">{html.escape(small)}</div>' if small else ""
@@ -739,16 +757,21 @@ if __name__ == "__main__":
     os.makedirs(archive, exist_ok=True)
     print(f"palette {pal}: {C['label']}")
     with sync_playwright() as p:
-        br = p.chromium.launch(executable_path="/usr/bin/google-chrome")
+        import tempfile, pathlib
+        chrome = os.environ.get("CHROME_PATH") or (
+            r"C:\Program Files\Google\Chrome\Application\chrome.exe" if os.name == "nt" else "/usr/bin/google-chrome"
+        )
+        tmpd = tempfile.gettempdir()
+        br = p.chromium.launch(executable_path=chrome)
         pg = br.new_page(viewport={"width": 1600, "height": 900})
         for name, doc in jobs(C, icons, defs):
             if only and name not in only:
                 continue
-            tmp = f"/tmp/cover-{pal}-{name}.html"
-            open(tmp, "w").write(doc)
-            pg.goto("file://" + tmp)
+            tmp = os.path.join(tmpd, f"cover-{pal}-{name}.html")
+            open(tmp, "w", encoding="utf-8").write(doc)
+            pg.goto(pathlib.Path(tmp).as_uri())
             pg.wait_for_timeout(120)
-            png = f"/tmp/cover-{pal}-{name}.png"
+            png = os.path.join(tmpd, f"cover-{pal}-{name}.png")
             pg.screenshot(path=png)
             im = Image.open(png).convert("RGB")
             for dest in (out, archive):
